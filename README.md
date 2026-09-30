@@ -21,17 +21,13 @@ What's in it:
 
 The clocks go back on 25 Oct. Every event keeps its local time.
 
-## 2. Put the app on your iPhone (10 min, once)
+## 2. Put the app on your iPhone (2 min, once)
 
-1. Make a free GitHub account at github.com.
-2. In Terminal, from this folder, run:
-   ```bash
-   gh auth login
-   gh repo create training-tracker --public --source . --push
-   ```
-3. On github.com, open the repo and go to Settings > Pages. Set Source to **GitHub Actions**. Your app will be at `https://<your-username>.github.io/training-tracker/` in about a minute.
-4. On your iPhone, open that address in **Safari**. Tap Share > **Add to Home Screen**.
-5. Always open the app from the home screen icon. Safari keeps the home screen app's data separate from its normal tabs.
+The app is live at **https://matthewcampbell07.github.io/training-tracker/**
+
+1. On your iPhone, open that address in **Safari**.
+2. Tap Share > **Add to Home Screen**.
+3. Always open it from the home screen icon. Safari keeps the home screen app's data separate from its normal tabs.
 
 The repo is public because free GitHub Pages needs that. It only holds the plan and the code, not your logs.
 
