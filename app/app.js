@@ -185,8 +185,12 @@ document.addEventListener('change', async (e) => {
     const week = Math.min(Math.max(weekOf(ui.date, state.settings.startDate), 1), plan.weeks);
     const required = setsFor(ex, week, plan, isGolfMode(ui.date, state.settings));
     const slot = document.getElementById(`call-${ex.id}`);
-    if (slot) slot.innerHTML = callHtml(ex, next.sessions[ui.date].sets[ex.id], required, plan.maxDumbbellKg);
+    if (slot) slot.innerHTML = callHtml(ex, next.sessions[ui.date].sets[ex.id], required, plan.maxDumbbellKg, Boolean(next.sessions[ui.date].pain?.[ex.id]));
     return undefined;
+  }
+  if (el.dataset.pain) {
+    const s = state.sessions[ui.date] || {};
+    return commit(store.updateSession(state, ui.date, { letter: sessionLetterFor({ plan, state, ...ui }), pain: { ...(s.pain || {}), [el.dataset.pain]: el.checked } }));
   }
   if (el.dataset.reserve) {
     const s = state.sessions[ui.date] || {};

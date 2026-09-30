@@ -136,6 +136,18 @@ export function countWeightIncreases(state, plan) {
   return count;
 }
 
+export function hasPain(session, exId) {
+  return Boolean(session?.pain?.[exId]);
+}
+
+// Exercises with pain ticked in the last 14 days, most recent first.
+export function recentPain(state, todayIso, days = 14) {
+  const from = addDays(todayIso, -days);
+  return Object.keys(state.sessions).sort().reverse()
+    .filter((d) => d >= from && d <= todayIso)
+    .flatMap((d) => Object.entries(state.sessions[d].pain || {}).filter(([, v]) => v).map(([exId]) => ({ date: d, exId })));
+}
+
 // Gym ready: each gymCheck lift at max dumbbell, top of range on all sets, 2+ in reserve.
 export function gymStatus(state, plan) {
   const byId = Object.fromEntries(plan.sessions.A.exercises.map((e) => [e.id, e]));
@@ -147,8 +159,9 @@ export function gymStatus(state, plan) {
     const atMax = last.sets.every((s) => s.w >= plan.maxDumbbellKg);
     const atTop = last.sets.every((s) => s.r >= ex.max);
     const reserve = Boolean(last.session.reserve?.[id]);
-    const ready = atMax && atTop && reserve;
-    const detail = `Last: ${topWeight(last.sets) ?? 0} kg, reps ${last.sets.map((s) => s.r).join(', ')}${reserve ? ', 2+ in reserve' : ''}`;
+    const pain = hasPain(last.session, id);
+    const ready = atMax && atTop && reserve && !pain;
+    const detail = `Last: ${topWeight(last.sets) ?? 0} kg, reps ${last.sets.map((s) => s.r).join(', ')}${reserve ? ', 2+ in reserve' : ''}${pain ? ', pain flagged' : ''}`;
     return { id, name: ex.name, ready, detail };
   });
 }

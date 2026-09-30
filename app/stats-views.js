@@ -2,7 +2,7 @@
 import {
   addDays, exerciseHistory, gymStatus, groupStreak, habitDone, habitStreak, isDeload, phaseFor,
   progressionCall, scheduledSession, sessionIsDone, sessionTarget, sessionWeekStreak, sessionsDoneInWeek,
-  setsFor, topWeight, upMessage, weekAdherence, weekAverages, weekOf, weekStart, isGolfMode,
+  recentPain, setsFor, topWeight, upMessage, weekAdherence, weekAverages, weekOf, weekStart, isGolfMode,
 } from './logic.js';
 import { badges } from './badges.js';
 import { heatmap, lineChart, weekBars } from './charts.js';
@@ -25,7 +25,7 @@ function nextTimeCalls(state, plan, today) {
   return allExercises(plan).flatMap((ex) => {
     const hist = exerciseHistory(state, ex.id).filter((h) => h.session.letter !== 'R');
     const last = hist[hist.length - 1];
-    if (!last) return [];
+    if (!last || last.session.pain?.[ex.id]) return [];
     const week = Math.max(1, weekOf(last.date, state.settings.startDate));
     const required = setsFor(ex, week, plan, isGolfMode(last.date, state.settings));
     return progressionCall(ex, last.sets, required) === 'up' ? [{ ex, msg: upMessage(ex, topWeight(last.sets), plan.maxDumbbellKg) }] : [];
@@ -74,6 +74,10 @@ export function weekView(ctx) {
 
   const calls = nextTimeCalls(state, plan, today);
   const gym = gymStatus(state, plan);
+  const names = Object.fromEntries(allExercises(plan).map((e) => [e.id, e.name]));
+  const pain = recentPain(state, today);
+  const painCard = pain.length ? `<section class="card"><h2>Pain flags, last 14 days</h2><ul class="list-plain">${pain.map((p) => `<li><b>${esc(names[p.exId] || p.exId)}</b>, ${fmtDate(p.date)}</li>`).join('')}</ul>
+      <p class="fine">Keep the weight the same or lighter on these. If the pain is sharp, builds with each rep, or lasts into the next day, show your physio before doing that exercise again.</p></section>` : '';
 
   return {
     title: `Week ${week}`,
@@ -85,6 +89,7 @@ export function weekView(ctx) {
         <div class="stat"><b>${cur.sleep !== null ? cur.sleep.toFixed(1) : '-'}</b><span>avg hours sleep</span></div>
         <div class="stat"><b>${(() => { const a = weekAdherence(state, week, plan, s, today); return a === null ? '-' : `${Math.round(a * 100)}%`; })()}</b><span>habits ticked</span></div>
       </div>
+      ${painCard}
       <section class="card"><h2>Sessions</h2><ul class="list-plain">${sessionPills || '<li>No sessions this week.</li>'}</ul></section>
       <section class="card"><h2>Habits</h2><table class="week-grid">${head}${grid}</table></section>
       <section class="card"><h2>Weigh in</h2>${weightLine(cur, prev)}</section>

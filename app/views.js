@@ -92,11 +92,12 @@ function lastLine(last, ex, maxKg) {
   const reps = last.sets.map((x) => x.r).join(', ');
   const w = topWeight(last.sets);
   const unit = ex.unit === 'sec' ? ' sec' : '';
-  const up = progressionCall(ex, last.sets, last.sets.length) === 'up' ? ` <b>Top of range last time. ${esc(upMessage(ex, w, maxKg).replace(' next time', ' today'))}.</b>` : '';
+  const up = !last.session.pain?.[ex.id] && progressionCall(ex, last.sets, last.sets.length) === 'up' ? ` <b>Top of range last time. ${esc(upMessage(ex, w, maxKg).replace(' next time', ' today'))}.</b>` : '';
   return `<div class="last">Last time, ${fmtDate(last.date)}: ${w !== null ? `${w} kg x ` : ''}${reps}${unit}.${up}</div>`;
 }
 
-export function callHtml(ex, sets, required, maxKg) {
+export function callHtml(ex, sets, required, maxKg, pain = false) {
+  if (pain) return '<span class="call up">Pain: same or lighter weight next time. Sharp, building or lingering pain goes to your physio first.</span>';
   const call = progressionCall(ex, sets, required);
   if (call === 'up') return `<span class="call up">${esc(upMessage(ex, topWeight(sets), maxKg))}</span>`;
   if (call === 'hold') return `<span class="call hold">Same weight next time, beat the reps</span>`;
@@ -133,8 +134,9 @@ function exerciseCard(ex, ctx, week, golf) {
     ${lastLine(last, ex, ctx.plan.maxDumbbellKg)}
     ${rows}
     <div class="ex-foot">
-      <span id="call-${ex.id}">${callHtml(ex, sets, required, ctx.plan.maxDumbbellKg)}</span>
+      <span id="call-${ex.id}">${callHtml(ex, sets, required, ctx.plan.maxDumbbellKg, Boolean(session.pain?.[ex.id]))}</span>
       ${reserve}
+      <label class="toggle"><input type="checkbox" data-pain="${ex.id}" ${session.pain?.[ex.id] ? 'checked' : ''}>Pain</label>
       <button class="small-btn" data-action="add-set" data-ex="${ex.id}">+ set</button>
     </div>
   </section>`;
@@ -169,7 +171,9 @@ export function sessionView(ctx) {
     nav: ['day-prev', 'day-next'],
     body: `<div class="chips" role="group" aria-label="Choose session">${chips}</div>
       ${phase ? `<div class="banner ${isDeload(week, plan) ? '' : 'blue'}">${esc(phase.name)}: ${esc(phase.note)}${golf ? ' Golf mode: 2 sets.' : ''}</div>` : ''}
-      ${warm}${cards}${finish}`,
+      ${warm}
+      <p class="fine">Stop a set if your lower back arches, shoulder blades flare, or neck and traps take over. Drop the weight, not the quality.</p>
+      ${cards}${finish}`,
   };
 }
 
