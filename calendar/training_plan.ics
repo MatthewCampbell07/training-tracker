@@ -1,0 +1,958 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//training-tracker//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Training
+X-WR-TIMEZONE:Europe/London
+BEGIN:VTIMEZONE
+TZID:Europe/London
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0100
+TZNAME:BST
+DTSTART:19700329T010000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0000
+TZNAME:GMT
+DTSTART:19701025T020000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:lift-20261005@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261005T173000
+DTEND;TZID=Europe/London:20261005T183000
+SUMMARY:Session A\, week 1
+DESCRIPTION:Week 1: Ramp in. Stop every set with 3 reps left. Week 1 is 2 s
+ ets\, 3 sets from week 2.\n\nWarm up: Wall walk out 2 x 10 sec\; Band shou
+ lder exercise 2 sets\, shoulder blade and chin back\; Standing row 2.5 kg\
+ , 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each side x 2\; Ta
+ ble top leg extensions\, 1 set to fatigue\; Ramp up set: 1 easy set at hal
+ f the working weight\n\nGoblet squat: 2 x 8-12\nOne arm DB row: 2 x 8-12 e
+ ach\nDB floor press\, neutral grip: 2 x 8-12\nDB Romanian deadlift: 2 x 8-
+ 12\nBand pull apart: 2 x 12-15\nTable top leg extension: 2 x max\n\nLog ev
+ ery set in the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session A\, week 1
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261007@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261007T173000
+DTEND;TZID=Europe/London:20261007T183000
+SUMMARY:Session B\, week 1
+DESCRIPTION:Week 1: Ramp in. Stop every set with 3 reps left. Week 1 is 2 s
+ ets\, 3 sets from week 2.\n\nWarm up: Wall walk out 2 x 10 sec\; Band shou
+ lder exercise 2 sets\, shoulder blade and chin back\; Standing row 2.5 kg\
+ , 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each side x 2\; Ta
+ ble top leg extensions\, 1 set to fatigue\; Ramp up set: 1 easy set at hal
+ f the working weight\n\nRear foot elevated split squat: 2 x 8-12 each\nHal
+ f kneeling 1 arm DB press: 2 x 8-12 each\nBand lat pulldown: 2 x 10-15\nSi
+ ngle leg glute bridge: 2 x 8-12 each\nPush up plus: 2 x 8-15\nLateral rais
+ e: 2 x 12-20\nPallof press: 2 x 10 each\n\nLog every set in the Training a
+ pp.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session B\, week 1
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261009@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261009T163000
+DTEND;TZID=Europe/London:20261009T173000
+SUMMARY:Session C\, week 1
+DESCRIPTION:Week 1: Ramp in. Stop every set with 3 reps left. Week 1 is 2 s
+ ets\, 3 sets from week 2.\n\nWarm up: Wall walk out 2 x 10 sec\; Band shou
+ lder exercise 2 sets\, shoulder blade and chin back\; Standing row 2.5 kg\
+ , 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each side x 2\; Ta
+ ble top leg extensions\, 1 set to fatigue\; Ramp up set: 1 easy set at hal
+ f the working weight\n\nDB reverse lunge or step up: 2 x 8-12 each\nChest 
+ supported 2 arm DB row: 2 x 8-12\nPush up (feet up or standard): 2 x 6-15\
+ nSingle leg RDL (light): 2 x 8-10 each\nBent over reverse fly: 2 x 12-20\n
+ DB curl (superset): 2 x 10-15\nOverhead tricep extension (superset): 2 x 1
+ 0-15\nSuitcase carry or side plank: 2 x 30-45 sec each\n\nLog every set in
+  the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session C\, week 1
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261012@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261012T173000
+DTEND;TZID=Europe/London:20261012T183000
+SUMMARY:Session A\, week 2
+DESCRIPTION:Week 2: Ramp in. Stop every set with 3 reps left. Week 1 is 2 s
+ ets\, 3 sets from week 2.\n\nWarm up: Wall walk out 2 x 10 sec\; Band shou
+ lder exercise 2 sets\, shoulder blade and chin back\; Standing row 2.5 kg\
+ , 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each side x 2\; Ta
+ ble top leg extensions\, 1 set to fatigue\; Ramp up set: 1 easy set at hal
+ f the working weight\n\nGoblet squat: 3 x 8-12\nOne arm DB row: 3 x 8-12 e
+ ach\nDB floor press\, neutral grip: 3 x 8-12\nDB Romanian deadlift: 3 x 8-
+ 12\nBand pull apart: 3 x 12-15\nTable top leg extension: 3 x max\n\nLog ev
+ ery set in the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session A\, week 2
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261014@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261014T173000
+DTEND;TZID=Europe/London:20261014T183000
+SUMMARY:Session B\, week 2
+DESCRIPTION:Week 2: Ramp in. Stop every set with 3 reps left. Week 1 is 2 s
+ ets\, 3 sets from week 2.\n\nWarm up: Wall walk out 2 x 10 sec\; Band shou
+ lder exercise 2 sets\, shoulder blade and chin back\; Standing row 2.5 kg\
+ , 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each side x 2\; Ta
+ ble top leg extensions\, 1 set to fatigue\; Ramp up set: 1 easy set at hal
+ f the working weight\n\nRear foot elevated split squat: 3 x 8-12 each\nHal
+ f kneeling 1 arm DB press: 3 x 8-12 each\nBand lat pulldown: 3 x 10-15\nSi
+ ngle leg glute bridge: 3 x 8-12 each\nPush up plus: 3 x 8-15\nLateral rais
+ e: 3 x 12-20\nPallof press: 3 x 10 each\n\nLog every set in the Training a
+ pp.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session B\, week 2
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261016@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261016T163000
+DTEND;TZID=Europe/London:20261016T173000
+SUMMARY:Session C\, week 2
+DESCRIPTION:Week 2: Ramp in. Stop every set with 3 reps left. Week 1 is 2 s
+ ets\, 3 sets from week 2.\n\nWarm up: Wall walk out 2 x 10 sec\; Band shou
+ lder exercise 2 sets\, shoulder blade and chin back\; Standing row 2.5 kg\
+ , 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each side x 2\; Ta
+ ble top leg extensions\, 1 set to fatigue\; Ramp up set: 1 easy set at hal
+ f the working weight\n\nDB reverse lunge or step up: 3 x 8-12 each\nChest 
+ supported 2 arm DB row: 3 x 8-12\nPush up (feet up or standard): 3 x 6-15\
+ nSingle leg RDL (light): 3 x 8-10 each\nBent over reverse fly: 3 x 12-20\n
+ DB curl (superset): 3 x 10-15\nOverhead tricep extension (superset): 3 x 1
+ 0-15\nSuitcase carry or side plank: 3 x 30-45 sec each\n\nLog every set in
+  the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session C\, week 2
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261019@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261019T173000
+DTEND;TZID=Europe/London:20261019T183000
+SUMMARY:Session A\, week 3
+DESCRIPTION:Week 3: Build. Stop 1 to 3 reps short of failure. Add reps or w
+ eight every session you can.\n\nWarm up: Wall walk out 2 x 10 sec\; Band s
+ houlder exercise 2 sets\, shoulder blade and chin back\; Standing row 2.5 
+ kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each side x 2\;
+  Table top leg extensions\, 1 set to fatigue\; Ramp up set: 1 easy set at 
+ half the working weight\n\nGoblet squat: 3 x 8-12\nOne arm DB row: 3 x 8-1
+ 2 each\nDB floor press\, neutral grip: 3 x 8-12\nDB Romanian deadlift: 3 x
+  8-12\nBand pull apart: 3 x 12-15\nTable top leg extension: 3 x max\n\nLog
+  every set in the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session A\, week 3
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261021@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261021T173000
+DTEND;TZID=Europe/London:20261021T183000
+SUMMARY:Session B\, week 3
+DESCRIPTION:Week 3: Build. Stop 1 to 3 reps short of failure. Add reps or w
+ eight every session you can.\n\nWarm up: Wall walk out 2 x 10 sec\; Band s
+ houlder exercise 2 sets\, shoulder blade and chin back\; Standing row 2.5 
+ kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each side x 2\;
+  Table top leg extensions\, 1 set to fatigue\; Ramp up set: 1 easy set at 
+ half the working weight\n\nRear foot elevated split squat: 3 x 8-12 each\n
+ Half kneeling 1 arm DB press: 3 x 8-12 each\nBand lat pulldown: 3 x 10-15\
+ nSingle leg glute bridge: 3 x 8-12 each\nPush up plus: 3 x 8-15\nLateral r
+ aise: 3 x 12-20\nPallof press: 3 x 10 each\n\nLog every set in the Trainin
+ g app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session B\, week 3
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261023@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261023T163000
+DTEND;TZID=Europe/London:20261023T173000
+SUMMARY:Session C\, week 3
+DESCRIPTION:Week 3: Build. Stop 1 to 3 reps short of failure. Add reps or w
+ eight every session you can.\n\nWarm up: Wall walk out 2 x 10 sec\; Band s
+ houlder exercise 2 sets\, shoulder blade and chin back\; Standing row 2.5 
+ kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each side x 2\;
+  Table top leg extensions\, 1 set to fatigue\; Ramp up set: 1 easy set at 
+ half the working weight\n\nDB reverse lunge or step up: 3 x 8-12 each\nChe
+ st supported 2 arm DB row: 3 x 8-12\nPush up (feet up or standard): 3 x 6-
+ 15\nSingle leg RDL (light): 3 x 8-10 each\nBent over reverse fly: 3 x 12-2
+ 0\nDB curl (superset): 3 x 10-15\nOverhead tricep extension (superset): 3 
+ x 10-15\nSuitcase carry or side plank: 3 x 30-45 sec each\n\nLog every set
+  in the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session C\, week 3
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261026@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261026T173000
+DTEND;TZID=Europe/London:20261026T183000
+SUMMARY:Session A\, week 4
+DESCRIPTION:Week 4: Build. Stop 1 to 3 reps short of failure. Add reps or w
+ eight every session you can.\n\nWarm up: Wall walk out 2 x 10 sec\; Band s
+ houlder exercise 2 sets\, shoulder blade and chin back\; Standing row 2.5 
+ kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each side x 2\;
+  Table top leg extensions\, 1 set to fatigue\; Ramp up set: 1 easy set at 
+ half the working weight\n\nGoblet squat: 3 x 8-12\nOne arm DB row: 3 x 8-1
+ 2 each\nDB floor press\, neutral grip: 3 x 8-12\nDB Romanian deadlift: 3 x
+  8-12\nBand pull apart: 3 x 12-15\nTable top leg extension: 3 x max\n\nLog
+  every set in the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session A\, week 4
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261028@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261028T173000
+DTEND;TZID=Europe/London:20261028T183000
+SUMMARY:Session B\, week 4
+DESCRIPTION:Week 4: Build. Stop 1 to 3 reps short of failure. Add reps or w
+ eight every session you can.\n\nWarm up: Wall walk out 2 x 10 sec\; Band s
+ houlder exercise 2 sets\, shoulder blade and chin back\; Standing row 2.5 
+ kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each side x 2\;
+  Table top leg extensions\, 1 set to fatigue\; Ramp up set: 1 easy set at 
+ half the working weight\n\nRear foot elevated split squat: 3 x 8-12 each\n
+ Half kneeling 1 arm DB press: 3 x 8-12 each\nBand lat pulldown: 3 x 10-15\
+ nSingle leg glute bridge: 3 x 8-12 each\nPush up plus: 3 x 8-15\nLateral r
+ aise: 3 x 12-20\nPallof press: 3 x 10 each\n\nLog every set in the Trainin
+ g app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session B\, week 4
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261030@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261030T163000
+DTEND;TZID=Europe/London:20261030T173000
+SUMMARY:Session C\, week 4
+DESCRIPTION:Week 4: Build. Stop 1 to 3 reps short of failure. Add reps or w
+ eight every session you can.\n\nWarm up: Wall walk out 2 x 10 sec\; Band s
+ houlder exercise 2 sets\, shoulder blade and chin back\; Standing row 2.5 
+ kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each side x 2\;
+  Table top leg extensions\, 1 set to fatigue\; Ramp up set: 1 easy set at 
+ half the working weight\n\nDB reverse lunge or step up: 3 x 8-12 each\nChe
+ st supported 2 arm DB row: 3 x 8-12\nPush up (feet up or standard): 3 x 6-
+ 15\nSingle leg RDL (light): 3 x 8-10 each\nBent over reverse fly: 3 x 12-2
+ 0\nDB curl (superset): 3 x 10-15\nOverhead tricep extension (superset): 3 
+ x 10-15\nSuitcase carry or side plank: 3 x 30-45 sec each\n\nLog every set
+  in the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session C\, week 4
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261102@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261102T173000
+DTEND;TZID=Europe/London:20261102T183000
+SUMMARY:Session A\, week 5
+DESCRIPTION:Week 5: Build. Stop 1 to 3 reps short of failure. Add reps or w
+ eight every session you can.\n\nWarm up: Wall walk out 2 x 10 sec\; Band s
+ houlder exercise 2 sets\, shoulder blade and chin back\; Standing row 2.5 
+ kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each side x 2\;
+  Table top leg extensions\, 1 set to fatigue\; Ramp up set: 1 easy set at 
+ half the working weight\n\nGoblet squat: 3 x 8-12\nOne arm DB row: 3 x 8-1
+ 2 each\nDB floor press\, neutral grip: 3 x 8-12\nDB Romanian deadlift: 3 x
+  8-12\nBand pull apart: 3 x 12-15\nTable top leg extension: 3 x max\n\nLog
+  every set in the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session A\, week 5
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261104@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261104T173000
+DTEND;TZID=Europe/London:20261104T183000
+SUMMARY:Session B\, week 5
+DESCRIPTION:Week 5: Build. Stop 1 to 3 reps short of failure. Add reps or w
+ eight every session you can.\n\nWarm up: Wall walk out 2 x 10 sec\; Band s
+ houlder exercise 2 sets\, shoulder blade and chin back\; Standing row 2.5 
+ kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each side x 2\;
+  Table top leg extensions\, 1 set to fatigue\; Ramp up set: 1 easy set at 
+ half the working weight\n\nRear foot elevated split squat: 3 x 8-12 each\n
+ Half kneeling 1 arm DB press: 3 x 8-12 each\nBand lat pulldown: 3 x 10-15\
+ nSingle leg glute bridge: 3 x 8-12 each\nPush up plus: 3 x 8-15\nLateral r
+ aise: 3 x 12-20\nPallof press: 3 x 10 each\n\nLog every set in the Trainin
+ g app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session B\, week 5
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261106@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261106T163000
+DTEND;TZID=Europe/London:20261106T173000
+SUMMARY:Session C\, week 5
+DESCRIPTION:Week 5: Build. Stop 1 to 3 reps short of failure. Add reps or w
+ eight every session you can.\n\nWarm up: Wall walk out 2 x 10 sec\; Band s
+ houlder exercise 2 sets\, shoulder blade and chin back\; Standing row 2.5 
+ kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each side x 2\;
+  Table top leg extensions\, 1 set to fatigue\; Ramp up set: 1 easy set at 
+ half the working weight\n\nDB reverse lunge or step up: 3 x 8-12 each\nChe
+ st supported 2 arm DB row: 3 x 8-12\nPush up (feet up or standard): 3 x 6-
+ 15\nSingle leg RDL (light): 3 x 8-10 each\nBent over reverse fly: 3 x 12-2
+ 0\nDB curl (superset): 3 x 10-15\nOverhead tricep extension (superset): 3 
+ x 10-15\nSuitcase carry or side plank: 3 x 30-45 sec each\n\nLog every set
+  in the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session C\, week 5
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261109@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261109T173000
+DTEND;TZID=Europe/London:20261109T183000
+SUMMARY:Session A\, week 6 (deload)
+DESCRIPTION:Week 6: Deload. Half the sets\, same weights. Keep the daily ph
+ ysio work.\n\nWarm up: Wall walk out 2 x 10 sec\; Band shoulder exercise 2
+  sets\, shoulder blade and chin back\; Standing row 2.5 kg\, 1 x 10 with 6
+  sec hold\; Band hip abduction\, 3 steps each side x 2\; Table top leg ext
+ ensions\, 1 set to fatigue\; Ramp up set: 1 easy set at half the working w
+ eight\n\nGoblet squat: 2 x 8-12\nOne arm DB row: 2 x 8-12 each\nDB floor p
+ ress\, neutral grip: 2 x 8-12\nDB Romanian deadlift: 2 x 8-12\nBand pull a
+ part: 2 x 12-15\nTable top leg extension: 2 x max\n\nLog every set in the 
+ Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session A\, week 6 (deload)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261111@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261111T173000
+DTEND;TZID=Europe/London:20261111T183000
+SUMMARY:Session B\, week 6 (deload)
+DESCRIPTION:Week 6: Deload. Half the sets\, same weights. Keep the daily ph
+ ysio work.\n\nWarm up: Wall walk out 2 x 10 sec\; Band shoulder exercise 2
+  sets\, shoulder blade and chin back\; Standing row 2.5 kg\, 1 x 10 with 6
+  sec hold\; Band hip abduction\, 3 steps each side x 2\; Table top leg ext
+ ensions\, 1 set to fatigue\; Ramp up set: 1 easy set at half the working w
+ eight\n\nRear foot elevated split squat: 2 x 8-12 each\nHalf kneeling 1 ar
+ m DB press: 2 x 8-12 each\nBand lat pulldown: 2 x 10-15\nSingle leg glute 
+ bridge: 2 x 8-12 each\nPush up plus: 2 x 8-15\nLateral raise: 2 x 12-20\nP
+ allof press: 2 x 10 each\n\nLog every set in the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session B\, week 6 (deload)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261113@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261113T163000
+DTEND;TZID=Europe/London:20261113T173000
+SUMMARY:Session C\, week 6 (deload)
+DESCRIPTION:Week 6: Deload. Half the sets\, same weights. Keep the daily ph
+ ysio work.\n\nWarm up: Wall walk out 2 x 10 sec\; Band shoulder exercise 2
+  sets\, shoulder blade and chin back\; Standing row 2.5 kg\, 1 x 10 with 6
+  sec hold\; Band hip abduction\, 3 steps each side x 2\; Table top leg ext
+ ensions\, 1 set to fatigue\; Ramp up set: 1 easy set at half the working w
+ eight\n\nDB reverse lunge or step up: 2 x 8-12 each\nChest supported 2 arm
+  DB row: 2 x 8-12\nPush up (feet up or standard): 2 x 6-15\nSingle leg RDL
+  (light): 2 x 8-10 each\nBent over reverse fly: 2 x 12-20\nDB curl (supers
+ et): 2 x 10-15\nOverhead tricep extension (superset): 2 x 10-15\nSuitcase 
+ carry or side plank: 2 x 30-45 sec each\n\nLog every set in the Training a
+ pp.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session C\, week 6 (deload)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261116@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261116T173000
+DTEND;TZID=Europe/London:20261116T183000
+SUMMARY:Session A\, week 7
+DESCRIPTION:Week 7: Build\, harder. Add a 4th set to the 2 or 3 exercises y
+ ou most want to grow. Isolation work can go to failure.\n\nWarm up: Wall w
+ alk out 2 x 10 sec\; Band shoulder exercise 2 sets\, shoulder blade and ch
+ in back\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abductio
+ n\, 3 steps each side x 2\; Table top leg extensions\, 1 set to fatigue\; 
+ Ramp up set: 1 easy set at half the working weight\n\nGoblet squat: 3 x 8-
+ 12\nOne arm DB row: 3 x 8-12 each\nDB floor press\, neutral grip: 3 x 8-12
+ \nDB Romanian deadlift: 3 x 8-12\nBand pull apart: 3 x 12-15\nTable top le
+ g extension: 3 x max\n\nLog every set in the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session A\, week 7
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261118@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261118T173000
+DTEND;TZID=Europe/London:20261118T183000
+SUMMARY:Session B\, week 7
+DESCRIPTION:Week 7: Build\, harder. Add a 4th set to the 2 or 3 exercises y
+ ou most want to grow. Isolation work can go to failure.\n\nWarm up: Wall w
+ alk out 2 x 10 sec\; Band shoulder exercise 2 sets\, shoulder blade and ch
+ in back\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abductio
+ n\, 3 steps each side x 2\; Table top leg extensions\, 1 set to fatigue\; 
+ Ramp up set: 1 easy set at half the working weight\n\nRear foot elevated s
+ plit squat: 3 x 8-12 each\nHalf kneeling 1 arm DB press: 3 x 8-12 each\nBa
+ nd lat pulldown: 3 x 10-15\nSingle leg glute bridge: 3 x 8-12 each\nPush u
+ p plus: 3 x 8-15\nLateral raise: 3 x 12-20\nPallof press: 3 x 10 each\n\nL
+ og every set in the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session B\, week 7
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261120@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261120T163000
+DTEND;TZID=Europe/London:20261120T173000
+SUMMARY:Session C\, week 7
+DESCRIPTION:Week 7: Build\, harder. Add a 4th set to the 2 or 3 exercises y
+ ou most want to grow. Isolation work can go to failure.\n\nWarm up: Wall w
+ alk out 2 x 10 sec\; Band shoulder exercise 2 sets\, shoulder blade and ch
+ in back\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abductio
+ n\, 3 steps each side x 2\; Table top leg extensions\, 1 set to fatigue\; 
+ Ramp up set: 1 easy set at half the working weight\n\nDB reverse lunge or 
+ step up: 3 x 8-12 each\nChest supported 2 arm DB row: 3 x 8-12\nPush up (f
+ eet up or standard): 3 x 6-15\nSingle leg RDL (light): 3 x 8-10 each\nBent
+  over reverse fly: 3 x 12-20\nDB curl (superset): 3 x 10-15\nOverhead tric
+ ep extension (superset): 3 x 10-15\nSuitcase carry or side plank: 3 x 30-4
+ 5 sec each\n\nLog every set in the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session C\, week 7
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261123@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261123T173000
+DTEND;TZID=Europe/London:20261123T183000
+SUMMARY:Session A\, week 8
+DESCRIPTION:Week 8: Build\, harder. Add a 4th set to the 2 or 3 exercises y
+ ou most want to grow. Isolation work can go to failure.\n\nWarm up: Wall w
+ alk out 2 x 10 sec\; Band shoulder exercise 2 sets\, shoulder blade and ch
+ in back\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abductio
+ n\, 3 steps each side x 2\; Table top leg extensions\, 1 set to fatigue\; 
+ Ramp up set: 1 easy set at half the working weight\n\nGoblet squat: 3 x 8-
+ 12\nOne arm DB row: 3 x 8-12 each\nDB floor press\, neutral grip: 3 x 8-12
+ \nDB Romanian deadlift: 3 x 8-12\nBand pull apart: 3 x 12-15\nTable top le
+ g extension: 3 x max\n\nLog every set in the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session A\, week 8
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261125@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261125T173000
+DTEND;TZID=Europe/London:20261125T183000
+SUMMARY:Session B\, week 8
+DESCRIPTION:Week 8: Build\, harder. Add a 4th set to the 2 or 3 exercises y
+ ou most want to grow. Isolation work can go to failure.\n\nWarm up: Wall w
+ alk out 2 x 10 sec\; Band shoulder exercise 2 sets\, shoulder blade and ch
+ in back\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abductio
+ n\, 3 steps each side x 2\; Table top leg extensions\, 1 set to fatigue\; 
+ Ramp up set: 1 easy set at half the working weight\n\nRear foot elevated s
+ plit squat: 3 x 8-12 each\nHalf kneeling 1 arm DB press: 3 x 8-12 each\nBa
+ nd lat pulldown: 3 x 10-15\nSingle leg glute bridge: 3 x 8-12 each\nPush u
+ p plus: 3 x 8-15\nLateral raise: 3 x 12-20\nPallof press: 3 x 10 each\n\nL
+ og every set in the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session B\, week 8
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261127@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261127T163000
+DTEND;TZID=Europe/London:20261127T173000
+SUMMARY:Session C\, week 8
+DESCRIPTION:Week 8: Build\, harder. Add a 4th set to the 2 or 3 exercises y
+ ou most want to grow. Isolation work can go to failure.\n\nWarm up: Wall w
+ alk out 2 x 10 sec\; Band shoulder exercise 2 sets\, shoulder blade and ch
+ in back\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abductio
+ n\, 3 steps each side x 2\; Table top leg extensions\, 1 set to fatigue\; 
+ Ramp up set: 1 easy set at half the working weight\n\nDB reverse lunge or 
+ step up: 3 x 8-12 each\nChest supported 2 arm DB row: 3 x 8-12\nPush up (f
+ eet up or standard): 3 x 6-15\nSingle leg RDL (light): 3 x 8-10 each\nBent
+  over reverse fly: 3 x 12-20\nDB curl (superset): 3 x 10-15\nOverhead tric
+ ep extension (superset): 3 x 10-15\nSuitcase carry or side plank: 3 x 30-4
+ 5 sec each\n\nLog every set in the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session C\, week 8
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261130@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261130T173000
+DTEND;TZID=Europe/London:20261130T183000
+SUMMARY:Session A\, week 9
+DESCRIPTION:Week 9: Build\, harder. Add a 4th set to the 2 or 3 exercises y
+ ou most want to grow. Isolation work can go to failure.\n\nWarm up: Wall w
+ alk out 2 x 10 sec\; Band shoulder exercise 2 sets\, shoulder blade and ch
+ in back\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abductio
+ n\, 3 steps each side x 2\; Table top leg extensions\, 1 set to fatigue\; 
+ Ramp up set: 1 easy set at half the working weight\n\nGoblet squat: 3 x 8-
+ 12\nOne arm DB row: 3 x 8-12 each\nDB floor press\, neutral grip: 3 x 8-12
+ \nDB Romanian deadlift: 3 x 8-12\nBand pull apart: 3 x 12-15\nTable top le
+ g extension: 3 x max\n\nLog every set in the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session A\, week 9
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261202@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261202T173000
+DTEND;TZID=Europe/London:20261202T183000
+SUMMARY:Session B\, week 9
+DESCRIPTION:Week 9: Build\, harder. Add a 4th set to the 2 or 3 exercises y
+ ou most want to grow. Isolation work can go to failure.\n\nWarm up: Wall w
+ alk out 2 x 10 sec\; Band shoulder exercise 2 sets\, shoulder blade and ch
+ in back\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abductio
+ n\, 3 steps each side x 2\; Table top leg extensions\, 1 set to fatigue\; 
+ Ramp up set: 1 easy set at half the working weight\n\nRear foot elevated s
+ plit squat: 3 x 8-12 each\nHalf kneeling 1 arm DB press: 3 x 8-12 each\nBa
+ nd lat pulldown: 3 x 10-15\nSingle leg glute bridge: 3 x 8-12 each\nPush u
+ p plus: 3 x 8-15\nLateral raise: 3 x 12-20\nPallof press: 3 x 10 each\n\nL
+ og every set in the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session B\, week 9
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261204@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261204T163000
+DTEND;TZID=Europe/London:20261204T173000
+SUMMARY:Session C\, week 9
+DESCRIPTION:Week 9: Build\, harder. Add a 4th set to the 2 or 3 exercises y
+ ou most want to grow. Isolation work can go to failure.\n\nWarm up: Wall w
+ alk out 2 x 10 sec\; Band shoulder exercise 2 sets\, shoulder blade and ch
+ in back\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abductio
+ n\, 3 steps each side x 2\; Table top leg extensions\, 1 set to fatigue\; 
+ Ramp up set: 1 easy set at half the working weight\n\nDB reverse lunge or 
+ step up: 3 x 8-12 each\nChest supported 2 arm DB row: 3 x 8-12\nPush up (f
+ eet up or standard): 3 x 6-15\nSingle leg RDL (light): 3 x 8-10 each\nBent
+  over reverse fly: 3 x 12-20\nDB curl (superset): 3 x 10-15\nOverhead tric
+ ep extension (superset): 3 x 10-15\nSuitcase carry or side plank: 3 x 30-4
+ 5 sec each\n\nLog every set in the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session C\, week 9
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261207@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261207T173000
+DTEND;TZID=Europe/London:20261207T183000
+SUMMARY:Session A\, week 10
+DESCRIPTION:Week 10: Build\, harder. Add a 4th set to the 2 or 3 exercises 
+ you most want to grow. Isolation work can go to failure.\n\nWarm up: Wall 
+ walk out 2 x 10 sec\; Band shoulder exercise 2 sets\, shoulder blade and c
+ hin back\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abducti
+ on\, 3 steps each side x 2\; Table top leg extensions\, 1 set to fatigue\;
+  Ramp up set: 1 easy set at half the working weight\n\nGoblet squat: 3 x 8
+ -12\nOne arm DB row: 3 x 8-12 each\nDB floor press\, neutral grip: 3 x 8-1
+ 2\nDB Romanian deadlift: 3 x 8-12\nBand pull apart: 3 x 12-15\nTable top l
+ eg extension: 3 x max\n\nLog every set in the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session A\, week 10
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261209@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261209T173000
+DTEND;TZID=Europe/London:20261209T183000
+SUMMARY:Session B\, week 10
+DESCRIPTION:Week 10: Build\, harder. Add a 4th set to the 2 or 3 exercises 
+ you most want to grow. Isolation work can go to failure.\n\nWarm up: Wall 
+ walk out 2 x 10 sec\; Band shoulder exercise 2 sets\, shoulder blade and c
+ hin back\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abducti
+ on\, 3 steps each side x 2\; Table top leg extensions\, 1 set to fatigue\;
+  Ramp up set: 1 easy set at half the working weight\n\nRear foot elevated 
+ split squat: 3 x 8-12 each\nHalf kneeling 1 arm DB press: 3 x 8-12 each\nB
+ and lat pulldown: 3 x 10-15\nSingle leg glute bridge: 3 x 8-12 each\nPush 
+ up plus: 3 x 8-15\nLateral raise: 3 x 12-20\nPallof press: 3 x 10 each\n\n
+ Log every set in the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session B\, week 10
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261211@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261211T163000
+DTEND;TZID=Europe/London:20261211T173000
+SUMMARY:Session C\, week 10
+DESCRIPTION:Week 10: Build\, harder. Add a 4th set to the 2 or 3 exercises 
+ you most want to grow. Isolation work can go to failure.\n\nWarm up: Wall 
+ walk out 2 x 10 sec\; Band shoulder exercise 2 sets\, shoulder blade and c
+ hin back\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abducti
+ on\, 3 steps each side x 2\; Table top leg extensions\, 1 set to fatigue\;
+  Ramp up set: 1 easy set at half the working weight\n\nDB reverse lunge or
+  step up: 3 x 8-12 each\nChest supported 2 arm DB row: 3 x 8-12\nPush up (
+ feet up or standard): 3 x 6-15\nSingle leg RDL (light): 3 x 8-10 each\nBen
+ t over reverse fly: 3 x 12-20\nDB curl (superset): 3 x 10-15\nOverhead tri
+ cep extension (superset): 3 x 10-15\nSuitcase carry or side plank: 3 x 30-
+ 45 sec each\n\nLog every set in the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session C\, week 10
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261214@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261214T173000
+DTEND;TZID=Europe/London:20261214T183000
+SUMMARY:Session A\, week 11
+DESCRIPTION:Week 11: Build\, harder. Add a 4th set to the 2 or 3 exercises 
+ you most want to grow. Isolation work can go to failure.\n\nWarm up: Wall 
+ walk out 2 x 10 sec\; Band shoulder exercise 2 sets\, shoulder blade and c
+ hin back\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abducti
+ on\, 3 steps each side x 2\; Table top leg extensions\, 1 set to fatigue\;
+  Ramp up set: 1 easy set at half the working weight\n\nGoblet squat: 3 x 8
+ -12\nOne arm DB row: 3 x 8-12 each\nDB floor press\, neutral grip: 3 x 8-1
+ 2\nDB Romanian deadlift: 3 x 8-12\nBand pull apart: 3 x 12-15\nTable top l
+ eg extension: 3 x max\n\nLog every set in the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session A\, week 11
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261216@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261216T173000
+DTEND;TZID=Europe/London:20261216T183000
+SUMMARY:Session B\, week 11
+DESCRIPTION:Week 11: Build\, harder. Add a 4th set to the 2 or 3 exercises 
+ you most want to grow. Isolation work can go to failure.\n\nWarm up: Wall 
+ walk out 2 x 10 sec\; Band shoulder exercise 2 sets\, shoulder blade and c
+ hin back\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abducti
+ on\, 3 steps each side x 2\; Table top leg extensions\, 1 set to fatigue\;
+  Ramp up set: 1 easy set at half the working weight\n\nRear foot elevated 
+ split squat: 3 x 8-12 each\nHalf kneeling 1 arm DB press: 3 x 8-12 each\nB
+ and lat pulldown: 3 x 10-15\nSingle leg glute bridge: 3 x 8-12 each\nPush 
+ up plus: 3 x 8-15\nLateral raise: 3 x 12-20\nPallof press: 3 x 10 each\n\n
+ Log every set in the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session B\, week 11
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261218@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261218T163000
+DTEND;TZID=Europe/London:20261218T173000
+SUMMARY:Session C\, week 11
+DESCRIPTION:Week 11: Build\, harder. Add a 4th set to the 2 or 3 exercises 
+ you most want to grow. Isolation work can go to failure.\n\nWarm up: Wall 
+ walk out 2 x 10 sec\; Band shoulder exercise 2 sets\, shoulder blade and c
+ hin back\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abducti
+ on\, 3 steps each side x 2\; Table top leg extensions\, 1 set to fatigue\;
+  Ramp up set: 1 easy set at half the working weight\n\nDB reverse lunge or
+  step up: 3 x 8-12 each\nChest supported 2 arm DB row: 3 x 8-12\nPush up (
+ feet up or standard): 3 x 6-15\nSingle leg RDL (light): 3 x 8-10 each\nBen
+ t over reverse fly: 3 x 12-20\nDB curl (superset): 3 x 10-15\nOverhead tri
+ cep extension (superset): 3 x 10-15\nSuitcase carry or side plank: 3 x 30-
+ 45 sec each\n\nLog every set in the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session C\, week 11
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261221@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261221T173000
+DTEND;TZID=Europe/London:20261221T183000
+SUMMARY:Session A\, week 12 (deload)
+DESCRIPTION:Week 12: Deload and retest. Half sets on Monday and Wednesday. 
+ Retest on Friday: max push ups\, goblet squat reps\, single arm row reps.\
+ n\nWarm up: Wall walk out 2 x 10 sec\; Band shoulder exercise 2 sets\, sho
+ ulder blade and chin back\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\;
+  Band hip abduction\, 3 steps each side x 2\; Table top leg extensions\, 1
+  set to fatigue\; Ramp up set: 1 easy set at half the working weight\n\nGo
+ blet squat: 2 x 8-12\nOne arm DB row: 2 x 8-12 each\nDB floor press\, neut
+ ral grip: 2 x 8-12\nDB Romanian deadlift: 2 x 8-12\nBand pull apart: 2 x 1
+ 2-15\nTable top leg extension: 2 x max\n\nLog every set in the Training ap
+ p.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session A\, week 12 (deload)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261223@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261223T173000
+DTEND;TZID=Europe/London:20261223T183000
+SUMMARY:Session B\, week 12 (deload)
+DESCRIPTION:Week 12: Deload and retest. Half sets on Monday and Wednesday. 
+ Retest on Friday: max push ups\, goblet squat reps\, single arm row reps.\
+ n\nWarm up: Wall walk out 2 x 10 sec\; Band shoulder exercise 2 sets\, sho
+ ulder blade and chin back\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\;
+  Band hip abduction\, 3 steps each side x 2\; Table top leg extensions\, 1
+  set to fatigue\; Ramp up set: 1 easy set at half the working weight\n\nRe
+ ar foot elevated split squat: 2 x 8-12 each\nHalf kneeling 1 arm DB press:
+  2 x 8-12 each\nBand lat pulldown: 2 x 10-15\nSingle leg glute bridge: 2 x
+  8-12 each\nPush up plus: 2 x 8-15\nLateral raise: 2 x 12-20\nPallof press
+ : 2 x 10 each\n\nLog every set in the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session B\, week 12 (deload)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261225@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261225T163000
+DTEND;TZID=Europe/London:20261225T173000
+SUMMARY:Retest\, week 12 (deload)
+DESCRIPTION:Week 12: Deload and retest. Half sets on Monday and Wednesday. 
+ Retest on Friday: max push ups\, goblet squat reps\, single arm row reps.\
+ n\nMax push ups: 1 x max\nGoblet squat\, max reps: 1 x max\nOne arm row\, 
+ max reps: 1 x max each\n\nLog every set in the Training app.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Retest\, week 12 (deload)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:am-MOWE@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261005T062500
+DTEND;TZID=Europe/London:20261005T063500
+SUMMARY:Weigh in\, check-in\, physio
+DESCRIPTION:Weigh in after the toilet\, before food. Open the Training app:
+  sleep and wake time\, tick last night's habits. Then the physio block.
+RRULE:FREQ=WEEKLY;BYDAY=MO,WE;UNTIL=20261227T235959Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Weigh in\, check-in\, physio
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:am-TUTH@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261006T074000
+DTEND;TZID=Europe/London:20261006T075000
+SUMMARY:Check-in\, physio
+DESCRIPTION:Open the Training app: sleep and wake time\, tick last night's 
+ habits. Then the physio block.
+RRULE:FREQ=WEEKLY;BYDAY=TU,TH;UNTIL=20261227T235959Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Check-in\, physio
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:am-FR@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261009T074000
+DTEND;TZID=Europe/London:20261009T075000
+SUMMARY:Weigh in\, check-in\, physio
+DESCRIPTION:Weigh in after the toilet\, before food. Open the Training app:
+  sleep and wake time\, tick last night's habits. Then the physio block.
+RRULE:FREQ=WEEKLY;BYDAY=FR;UNTIL=20261227T235959Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Weigh in\, check-in\, physio
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:am-SA@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261010T083000
+DTEND;TZID=Europe/London:20261010T084000
+SUMMARY:Check-in\, physio
+DESCRIPTION:Open the Training app: sleep and wake time\, tick last night's 
+ habits. Then the physio block.
+RRULE:FREQ=WEEKLY;BYDAY=SA;UNTIL=20261227T235959Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Check-in\, physio
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:am-SU@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261011T083000
+DTEND;TZID=Europe/London:20261011T084000
+SUMMARY:Weigh in\, check-in\, physio
+DESCRIPTION:Weigh in after the toilet\, before food. Open the Training app:
+  sleep and wake time\, tick last night's habits. Then the physio block.
+RRULE:FREQ=WEEKLY;BYDAY=SU;UNTIL=20261227T235959Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Weigh in\, check-in\, physio
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:pm-physio@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261005T213000
+DTEND;TZID=Europe/London:20261005T214000
+SUMMARY:Physio\, evening
+DESCRIPTION:Evening physio block. Tick it in the Training app.
+RRULE:FREQ=DAILY;UNTIL=20261227T235959Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Physio\, evening
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:phone-away@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261005T223000
+DTEND;TZID=Europe/London:20261005T224500
+SUMMARY:Phone away\, lights out 22:45
+DESCRIPTION:Start the sleep music timer\, phone across the room\, Sleep Foc
+ us on.
+RRULE:FREQ=DAILY;UNTIL=20261227T235959Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Phone away\, lights out 22:45
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:weekly-review@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;TZID=Europe/London:20261011T190000
+DTEND;TZID=Europe/London:20261011T191500
+SUMMARY:Weekly review
+DESCRIPTION:Training app\, Week tab: sessions\, weigh in average\, add load
+  list\, gym check. Then Settings\, Save backup to iCloud Drive.
+RRULE:FREQ=WEEKLY;BYDAY=SU;UNTIL=20261227T235959Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Weekly review
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:deload-w6@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;VALUE=DATE:20261109
+DTEND;VALUE=DATE:20261116
+SUMMARY:Deload week 6
+DESCRIPTION:Half the sets\, same weights. Keep the daily physio work.
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:deload-w12@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;VALUE=DATE:20261221
+DTEND;VALUE=DATE:20261228
+SUMMARY:Deload week 12
+DESCRIPTION:Half the sets\, same weights. Keep the daily physio work. Retes
+ t on Friday.
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:physio-signoff@training-tracker
+DTSTAMP:20260930T223359Z
+DTSTART;VALUE=DATE:20261012
+DTEND;VALUE=DATE:20261013
+SUMMARY:Show the plan to your physio before week 3
+DESCRIPTION:Overhead pressing and single leg RDLs are not on the physio she
+ ets.
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
