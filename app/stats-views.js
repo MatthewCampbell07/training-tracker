@@ -95,7 +95,8 @@ export function weekView(ctx) {
       <section class="card"><h2>Weigh in</h2>${weightLine(cur, prev)}</section>
       <section class="card"><h2>Add load next time</h2>${calls.length ? `<ul class="list-plain">${calls.map((c) => `<li><b>${esc(c.ex.name)}</b>: ${esc(c.msg)}</li>`).join('')}</ul>` : '<p class="empty">Nothing yet. Hit the top of the range on every set to earn a jump.</p>'}</section>
       <section class="card"><h2>Gym check</h2><ul class="list-plain">${gym.map((g) => `<li><span class="${g.ready ? 'good' : 'fine'}">${g.ready ? 'Ready' : 'Not yet'}</span> <b>${esc(g.name)}</b>. ${esc(g.detail)}</li>`).join('')}</ul>
-        <p class="fine">Ready means 20 kg for 12 reps on every set with 2+ reps left. When both are ready, move leg work to a gym.</p></section>`,
+        <p class="fine">Ready means 20 kg for 12 reps on every set with 2+ reps left. When both are ready, move leg work to a gym.</p>
+        ${plan.gymLater?.length ? `<p class="fine"><b>Add at the gym:</b> ${plan.gymLater.map((g) => esc(g.name)).join(', ')}.</p>` : ''}</section>`,
   };
 }
 

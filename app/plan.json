@@ -185,7 +185,7 @@
       ]
     },
     "B": {
-      "title": "Single leg, overhead press, pull down, core",
+      "title": "Single leg, pull down, push up, arms, core",
       "exercises": [
         {
           "id": "rfe_split_squat",
@@ -198,18 +198,6 @@
           "each": true,
           "rest": "2 min",
           "cue": "Back foot on a chair. Front foot slightly out if it feels better."
-        },
-        {
-          "id": "hk_press",
-          "name": "Half kneeling 1 arm DB press",
-          "sets": 3,
-          "min": 8,
-          "max": 12,
-          "unit": "reps",
-          "load": "db",
-          "each": true,
-          "rest": "2 min",
-          "cue": "Squeeze the kneeling glute, ribs down. Not on your physio sheets, so start very light. If you flag pain, swap it for an extra set of floor press."
         },
         {
           "id": "band_pulldown",
@@ -321,18 +309,6 @@
           "rest": "2 min",
           "cue": "Chest to floor with control.",
           "priority": true
-        },
-        {
-          "id": "sl_rdl",
-          "name": "Single leg RDL (light)",
-          "sets": 3,
-          "min": 8,
-          "max": 10,
-          "unit": "reps",
-          "load": "db",
-          "each": true,
-          "rest": "90 sec",
-          "cue": "Balance drill, hand on wall if needed. Not on your physio sheets, so keep it light. If you flag pain, swap it for a single leg glute bridge."
         },
         {
           "id": "reverse_fly",
@@ -464,12 +440,22 @@
     "db_rdl",
     "db_row_1arm",
     "floor_press",
-    "hk_press",
+    "lateral_raise",
     "db_curl"
   ],
   "gymCheck": [
     "goblet_squat",
     "db_rdl"
   ],
-  "sleepTargetHours": 7
+  "sleepTargetHours": 7,
+  "gymLater": [
+    {
+      "name": "Half kneeling single arm overhead press",
+      "from": "Session B"
+    },
+    {
+      "name": "Single leg Romanian deadlift",
+      "from": "Session C"
+    }
+  ]
 }

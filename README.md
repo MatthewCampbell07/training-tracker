@@ -62,6 +62,12 @@ Other changes:
 - **Move week 1:** run `python3 calendar/make_ics.py --start 2026-10-08` (any weekday) and change the start date in the app's Settings.
 - **Change times or exercises:** edit `app/plan.json`, which both the app and the calendar read. Rebuild the calendar. Bump `VERSION` in `app/sw.js`, then run `git commit -am "update plan" && git push`. The phone picks up the change the second time you open the app.
 
+## Moving to a gym
+
+The Week tab's gym check turns green when goblet squat and RDL reach 20 kg for 12 reps on every set, with 2+ reps left. When both are ready, move leg work to the gym and add the two lifts held back from the home plan:
+- half kneeling single arm overhead press
+- single leg Romanian deadlift
+
 ## Checks
 
 ```bash
