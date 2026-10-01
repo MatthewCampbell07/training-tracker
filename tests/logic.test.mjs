@@ -5,25 +5,29 @@ import * as L from '../app/logic.js';
 import { badges } from '../app/badges.js';
 
 const plan = JSON.parse(readFileSync(new URL('../app/plan.json', import.meta.url)));
-const settings = { startDate: '2026-10-05', golfFrom: null };
+const settings = { startDate: '2026-10-01', golfFrom: null };
 const empty = () => ({ version: 1, settings, days: {}, sessions: {} });
 const goblet = plan.sessions.A.exercises.find((e) => e.id === 'goblet_squat');
 
-test('week numbers run Monday to Sunday from the start date', () => {
-  assert.equal(L.weekOf('2026-10-05', settings.startDate), 1);
-  assert.equal(L.weekOf('2026-10-11', settings.startDate), 1);
-  assert.equal(L.weekOf('2026-10-12', settings.startDate), 2);
-  assert.equal(L.weekOf('2026-11-09', settings.startDate), 6);
-  assert.equal(L.weekOf('2026-12-27', settings.startDate), 12);
-  assert.equal(L.weekOf('2026-10-04', settings.startDate), 0);
+test('weeks run Thursday to Wednesday from a Thursday start', () => {
+  assert.equal(L.weekOf('2026-10-01', settings.startDate), 1);
+  assert.equal(L.weekOf('2026-10-07', settings.startDate), 1);
+  assert.equal(L.weekOf('2026-10-08', settings.startDate), 2);
+  assert.equal(L.weekOf('2026-11-05', settings.startDate), 6);
+  assert.equal(L.weekOf('2026-12-23', settings.startDate), 12);
+  assert.equal(L.weekOf('2026-09-30', settings.startDate), 0);
 });
 
 test('week numbers ignore the clock change on 25 Oct', () => {
-  assert.equal(L.weekOf('2026-10-25', settings.startDate), 3);
-  assert.equal(L.weekOf('2026-10-26', settings.startDate), 4);
+  assert.equal(L.weekOf('2026-10-21', settings.startDate), 3);
+  assert.equal(L.weekOf('2026-10-25', settings.startDate), 4);
+  assert.equal(L.weekOf('2026-10-28', settings.startDate), 4);
+  assert.equal(L.weekOf('2026-10-29', settings.startDate), 5);
 });
 
 test('Monday A, Wednesday B, Friday C, nothing on rest days', () => {
+  assert.equal(L.scheduledSession('2026-10-01', plan, settings), null);
+  assert.equal(L.scheduledSession('2026-10-02', plan, settings), 'C');
   assert.equal(L.scheduledSession('2026-10-05', plan, settings), 'A');
   assert.equal(L.scheduledSession('2026-10-06', plan, settings), null);
   assert.equal(L.scheduledSession('2026-10-07', plan, settings), 'B');
@@ -31,9 +35,15 @@ test('Monday A, Wednesday B, Friday C, nothing on rest days', () => {
   assert.equal(L.scheduledSession('2026-10-10', plan, settings), null);
 });
 
-test('week 12 Friday is the retest and nothing is scheduled after week 12', () => {
-  assert.equal(L.scheduledSession('2026-12-25', plan, settings), 'R');
-  assert.equal(L.scheduledSession('2026-12-28', plan, settings), null);
+test('the retest is the last session of week 12 and nothing comes after', () => {
+  assert.equal(L.scheduledSession('2026-12-18', plan, settings), 'C');
+  assert.equal(L.scheduledSession('2026-12-21', plan, settings), 'A');
+  assert.equal(L.scheduledSession('2026-12-23', plan, settings), 'R');
+  assert.equal(L.scheduledSession('2026-12-25', plan, settings), null);
+});
+
+test('a Monday start still puts the retest on the week 12 Friday', () => {
+  assert.equal(L.scheduledSession('2026-12-25', plan, { ...settings, startDate: '2026-10-05' }), 'R');
 });
 
 test('golf mode drops Friday from its start date only', () => {
@@ -41,7 +51,8 @@ test('golf mode drops Friday from its start date only', () => {
   assert.equal(L.scheduledSession('2026-11-13', plan, golf), 'C');
   assert.equal(L.scheduledSession('2026-11-20', plan, golf), null);
   assert.equal(L.scheduledSession('2026-11-18', plan, golf), 'B');
-  assert.equal(L.sessionTarget(7, plan, golf), 2);
+  assert.equal(L.sessionTarget(7, plan, golf), 3);
+  assert.equal(L.sessionTarget(8, plan, golf), 2);
 });
 
 test('sets: 2 in week 1, 3 normally, 2 on deloads, 2 in golf mode', () => {
@@ -50,6 +61,16 @@ test('sets: 2 in week 1, 3 normally, 2 on deloads, 2 in golf mode', () => {
   assert.equal(L.setsFor(goblet, 6, plan, false), 2);
   assert.equal(L.setsFor(goblet, 12, plan, false), 2);
   assert.equal(L.setsFor(goblet, 8, plan, true), 2);
+});
+
+test('upper body priority lifts get a 4th set in weeks 7 to 11 only', () => {
+  const press = plan.sessions.A.exercises.find((e) => e.id === 'floor_press');
+  assert.equal(L.setsFor(press, 6, plan, false), 2);
+  assert.equal(L.setsFor(press, 7, plan, false), 4);
+  assert.equal(L.setsFor(press, 11, plan, false), 4);
+  assert.equal(L.setsFor(press, 12, plan, false), 2);
+  assert.equal(L.setsFor(press, 8, plan, true), 2);
+  assert.equal(L.setsFor(goblet, 8, plan, false), 3);
 });
 
 test('add weight only when every set hits the top of the range', () => {

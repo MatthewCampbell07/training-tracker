@@ -27,12 +27,19 @@ export function save(state) {
   }
 }
 
+// Start dates that were only ever the built-in default, never chosen by hand.
+const OLD_DEFAULT_STARTS = ['2026-10-05'];
+
+function migrateSettings(settings, plan) {
+  return OLD_DEFAULT_STARTS.includes(settings.startDate) ? { ...settings, startDate: plan.startDate } : settings;
+}
+
 export function validate(data, plan) {
   if (!data || typeof data !== 'object' || data.version !== 1) throw new Error('Not a Training Tracker backup');
   const base = emptyState(plan);
   return {
     version: 1,
-    settings: { ...base.settings, ...(data.settings || {}) },
+    settings: migrateSettings({ ...base.settings, ...(data.settings || {}) }, plan),
     days: typeof data.days === 'object' && data.days ? data.days : {},
     sessions: typeof data.sessions === 'object' && data.sessions ? data.sessions : {},
   };

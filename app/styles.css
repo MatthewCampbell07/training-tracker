@@ -256,3 +256,4 @@ nav.tabs button[aria-current="page"] { color: var(--red); }
 .btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
 .fine { font-size: 13px; color: var(--muted); }
 .fine a { color: var(--blue); }
+.tag { font: 700 10px var(--font); text-transform: uppercase; letter-spacing: 0.06em; color: var(--red); background: var(--red-soft); padding: 2px 6px; border-radius: 6px; vertical-align: 2px; white-space: nowrap; }

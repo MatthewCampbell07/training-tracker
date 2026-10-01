@@ -1,4 +1,5 @@
 """Print the first N weeks of the .ics as a readable list, parsed independently of make_ics.py."""
+import json
 import sys
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -11,7 +12,7 @@ LONDON = ZoneInfo("Europe/London")
 path = Path(__file__).resolve().parent.parent / "calendar" / "training_plan.ics"
 weeks = int(sys.argv[1]) if len(sys.argv) > 1 else 3
 cal = icalendar.Calendar.from_ical(path.read_bytes())
-start = date(2026, 10, 5)
+start = date.fromisoformat(json.loads((path.parent.parent / "app" / "plan.json").read_text())["startDate"])
 evs = recurring_ical_events.of(cal).between(start, start + timedelta(days=7 * weeks))
 
 

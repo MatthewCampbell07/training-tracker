@@ -2,13 +2,13 @@
 import {
   addDays, exerciseHistory, gymStatus, groupStreak, habitDone, habitStreak, isDeload, phaseFor,
   progressionCall, scheduledSession, sessionIsDone, sessionTarget, sessionWeekStreak, sessionsDoneInWeek,
-  recentPain, setsFor, topWeight, upMessage, weekAdherence, weekAverages, weekOf, weekStart, isGolfMode,
+  recentPain, setsFor, topWeight, upMessage, weekAdherence, weekAverages, weekOf, weekStart, isGolfMode, dayOfWeek,
 } from './logic.js';
 import { badges } from './badges.js';
 import { heatmap, lineChart, weekBars } from './charts.js';
 import { esc, fmtDate } from './views.js';
 
-const DOW = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']; // index = dayOfWeek
 
 function shortLabel(label) {
   const s = label.replace(/^(Last night|Yesterday): /, '');
@@ -63,10 +63,10 @@ export function weekView(ctx) {
     const letter = scheduledSession(d, plan, s);
     if (!letter) return '';
     const ok = sessionIsDone(state.sessions[d]);
-    return `<li><b>${DOW[i]}</b> Session ${letter} <span class="${ok ? 'good' : 'fine'}">${ok ? 'done' : d < today ? 'missed' : 'to do'}</span></li>`;
+    return `<li><b>${DOW[dayOfWeek(d)]}</b> ${letter === 'R' ? 'Retest' : `Session ${letter}`} <span class="${ok ? 'good' : 'fine'}">${ok ? 'done' : d < today ? 'missed' : 'to do'}</span></li>`;
   }).join('');
 
-  const head = `<tr><th></th>${DOW.map((d) => `<th>${d[0]}</th>`).join('')}</tr>`;
+  const head = `<tr><th></th>${[...Array(7).keys()].map((i) => `<th>${DOW[dayOfWeek(addDays(start, i))][0]}</th>`).join('')}</tr>`;
   const grid = plan.habits.map((h) => `<tr><td>${esc(shortLabel(h.label))}</td>${[...Array(7).keys()].map((i) => {
     const d = addDays(start, i);
     return `<td><span class="dot${habitDone(state, d, h.id) ? ' on' : ''}" data-goto="${d}" role="button" aria-label="${esc(h.label)} ${d}"></span></td>`;

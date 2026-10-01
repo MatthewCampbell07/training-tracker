@@ -1,6 +1,6 @@
 // Wiring: load data, render the current tab, handle taps and inputs.
 import { badges } from './badges.js';
-import { addDays, dayOfWeek, localTodayIso, weekOf, isGolfMode, setsFor } from './logic.js';
+import { addDays, localTodayIso, weekOf, isGolfMode, setsFor, sleepHours } from './logic.js';
 import * as store from './store.js';
 import { callHtml, sessionLetterFor, sessionView, settingsView, todayView } from './views.js';
 import { statsView, weekView } from './stats-views.js';
@@ -168,10 +168,10 @@ document.addEventListener('change', async (e) => {
     const field = el.dataset.field;
     const value = field === 'weight' ? parseNum(el.value) : el.value || undefined;
     let next = store.updateDay(state, ui.date, { [field]: value });
-    if (field === 'wake' && value) {
-      const onTime = value <= plan.wakeTargets[String(dayOfWeek(ui.date))];
-      const day = next.days[ui.date];
-      next = store.updateDay(next, ui.date, { habits: { ...(day.habits || {}), wake: onTime } });
+    const day = next.days[ui.date];
+    const hours = sleepHours(day.asleep, day.wake);
+    if ((field === 'asleep' || field === 'wake') && hours !== null) {
+      next = store.updateDay(next, ui.date, { habits: { ...(day.habits || {}), sleep_7: hours >= plan.sleepTargetHours } });
     }
     return commit(next);
   }
@@ -198,7 +198,6 @@ document.addEventListener('change', async (e) => {
   }
   if (el.dataset.setting === 'startDate') {
     if (!el.value) return undefined;
-    if (dayOfWeek(el.value) !== 1) toast('Tip: week 1 works best starting on a Monday');
     return commit(store.updateSettings(state, { startDate: el.value }));
   }
   if (el.dataset.action === 'import' && el.files?.[0]) {

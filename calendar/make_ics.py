@@ -2,8 +2,8 @@
 
 Usage:
   python3 calendar/make_ics.py                          # normal 3 day plan
-  python3 calendar/make_ics.py --golf-from 2026-11-16   # 2 sessions a week from that Monday
-  python3 calendar/make_ics.py --start 2026-10-12       # move week 1
+  python3 calendar/make_ics.py --golf-from 2026-11-16   # 2 sessions a week from that date
+  python3 calendar/make_ics.py --start 2026-10-08       # move week 1 (any weekday)
 """
 import argparse
 import json
@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parent.parent
 LONDON = ZoneInfo("Europe/London")
 TZID = "Europe/London"
 DAY_CODES = ["MO", "TU", "WE", "TH", "FR", "SA", "SU"]  # index = date.weekday()
+PRIORITY_WEEKS = (7, 11)  # same as app/logic.js
 
 # Europe/London rules: BST from last Sunday of March 01:00 UTC, GMT from last Sunday of October 01:00 UTC.
 VTIMEZONE = """BEGIN:VTIMEZONE
@@ -117,6 +118,8 @@ def sets_for(ex, week, plan, golf):
         return 2
     if week in plan["deloadWeeks"]:
         return -(-ex["sets"] // 2)
+    if ex.get("priority") and PRIORITY_WEEKS[0] <= week <= PRIORITY_WEEKS[1]:
+        return ex["sets"] + 1
     return ex["sets"]
 
 
@@ -135,8 +138,10 @@ def session_description(letter, week, plan, golf):
         rng = "max" if ex["max"] is None else (str(ex["max"]) if ex["min"] == ex["max"] else f"{ex['min']}-{ex['max']}")
         unit = " sec" if ex["unit"] == "sec" else ""
         each = " each" if ex.get("each") else ""
-        lines.append(f"{ex['name']}: {n} x {rng}{unit}{each}")
+        star = " *" if ex.get("priority") else ""
+        lines.append(f"{ex['name']}: {n} x {rng}{unit}{each}{star}")
     lines.append("")
+    lines.append("* upper body priority (4 sets in weeks 7 to 11)")
     lines.append("Log every set in the Training app.")
     return "\n".join(lines)
 
@@ -159,6 +164,11 @@ def build(plan, start: date, golf_from: date | None, stamp: str) -> str:
         VTIMEZONE,
     ]
 
+    # The retest replaces the last session of the retest week.
+    rw_start = start + timedelta(days=(plan["retestWeek"] - 1) * 7)
+    retest_day = max(rw_start + timedelta(days=k) for k in range(7)
+                     if plan["schedule"]["normal"].get(js_dow(rw_start + timedelta(days=k))))
+
     # Lifting sessions: one event each so the title can carry the week and phase.
     for i in range(weeks * 7):
         d = start + timedelta(days=i)
@@ -167,7 +177,7 @@ def build(plan, start: date, golf_from: date | None, stamp: str) -> str:
         letter = plan["schedule"]["golf" if golf else "normal"].get(js_dow(d))
         if not letter:
             continue
-        if letter == "C" and week == plan["retestWeek"] and not golf:
+        if d == retest_day and not golf:
             letter = "R"
         tag = " (deload)" if week in plan["deloadWeeks"] else ""
         name = "Retest" if letter == "R" else f"Session {letter}"
@@ -193,8 +203,9 @@ def build(plan, start: date, golf_from: date | None, stamp: str) -> str:
                  "Evening physio block. Tick it in the Training app.",
                  rrule=f"FREQ=DAILY;UNTIL={until}", alarm_before=0, stamp=stamp)
 
-    out += event("phone-away", f"Phone away, lights out {cal['lightsOut']}", start, cal["phoneAway"], 15,
-                 "Start the sleep music timer, phone across the room, Sleep Focus on.",
+    out += event("phone-away", "Phone away", start, cal["phoneAway"], 15,
+                 "Start the sleep music timer, phone across the room, Sleep Focus on. "
+                 "Aim for 7+ hours asleep: on a 06:15 alarm, asleep by 23:15.",
                  rrule=f"FREQ=DAILY;UNTIL={until}", alarm_before=0, stamp=stamp)
 
     first_review = start + timedelta(days=(6 - start.weekday()) % 7)
@@ -204,11 +215,11 @@ def build(plan, start: date, golf_from: date | None, stamp: str) -> str:
                  rrule=f"FREQ=WEEKLY;BYDAY=SU;UNTIL={until}", alarm_before=0, stamp=stamp)
 
     for w in plan["deloadWeeks"]:
-        monday = start + timedelta(days=(w - 1) * 7)
+        first = start + timedelta(days=(w - 1) * 7)
         note = "Half the sets, same weights. Keep the daily physio work."
         if w == plan["retestWeek"]:
-            note += " Retest on Friday."
-        out += all_day(f"deload-w{w}", f"Deload week {w}", monday, 7, note, stamp)
+            note += f" Retest on {retest_day:%A %d %B}."
+        out += all_day(f"deload-w{w}", f"Deload week {w}", first, 7, note, stamp)
 
     out += all_day("physio-signoff", "Show the plan to your physio before week 3", start + timedelta(days=7), 1,
                    "Overhead pressing and single leg RDLs are not on the physio sheets.", stamp)
@@ -222,15 +233,13 @@ def build(plan, start: date, golf_from: date | None, stamp: str) -> str:
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--start", help="Monday of week 1, YYYY-MM-DD (default from plan.json)")
+    ap.add_argument("--start", help="First day of week 1, YYYY-MM-DD (default from plan.json)")
     ap.add_argument("--golf-from", help="Switch to 2 sessions a week from this date, YYYY-MM-DD")
     ap.add_argument("--out", default=str(ROOT / "calendar" / "training_plan.ics"))
     args = ap.parse_args()
 
     plan = json.loads((ROOT / "app" / "plan.json").read_text())
     start = date.fromisoformat(args.start or plan["startDate"])
-    if start.weekday() != 0:
-        ap.error(f"--start must be a Monday, {start} is a {start:%A}")
     golf_from = date.fromisoformat(args.golf_from) if args.golf_from else None
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     Path(args.out).write_text(build(plan, start, golf_from, stamp), newline="")

@@ -20,7 +20,7 @@ export function badges(state, plan, todayIso) {
   const sessionsDone = Object.values(state.sessions).filter(sessionIsDone).length;
   const physio = groupStreak(state, plan, 'physio', todayIso, s.startDate).best;
   const sleep = groupStreak(state, plan, 'sleep', todayIso, s.startDate).best;
-  const wake = habitStreak(state, 'wake', todayIso, s.startDate).best;
+  const rested = habitStreak(state, 'sleep_7', todayIso, s.startDate).best;
   const cap = habitStreak(state, 'app_cap', todayIso, s.startDate).best;
   const weekStreak = sessionWeekStreak(state, plan, s, todayIso).best;
   const increases = countWeightIncreases(state, plan);
@@ -36,7 +36,7 @@ export function badges(state, plan, todayIso) {
     { id: 'weeks_4', icon: '4W', title: 'Four in a row', desc: '4 full weeks back to back', cur: weekStreak, target: 4 },
     { id: 'physio_7', icon: 'P7', title: 'Physio week', desc: 'Both physio blocks 7 days running', cur: physio, target: 7 },
     { id: 'physio_30', icon: 'P30', title: 'Physio habit', desc: 'Both physio blocks 30 days running', cur: physio, target: 30 },
-    { id: 'wake_14', icon: 'W14', title: 'Body clock', desc: 'Up on time 14 days running', cur: wake, target: 14 },
+    { id: 'rested_14', icon: '7h', title: 'Well rested', desc: '7+ hours asleep 14 nights running', cur: rested, target: 14 },
     { id: 'sleep_7', icon: 'Z7', title: 'Sleep week', desc: 'All sleep habits 7 nights running', cur: sleep, target: 7 },
     { id: 'cap_21', icon: 'S21', title: 'Three week cap', desc: 'Under the app cap 21 days running, as in Hunt et al.', cur: cap, target: 21 },
     { id: 'first_up', icon: '+', title: 'Heavier', desc: 'First weight increase', cur: increases, target: 1 },

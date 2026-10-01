@@ -1,7 +1,7 @@
 // Small hand-built SVG charts. Colours come from CSS variables so light and dark both work.
-import { addDays, dayScore, scheduledSession, sessionIsDone, weekStart } from './logic.js';
+import { addDays, dayOfWeek, dayScore, scheduledSession, sessionIsDone, weekStart } from './logic.js';
 
-const DOW = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+const DOW = ['S', 'M', 'T', 'W', 'T', 'F', 'S']; // index = dayOfWeek
 
 export function heatmap(state, plan, settings, todayIso) {
   const cell = 30;
@@ -11,9 +11,10 @@ export function heatmap(state, plan, settings, todayIso) {
   const w = left + 7 * (cell + gap);
   const h = top + plan.weeks * (cell + gap);
   let out = `<svg class="chart" viewBox="0 0 ${w} ${h}" role="img" aria-label="Daily habit completion for all ${plan.weeks} weeks">`;
-  DOW.forEach((d, i) => {
+  for (let i = 0; i < 7; i += 1) {
+    const d = DOW[dayOfWeek(addDays(settings.startDate, i))];
     out += `<text x="${left + i * (cell + gap) + cell / 2}" y="11" class="axis" text-anchor="middle">${d}</text>`;
-  });
+  }
   for (let wk = 1; wk <= plan.weeks; wk += 1) {
     const y = top + (wk - 1) * (cell + gap);
     const deload = plan.deloadWeeks.includes(wk);

@@ -1,6 +1,6 @@
 // Today, Session and Settings screens. Each view returns { title, sub, nav, body } as HTML strings.
 import {
-  addDays, dayOfWeek, habitStreak, isDeload, isGolfMode, lastPerformance, parseIso, phaseFor,
+  addDays, dayOfWeek, daysBetween, habitStreak, isDeload, isGolfMode, lastPerformance, parseIso, phaseFor,
   progressionCall, scheduledSession, sessionIsDone, setsFor, sleepHours, topWeight, upMessage, weekOf,
 } from './logic.js';
 
@@ -37,7 +37,6 @@ export function todayView({ plan, state, date, today }) {
   const day = state.days[date] || {};
   const week = weekOf(date, s.startDate);
   const letter = state.sessions[date]?.letter || scheduledSession(date, plan, s);
-  const target = plan.wakeTargets[String(dayOfWeek(date))];
   const hours = sleepHours(day.asleep, day.wake);
   const isToday = date === today;
   const rows = (when) => plan.habits.filter((h) => h.when === when)
@@ -47,8 +46,8 @@ export function todayView({ plan, state, date, today }) {
 
   let banner = '';
   if (isDeload(week, plan)) banner = `<div class="banner">Deload week: half the sets, same weights.</div>`;
-  if (week === plan.retestWeek && dayOfWeek(date) === 5) banner = `<div class="banner">Retest day. Max push ups, goblet squat reps, single arm row reps.</div>`;
-  if (week === 2 && dayOfWeek(date) === 1) banner += `<div class="banner blue">This week: show the plan to your physio before week 3.</div>`;
+  if (scheduledSession(date, plan, s) === 'R') banner = `<div class="banner">Retest day. Max push ups, goblet squat reps, single arm row reps.</div>`;
+  if (daysBetween(s.startDate, date) === 7) banner += `<div class="banner blue">This week: show the plan to your physio before week 3.</div>`;
 
   let lift = '';
   if (letter) {
@@ -69,7 +68,7 @@ export function todayView({ plan, state, date, today }) {
         <label class="field">Woke up<input type="time" data-field="wake" value="${esc(day.wake)}"></label>
         <label class="field">Weight kg${weighDay ? ' ●' : ''}<input type="text" inputmode="decimal" data-field="weight" placeholder="${weighDay ? 'weigh in' : 'optional'}" value="${esc(day.weight)}"></label>
       </div>
-      <p class="sleep-note">${hours !== null ? `<b class="num">${hours.toFixed(1)} h</b> asleep. ` : ''}Wake target ${target}.</p>
+      <p class="sleep-note">${hours !== null ? `<b class="num">${hours.toFixed(1)} h</b> asleep.` : `Aim for ${plan.sleepTargetHours}+ hours. On a 06:15 alarm, that means asleep by 23:15.`}</p>
       ${rows('morning')}
     </section>
     ${lift}
@@ -128,7 +127,7 @@ function exerciseCard(ex, ctx, week, golf) {
   const reserve = ex.load === 'db' && ex.max !== null
     ? `<label class="toggle"><input type="checkbox" data-reserve="${ex.id}" ${session.reserve?.[ex.id] ? 'checked' : ''}>2+ reps left</label>` : '';
   return `<section class="card ex" id="ex-${ex.id}">
-    <h3>${esc(ex.name)}</h3>
+    <h3>${esc(ex.name)}${ex.priority ? ' <span class="tag">upper body priority</span>' : ''}</h3>
     <div class="sub num">${required} x ${range}${unit}${ex.each ? ' each side' : ''}, rest ${esc(ex.rest)}</div>
     <div class="cue">${esc(ex.cue)}</div>
     ${lastLine(last, ex, ctx.plan.maxDumbbellKg)}
@@ -192,7 +191,7 @@ export function settingsView({ plan, state, today }) {
     sub: 'Everything is saved on this phone only',
     nav: [],
     body: `<section class="card"><h2>Plan</h2>
-        <div class="settings-row"><span>Week 1 starts (a Monday)</span><input type="date" data-setting="startDate" value="${esc(s.startDate)}"></div>
+        <div class="settings-row"><span>Week 1 starts</span><input type="date" data-setting="startDate" value="${esc(s.startDate)}"></div>
         ${golf}
       </section>
       <section class="card"><h2>Backup</h2>
@@ -213,7 +212,7 @@ export function settingsView({ plan, state, today }) {
       <section class="card"><h2>Where the habits come from</h2>
         <ol class="list-plain fine">
           <li>7+ hours: Watson et al. 2015, <i>Sleep</i>. AASM and SRS consensus. Strong.</li>
-          <li>Regular wake time: Windred et al. 2024, <i>Sleep</i>. UK Biobank, observational.</li>
+          <li>Regular timing also matters: Windred et al. 2024, <i>Sleep</i>. UK Biobank, observational. Your work days already fix most wake times, so keep weekend lie-ins within about 2 hours.</li>
           <li>Phone away at night: Exelmans and Van den Bulck 2016, <i>Soc Sci Med</i> (survey), and stimulus control from CBT for insomnia, Edinger et al. 2021, <i>JCSM</i>. The phone step itself is an extrapolation.</li>
           <li>30 min social media: Hunt et al. 2018, <i>J Soc Clin Psychol</i>. Small student trial.</li>
           <li>Screen light before bed: Chang et al. 2015, <i>PNAS</i>. About 10 min later sleep, lab study of 12 people.</li>

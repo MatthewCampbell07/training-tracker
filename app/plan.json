@@ -1,5 +1,5 @@
 {
-  "startDate": "2026-10-05",
+  "startDate": "2026-10-01",
   "weeks": 12,
   "deloadWeeks": [
     6,
@@ -30,13 +30,13 @@
       "from": 7,
       "to": 11,
       "name": "Build, harder",
-      "note": "Add a 4th set to the 2 or 3 exercises you most want to grow. Isolation work can go to failure."
+      "note": "Priority exercises (marked) get a 4th set: chest, shoulders and arms. Isolation work can go to failure."
     },
     {
       "from": 12,
       "to": 12,
       "name": "Deload and retest",
-      "note": "Half sets on Monday and Wednesday. Retest on Friday: max push ups, goblet squat reps, single arm row reps."
+      "note": "Half sets in the first two sessions. Retest in the last session: max push ups, goblet squat reps, single arm row reps."
     }
   ],
   "schedule": {
@@ -56,7 +56,7 @@
       "3": "17:30",
       "5": "16:30"
     },
-    "liftMinutes": 60,
+    "liftMinutes": 70,
     "physioAm": {
       "1": "06:25",
       "2": "07:40",
@@ -75,7 +75,6 @@
       0
     ],
     "phoneAway": "22:30",
-    "lightsOut": "22:45",
     "reviewDay": 0,
     "reviewTime": "19:00"
   },
@@ -123,7 +122,8 @@
           "unit": "reps",
           "load": "db",
           "rest": "2 min",
-          "cue": "Shoulder blades back and down."
+          "cue": "Shoulder blades back and down.",
+          "priority": true
         },
         {
           "id": "db_rdl",
@@ -146,6 +146,30 @@
           "load": "band",
           "rest": "60 sec",
           "cue": "Arms straight, thumbs up, 2 sec hold."
+        },
+        {
+          "id": "lateral_raise_a",
+          "name": "Lateral raise (superset)",
+          "sets": 3,
+          "min": 12,
+          "max": 20,
+          "unit": "reps",
+          "load": "db",
+          "rest": "none",
+          "cue": "Light, lead with elbows, stop at shoulder height. Straight into hammer curls.",
+          "priority": true
+        },
+        {
+          "id": "hammer_curl",
+          "name": "Hammer curl (superset)",
+          "sets": 3,
+          "min": 10,
+          "max": 15,
+          "unit": "reps",
+          "load": "db",
+          "rest": "60 sec",
+          "cue": "Palms facing, elbows still, shoulder blades back.",
+          "priority": true
         },
         {
           "id": "table_top",
@@ -219,7 +243,8 @@
           "unit": "reps",
           "load": "bw",
           "rest": "90 sec",
-          "cue": "Push the floor away at the top."
+          "cue": "Push the floor away at the top.",
+          "priority": true
         },
         {
           "id": "lateral_raise",
@@ -230,7 +255,20 @@
           "unit": "reps",
           "load": "db",
           "rest": "60 sec",
-          "cue": "Light, lead with elbows, stop at shoulder height."
+          "cue": "Light, lead with elbows, stop at shoulder height.",
+          "priority": true
+        },
+        {
+          "id": "lying_tricep",
+          "name": "Lying DB tricep extension, on the floor",
+          "sets": 3,
+          "min": 10,
+          "max": 15,
+          "unit": "reps",
+          "load": "db",
+          "rest": "60 sec",
+          "cue": "Palms facing, elbows point up, lower to beside the ears.",
+          "priority": true
         },
         {
           "id": "pallof",
@@ -281,7 +319,8 @@
           "unit": "reps",
           "load": "bw",
           "rest": "2 min",
-          "cue": "Chest to floor with control."
+          "cue": "Chest to floor with control.",
+          "priority": true
         },
         {
           "id": "sl_rdl",
@@ -315,7 +354,8 @@
           "unit": "reps",
           "load": "db",
           "rest": "none",
-          "cue": "Straight into the tricep extension."
+          "cue": "Straight into the tricep extension.",
+          "priority": true
         },
         {
           "id": "tricep_ext",
@@ -326,7 +366,8 @@
           "unit": "reps",
           "load": "db",
           "rest": "60 sec",
-          "cue": "Take both close to failure."
+          "cue": "Take both close to failure.",
+          "priority": true
         },
         {
           "id": "suitcase_carry",
@@ -385,11 +426,11 @@
   },
   "habits": [
     {
-      "id": "wake",
-      "label": "Up by wake time",
+      "id": "sleep_7",
+      "label": "7+ hours asleep",
       "group": "sleep",
       "when": "morning",
-      "hint": "Ticks itself from your wake time"
+      "hint": "Ticks itself from your sleep and wake times"
     },
     {
       "id": "phone_away",
@@ -397,12 +438,6 @@
       "group": "sleep",
       "when": "morning",
       "hint": "Sleep timer on, phone across the room"
-    },
-    {
-      "id": "lights_out",
-      "label": "Last night: lights out by 22:45",
-      "group": "sleep",
-      "when": "morning"
     },
     {
       "id": "app_cap",
@@ -429,20 +464,12 @@
     "db_rdl",
     "db_row_1arm",
     "floor_press",
-    "rfe_split_squat",
-    "hk_press"
+    "hk_press",
+    "db_curl"
   ],
   "gymCheck": [
     "goblet_squat",
     "db_rdl"
   ],
-  "wakeTargets": {
-    "1": "06:15",
-    "2": "07:00",
-    "3": "06:15",
-    "4": "07:00",
-    "5": "07:00",
-    "6": "08:00",
-    "0": "08:00"
-  }
+  "sleepTargetHours": 7
 }

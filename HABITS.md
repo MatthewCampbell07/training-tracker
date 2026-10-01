@@ -1,19 +1,20 @@
 # Sleep and screen habits
 
-Four habits, each a yes or no. You tick all four in the morning check-in, and the app works out sleep hours from the times you enter.
+Three habits, each a yes or no. You tick them in the morning check-in. The app works out your sleep hours from your times and ticks the first one for you.
 
 | Habit | Target |
 |---|---|
-| Up by wake time | 06:15 office days, 07:00 home days, 08:00 weekends. The app ticks this for you from your wake time. |
+| 7+ hours asleep | Ticks itself from your times. On a 06:15 alarm, that means asleep by 23:15. |
 | Phone away by 22:30 | Start the sleep music timer, put the phone across the room, Sleep Focus on |
-| Lights out by 22:45 | With a 06:15 alarm, that gives about 7.5 hours |
 | Insta and TikTok under 30 min | Check Settings > Screen Time the next morning |
+
+**Why hours, not a fixed wake time.** Getting enough sleep has the strongest evidence, so that's the one we count. Regular timing matters too, but your office days already fix your wake time on Mon and Wed. The one rule worth keeping is to sleep in no more than about 2 hours at the weekend. That isn't a daily tick.
 
 ## What the evidence says
 
-**7 or more hours a night.** This comes from Watson et al. 2015, *Sleep*: a consensus statement from the American Academy of Sleep Medicine and the Sleep Research Society. It's strong. Right now you get about 6h45 on office days.
+**7 or more hours a night.** This comes from Watson et al. 2015, *Sleep*: a consensus statement from the American Academy of Sleep Medicine and the Sleep Research Society. It's strong. Right now you get about 6h45 on office days. This is now the habit you tick.
 
-**A regular wake time.** Windred et al. 2024, *Sleep*, used UK Biobank data from about 60,000 people. Regular sleep timing predicted mortality better than sleep length did. It's observational, so it shows a link and doesn't prove that regularity is the cause. The 08:00 weekend cap is my judgement call to keep lie-ins short. The studies don't set that number.
+**Regular timing.** Windred et al. 2024, *Sleep*, used UK Biobank data from about 60,000 people. Regular sleep timing predicted mortality better than sleep length did. It's observational, so it shows a link and doesn't prove regularity is the cause. That's why the weekend lie-in guide is there. The 2 hour figure is a rule of thumb, not a number from a trial.
 
 **Phone away before bed.** Exelmans and Van den Bulck 2016, *Social Science & Medicine*, found that adults who used their phone in bed slept later and worse. That's survey data, so it could be reverse cause (people who sleep badly reach for the phone). Keeping the bed for sleep comes from stimulus control, part of CBT for insomnia, which has strong evidence (Edinger et al. 2021, *Journal of Clinical Sleep Medicine*). Putting the phone across the room applies that idea. It hasn't been tested as a habit on its own.
 

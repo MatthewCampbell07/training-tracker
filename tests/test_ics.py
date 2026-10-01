@@ -12,8 +12,9 @@ import recurring_ical_events
 
 ROOT = Path(__file__).resolve().parent.parent
 LONDON = ZoneInfo("Europe/London")
-START = date(2026, 10, 5)
-END = date(2026, 12, 27)
+START = date(2026, 10, 1)
+END = date(2026, 12, 23)
+RETEST = date(2026, 12, 23)
 PLAN = json.loads((ROOT / "app" / "plan.json").read_text())
 
 
@@ -45,7 +46,7 @@ def test_36_lifts_on_mon_wed_fri_with_right_week_numbers(events):
         week = (d - START).days // 7 + 1
         title = str(e["SUMMARY"])
         assert f"week {week}" in title
-        if d == date(2026, 12, 25):
+        if d == RETEST:
             assert title.startswith("Retest")
         else:
             assert title.startswith(expected[d.weekday()])
@@ -61,7 +62,7 @@ def test_deload_tag_only_on_weeks_6_and_12(events):
 
 def test_deload_all_day_banners(events):
     deloads = sorted((e["DTSTART"].dt, e["DTEND"].dt) for e in events if str(e["SUMMARY"]).startswith("Deload"))
-    assert deloads == [(date(2026, 11, 9), date(2026, 11, 16)), (date(2026, 12, 21), date(2026, 12, 28))]
+    assert deloads == [(date(2026, 11, 5), date(2026, 11, 12)), (date(2026, 12, 17), date(2026, 12, 24))]
 
 
 def test_clock_change_keeps_local_times(events):
@@ -116,12 +117,18 @@ def test_golf_mode_drops_fridays_and_uses_2_sets(tmp_path):
     lifts = [e for e in events if str(e["SUMMARY"]).startswith(("Session", "Retest"))]
     before = [e for e in lifts if e["DTSTART"].dt.date() < date(2026, 11, 16)]
     after = [e for e in lifts if e["DTSTART"].dt.date() >= date(2026, 11, 16)]
-    assert len(before) == 18
+    assert len(before) == 19
     assert len(after) == 12 and {e["DTSTART"].dt.weekday() for e in after} == {0, 2}
     assert all("Golf mode" in str(e["DESCRIPTION"]) for e in after)
 
 
-def test_start_must_be_monday(tmp_path):
-    r = subprocess.run([sys.executable, str(ROOT / "calendar" / "make_ics.py"), "--start", "2026-10-06",
-                        "--out", str(tmp_path / "x.ics")], capture_output=True, text=True)
-    assert r.returncode != 0 and "must be a Monday" in r.stderr
+def test_retest_is_wednesday_23_dec_not_christmas(events):
+    retests = starts(events, "Retest")
+    assert [d.date() for d in retests] == [RETEST]
+
+
+def test_priority_lifts_get_4_sets_in_week_8(events):
+    week8_a = next(e for e in events if str(e["SUMMARY"]) == "Session A, week 8")
+    desc = str(week8_a["DESCRIPTION"])
+    assert "DB floor press, neutral grip: 4 x 8-12 *" in desc
+    assert "Goblet squat: 3 x 8-12" in desc

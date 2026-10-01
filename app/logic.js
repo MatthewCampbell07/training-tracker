@@ -1,6 +1,8 @@
 // Pure functions: no DOM, no storage. Imported by the app and by tests/logic.test.mjs.
 
 const DAY_MS = 86400000;
+// Weeks where priority (upper body) exercises get a 4th set, from the plan's 'Build, harder' phase.
+const PRIORITY_WEEKS = [7, 11];
 
 export function parseIso(iso) {
   const [y, m, d] = iso.split('-').map(Number);
@@ -56,14 +58,24 @@ export function isGolfMode(iso, settings) {
   return Boolean(settings.golfFrom) && iso >= settings.golfFrom;
 }
 
+function normalLetter(iso, plan) {
+  return plan.schedule.normal[String(dayOfWeek(iso))] || null;
+}
+
 // Which session (A, B, C, R or null) is scheduled on a date.
+// The retest replaces the last session of the retest week, whatever weekday the plan starts on.
 export function scheduledSession(iso, plan, settings) {
   if (!inPlan(iso, plan, settings.startDate)) return null;
-  const dow = String(dayOfWeek(iso));
-  if (isGolfMode(iso, settings)) return plan.schedule.golf[dow] || null;
-  const letter = plan.schedule.normal[dow] || null;
+  if (isGolfMode(iso, settings)) return plan.schedule.golf[String(dayOfWeek(iso))] || null;
+  const letter = normalLetter(iso, plan);
+  if (!letter) return null;
   const week = weekOf(iso, settings.startDate);
-  if (letter === 'C' && week === plan.retestWeek) return 'R';
+  if (week === plan.retestWeek) {
+    const weekEnd = addDays(weekStart(week, settings.startDate), 6);
+    let lastLift = weekEnd;
+    while (!normalLetter(lastLift, plan)) lastLift = addDays(lastLift, -1);
+    if (iso === lastLift) return 'R';
+  }
   return letter;
 }
 
@@ -72,6 +84,7 @@ export function setsFor(exercise, week, plan, golf) {
   if (golf) return 2;
   if (week === 1) return 2;
   if (isDeload(week, plan)) return Math.ceil(exercise.sets / 2);
+  if (exercise.priority && week >= PRIORITY_WEEKS[0] && week <= PRIORITY_WEEKS[1]) return exercise.sets + 1;
   return exercise.sets;
 }
 
