@@ -77,7 +77,7 @@ export function weekView(ctx) {
   const names = Object.fromEntries(allExercises(plan).map((e) => [e.id, e.name]));
   const pain = recentPain(state, today);
   const painCard = pain.length ? `<section class="card"><h2>Pain flags, last 14 days</h2><ul class="list-plain">${pain.map((p) => `<li><b>${esc(names[p.exId] || p.exId)}</b>, ${fmtDate(p.date)}</li>`).join('')}</ul>
-      <p class="fine">Keep the weight the same or lighter on these. If the pain is sharp, builds with each rep, or lasts into the next day, show your physio before doing that exercise again.</p></section>` : '';
+      <p class="fine">Keep the weight the same or lighter on these. If the pain is sharp, builds with each rep, or lasts into the next day, drop that exercise and see your GP if it keeps coming back.</p></section>` : '';
 
   return {
     title: `Week ${week}`,

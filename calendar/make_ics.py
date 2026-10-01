@@ -221,9 +221,6 @@ def build(plan, start: date, golf_from: date | None, stamp: str) -> str:
             note += f" Retest on {retest_day:%A %d %B}."
         out += all_day(f"deload-w{w}", f"Deload week {w}", first, 7, note, stamp)
 
-    out += all_day("physio-signoff", "Show the plan to your physio before week 3", start + timedelta(days=7), 1,
-                   "Overhead pressing and single leg RDLs are not on the physio sheets.", stamp)
-
     out.append("END:VCALENDAR")
     lines = []
     for block in out:

@@ -209,7 +209,7 @@
           "load": "db",
           "each": true,
           "rest": "2 min",
-          "cue": "Squeeze the kneeling glute, ribs down. Start light."
+          "cue": "Squeeze the kneeling glute, ribs down. Not on your physio sheets, so start very light. If you flag pain, swap it for an extra set of floor press."
         },
         {
           "id": "band_pulldown",
@@ -332,7 +332,7 @@
           "load": "db",
           "each": true,
           "rest": "90 sec",
-          "cue": "Balance drill. Hand on wall if needed."
+          "cue": "Balance drill, hand on wall if needed. Not on your physio sheets, so keep it light. If you flag pain, swap it for a single leg glute bridge."
         },
         {
           "id": "reverse_fly",

@@ -1,6 +1,6 @@
 // Today, Session and Settings screens. Each view returns { title, sub, nav, body } as HTML strings.
 import {
-  addDays, dayOfWeek, daysBetween, habitStreak, isDeload, isGolfMode, lastPerformance, parseIso, phaseFor,
+  addDays, dayOfWeek, habitStreak, isDeload, isGolfMode, lastPerformance, parseIso, phaseFor,
   progressionCall, scheduledSession, sessionIsDone, setsFor, sleepHours, topWeight, upMessage, weekOf,
 } from './logic.js';
 
@@ -47,7 +47,6 @@ export function todayView({ plan, state, date, today }) {
   let banner = '';
   if (isDeload(week, plan)) banner = `<div class="banner">Deload week: half the sets, same weights.</div>`;
   if (scheduledSession(date, plan, s) === 'R') banner = `<div class="banner">Retest day. Max push ups, goblet squat reps, single arm row reps.</div>`;
-  if (daysBetween(s.startDate, date) === 7) banner += `<div class="banner blue">This week: show the plan to your physio before week 3.</div>`;
 
   let lift = '';
   if (letter) {
@@ -96,7 +95,7 @@ function lastLine(last, ex, maxKg) {
 }
 
 export function callHtml(ex, sets, required, maxKg, pain = false) {
-  if (pain) return '<span class="call up">Pain: same or lighter weight next time. Sharp, building or lingering pain goes to your physio first.</span>';
+  if (pain) return '<span class="call up">Pain: same or lighter weight next time. If it is sharp, builds with each rep or lasts into the next day, drop this exercise and see your GP.</span>';
   const call = progressionCall(ex, sets, required);
   if (call === 'up') return `<span class="call up">${esc(upMessage(ex, topWeight(sets), maxKg))}</span>`;
   if (call === 'hold') return `<span class="call hold">Same weight next time, beat the reps</span>`;
