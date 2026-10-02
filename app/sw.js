@@ -1,6 +1,6 @@
 // Offline support. Serves the saved copy first, then refreshes it in the background.
 // Bump VERSION when you change any app file so phones pick up the new copy.
-const VERSION = 'tt-v5';
+const VERSION = 'tt-v6';
 const FILES = ['./', 'index.html', 'styles.css', 'app.js', 'logic.js', 'store.js', 'views.js', 'stats-views.js',
   'badges.js', 'charts.js', 'plan.json', 'manifest.webmanifest', 'icon-180.png', 'icon-192.png', 'icon-512.png'];
 

@@ -79,12 +79,30 @@
     "reviewTime": "19:00"
   },
   "warmup": [
-    "Wall walk out 2 x 10 sec",
-    "Band shoulder exercise 2 sets, shoulder blade and chin back",
-    "Standing row 2.5 kg, 1 x 10 with 6 sec hold",
-    "Band hip abduction, 3 steps each side x 2",
-    "Table top leg extensions, 1 set to fatigue",
-    "Ramp up set: 1 easy set at half the working weight"
+    {
+      "name": "Wall walk out 2 x 10 sec",
+      "how": "warm_wall_walk"
+    },
+    {
+      "name": "Band shoulder exercise, 2 sets",
+      "how": "warm_band_shoulder"
+    },
+    {
+      "name": "Standing row 2.5 kg, 1 x 10 with 6 sec hold",
+      "how": "warm_row"
+    },
+    {
+      "name": "Band hip abduction, 3 steps each side x 2",
+      "how": "warm_hip_abd"
+    },
+    {
+      "name": "Table top leg extensions, 1 set to fatigue",
+      "how": "table_top"
+    },
+    {
+      "name": "Ramp up set at half your working weight",
+      "how": "warm_ramp"
+    }
   ],
   "sessions": {
     "A": {
@@ -157,7 +175,8 @@
           "load": "db",
           "rest": "none",
           "cue": "Light, lead with elbows, stop at shoulder height. Straight into hammer curls.",
-          "priority": true
+          "priority": true,
+          "how": "lateral_raise"
         },
         {
           "id": "hammer_curl",
@@ -457,5 +476,240 @@
       "name": "Single leg Romanian deadlift",
       "from": "Session C"
     }
-  ]
+  ],
+  "howTo": {
+    "goblet_squat": {
+      "steps": [
+        "Hold one dumbbell upright against your chest, hands cupped under the top end.",
+        "Feet hip width, toes turned out. Ribs down, pelvis tucked.",
+        "Sit down between your heels over 3 seconds, knees following your toes, chest up.",
+        "Go as deep as you can while holding that position, then stand up in about 1 second."
+      ],
+      "video": "dumbbell goblet squat form"
+    },
+    "db_row_1arm": {
+      "steps": [
+        "Put one hand and the same knee on a bench, sofa or sturdy chair. Other foot on the floor, back flat.",
+        "Let the dumbbell hang under your shoulder. Set the shoulder blade back and tuck your chin.",
+        "Pull your elbow towards your back pocket and squeeze for 1 second.",
+        "Lower over 3 seconds. Do all your reps, then switch sides."
+      ],
+      "video": "one arm dumbbell row form"
+    },
+    "floor_press": {
+      "steps": [
+        "Lie on your back on the floor, knees bent, a dumbbell in each hand with palms facing each other.",
+        "Squeeze your shoulder blades back and down into the floor.",
+        "Press the dumbbells straight up over your chest.",
+        "Lower until your upper arms lightly touch the floor, pause, then press again."
+      ],
+      "video": "neutral grip dumbbell floor press"
+    },
+    "db_rdl": {
+      "steps": [
+        "Stand tall with a dumbbell in each hand in front of your thighs, knees soft.",
+        "Push your hips back and slide the dumbbells down your thighs. Keep your back flat.",
+        "Stop when you feel a strong stretch in your hamstrings, usually around or just below the knee.",
+        "Drive your hips forward and squeeze your glutes to stand up. Do not lean back at the top."
+      ],
+      "video": "dumbbell romanian deadlift form"
+    },
+    "band_pull_apart": {
+      "steps": [
+        "Hold a band at shoulder height, arms straight, hands shoulder width apart, thumbs up.",
+        "Set your shoulder blades back and tuck your chin.",
+        "Pull the band apart until it touches your chest and hold for 2 seconds.",
+        "Return slowly. Keep your shoulders down, no shrugging."
+      ],
+      "video": "band pull apart form"
+    },
+    "lateral_raise": {
+      "steps": [
+        "Stand tall with a light dumbbell in each hand at your sides.",
+        "Keep a slight bend in your elbows and raise your arms out to the sides, leading with the elbows.",
+        "Stop at shoulder height and pause briefly.",
+        "Lower over 2 to 3 seconds. No swinging."
+      ],
+      "video": "dumbbell lateral raise form"
+    },
+    "hammer_curl": {
+      "steps": [
+        "Stand tall with a dumbbell in each hand, palms facing your thighs.",
+        "Keep your elbows pinned to your sides and your shoulder blades back.",
+        "Curl the dumbbells up without turning your palms.",
+        "Lower slowly until your arms are straight."
+      ],
+      "video": "dumbbell hammer curl form"
+    },
+    "table_top": {
+      "steps": [
+        "Lie on your back with your knees bent at 90 degrees above your hips and your shins level (the table top).",
+        "Gently press your lower back into the floor.",
+        "Slowly straighten one leg out towards the floor, then bring it back. Alternate legs.",
+        "Stop the set when your lower back starts to lift. This is your physio exercise, so if your sheet shows it differently, follow the sheet."
+      ],
+      "video": null
+    },
+    "rfe_split_squat": {
+      "steps": [
+        "Stand about a stride in front of a chair or sofa and rest the top of your back foot on it.",
+        "Hold the dumbbells at your sides. Turn your front foot slightly out if that feels better.",
+        "Lower straight down until your back knee is near the floor, front knee tracking over your toes.",
+        "Push through your front foot to stand up. Do all your reps, then switch legs."
+      ],
+      "video": "rear foot elevated split squat dumbbell form"
+    },
+    "band_pulldown": {
+      "steps": [
+        "Anchor a band high on a door: shut the door anchor in the door above head height.",
+        "Kneel or stand facing the door, arms reaching up and holding the band.",
+        "Tuck your chin and pull your elbows down to your ribs, squeezing your shoulder blades down.",
+        "Return slowly."
+      ],
+      "video": "resistance band lat pulldown door anchor"
+    },
+    "sl_glute_bridge": {
+      "steps": [
+        "Lie on your back with one knee bent and that foot flat. Lift the other leg or hug it to your chest. Rest a dumbbell on your hips.",
+        "Tuck your pelvis under so your lower back flattens.",
+        "Push through your heel and lift your hips until your body is straight from knee to shoulder. Squeeze the glute.",
+        "Lower slowly. You should feel it in your glute, not your lower back."
+      ],
+      "video": "single leg glute bridge form"
+    },
+    "push_up_plus": {
+      "steps": [
+        "Get into a push up position with your hands under your shoulders. Put your hands on a worktop to make it easier.",
+        "Do a normal push up with your body in a straight line.",
+        "At the top, push the floor further away so your upper back rounds slightly and your shoulder blades wrap around your ribs.",
+        "Relax back to a normal top position, then do the next rep."
+      ],
+      "video": "push up plus serratus"
+    },
+    "lying_tricep": {
+      "steps": [
+        "Lie on the floor, knees bent, a dumbbell in each hand, arms straight above your shoulders, palms facing each other.",
+        "Keep your upper arms still and your elbows pointing at the ceiling.",
+        "Bend your elbows to lower the dumbbells beside your ears.",
+        "Straighten your arms back up."
+      ],
+      "video": "lying dumbbell tricep extension neutral grip"
+    },
+    "pallof": {
+      "steps": [
+        "Anchor a band at chest height, beside you (door anchor or a post).",
+        "Stand side on to the anchor, feet hip width, holding the band with both hands at your chest.",
+        "Press your hands straight out in front of you. Do not let the band twist you round.",
+        "Hold 2 seconds, then bring your hands back in. Do all your reps, then face the other way."
+      ],
+      "video": "pallof press band form"
+    },
+    "reverse_lunge": {
+      "steps": [
+        "Stand tall with dumbbells at your sides, feet hip width, toes slightly out.",
+        "Step one foot back and lower until your back knee is near the floor.",
+        "Keep your front knee tracking over your toes. Do not let your back leg cross the midline.",
+        "Push through your front foot to step back up. Step up option: step onto a sturdy step or bench instead."
+      ],
+      "video": "dumbbell reverse lunge form"
+    },
+    "chest_row": {
+      "steps": [
+        "Lie face down on a bench, or with your chest over the arm of a sofa or the end of a bed. Let a dumbbell hang from each hand.",
+        "Set your shoulder blades back and tuck your chin.",
+        "Pull both elbows back towards your back pockets and pause for 1 second.",
+        "Lower over 3 seconds."
+      ],
+      "video": "chest supported dumbbell row"
+    },
+    "push_up": {
+      "steps": [
+        "Put your hands slightly wider than your shoulders, body straight from head to heels, ribs down, glutes squeezed.",
+        "Lower your chest to the floor with control, elbows about 45 degrees from your body.",
+        "Push back up.",
+        "Too hard: put your hands on a worktop. Too easy: put your feet on a chair."
+      ],
+      "video": "push up proper form"
+    },
+    "reverse_fly": {
+      "steps": [
+        "Hinge forward from your hips with a flat back, a light dumbbell in each hand hanging under your chest.",
+        "Point your thumbs forward and keep a slight bend in your elbows.",
+        "Raise your arms out to the sides until they're level with your body, squeezing your shoulder blades.",
+        "Lower slowly."
+      ],
+      "video": "bent over dumbbell reverse fly"
+    },
+    "db_curl": {
+      "steps": [
+        "Stand tall with a dumbbell in each hand, palms facing forward.",
+        "Keep your elbows pinned to your sides.",
+        "Curl the dumbbells up to your shoulders.",
+        "Lower slowly until your arms are straight, then go straight into the tricep extension."
+      ],
+      "video": "dumbbell bicep curl form"
+    },
+    "tricep_ext": {
+      "steps": [
+        "Hold one dumbbell with both hands under the top end, arms straight above your head. Sit or stand tall, ribs down.",
+        "Keep your elbows pointing forward and close to your head.",
+        "Bend your elbows to lower the dumbbell behind your head.",
+        "Straighten back up. If your shoulder feels pinched, swap to the lying version from Session B."
+      ],
+      "video": "overhead dumbbell tricep extension two hands"
+    },
+    "suitcase_carry": {
+      "steps": [
+        "Hold one heavy dumbbell at your side, like a suitcase.",
+        "Stand tall, ribs down, pelvis level. Do not lean towards the weight.",
+        "Walk slowly for the set time, then swap hands.",
+        "Side plank option: lie on your side, forearm under your shoulder, lift your hips into a straight line and hold."
+      ],
+      "video": "suitcase carry form"
+    },
+    "warm_wall_walk": {
+      "steps": [
+        "Stand facing a wall with your palm on it at shoulder height.",
+        "Squeeze your shoulder blades together and tuck your chin.",
+        "Tuck your pelvis and step your feet back so you lean into the stretch.",
+        "Hold 10 seconds. This is your physio exercise, so follow the photo on your sheet."
+      ],
+      "video": null
+    },
+    "warm_band_shoulder": {
+      "steps": [
+        "Hold a band with both hands in front of you.",
+        "Set your shoulder blades back and tuck your chin.",
+        "Pull the band apart evenly and hold 10 seconds, at chest height, then low, then high.",
+        "This is your physio exercise, so follow the photos on your sheet."
+      ],
+      "video": null
+    },
+    "warm_row": {
+      "steps": [
+        "Hold a 2.5 kg dumbbell with your elbow bent to 90 degrees.",
+        "Set your shoulder blade back and tuck your chin.",
+        "Pull your elbow back towards the opposite back pocket and hold 6 seconds.",
+        "Do 10 reps each side. Follow your physio sheet for the exact position."
+      ],
+      "video": null
+    },
+    "warm_hip_abd": {
+      "steps": [
+        "Put a band around your forefeet, feet hip width.",
+        "Bend your knees slightly, ribs down, pelvis tucked.",
+        "Take 3 steps sideways, keeping tension on the band, then 3 steps back.",
+        "Do 2 rounds. Follow your physio sheet."
+      ],
+      "video": null
+    },
+    "warm_ramp": {
+      "steps": [
+        "Pick the first exercise of the session.",
+        "Do one easy set at about half your working weight.",
+        "Use it to practise the position and cues, not to tire yourself out."
+      ],
+      "video": null
+    }
+  }
 }

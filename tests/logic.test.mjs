@@ -144,3 +144,13 @@ test('pain flag blocks the gym check and shows up in recent pain', () => {
   assert.deepEqual(L.recentPain(state, '2026-11-05'), [{ date: '2026-11-02', exId: 'goblet_squat' }]);
   assert.deepEqual(L.recentPain(state, '2026-11-30'), []);
 });
+
+test('every exercise and warm-up item has written steps', () => {
+  const keys = [
+    ...Object.values(plan.sessions).flatMap((s) => s.exercises.map((e) => e.how || e.id)),
+    ...plan.warmup.map((w) => w.how),
+  ];
+  for (const k of keys) {
+    assert.ok(plan.howTo[k]?.steps?.length >= 3, `missing steps for ${k}`);
+  }
+});

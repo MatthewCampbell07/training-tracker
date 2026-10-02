@@ -257,3 +257,11 @@ nav.tabs button[aria-current="page"] { color: var(--red); }
 .fine { font-size: 13px; color: var(--muted); }
 .fine a { color: var(--blue); }
 .tag { font: 700 10px var(--font); text-transform: uppercase; letter-spacing: 0.06em; color: var(--red); background: var(--red-soft); padding: 2px 6px; border-radius: 6px; vertical-align: 2px; white-space: nowrap; }
+details.how { margin: 6px 0 10px; border: 1.5px solid var(--line); border-radius: var(--radius-sm); padding: 8px 12px; background: var(--bg); }
+details.how summary { cursor: pointer; font-weight: 700; font-size: 14px; color: var(--blue); }
+details.how[open] summary { margin-bottom: 6px; }
+details.how ol { margin: 0 0 10px; padding-left: 20px; font-size: 14px; }
+details.how li { margin: 5px 0; }
+.btn.video { display: inline-block; text-decoration: none; font-size: 14px; padding: 9px 14px; }
+.warm-list details.how { background: var(--card); }
+.warm-list details.how summary { color: var(--ink); font-weight: 600; }

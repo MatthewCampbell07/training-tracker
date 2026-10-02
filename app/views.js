@@ -85,6 +85,18 @@ export function todayView({ plan, state, date, today }) {
   };
 }
 
+const YOUTUBE = 'https://www.youtube.com/results?search_query=';
+
+// Written steps plus a YouTube search. Physio exercises have no video: the physio sheet photos are the reference.
+export function howToHtml(plan, key, label = 'How to do it') {
+  const how = plan.howTo[key];
+  if (!how) return '';
+  const video = how.video
+    ? `<a class="btn ghost video" href="${YOUTUBE}${encodeURIComponent(how.video)}" target="_blank" rel="noopener">Watch videos on YouTube</a>`
+    : '<p class="fine">No video for this one. It is your physio\'s version, so use the photo on your sheet.</p>';
+  return `<details class="how"><summary>${esc(label)}</summary><ol>${how.steps.map((s) => `<li>${esc(s)}</li>`).join('')}</ol>${video}</details>`;
+}
+
 function lastLine(last, ex, maxKg) {
   if (!last) return '<div class="last">First time. Start light.</div>';
   const reps = last.sets.map((x) => x.r).join(', ');
@@ -129,6 +141,7 @@ function exerciseCard(ex, ctx, week, golf) {
     <h3>${esc(ex.name)}${ex.priority ? ' <span class="tag">upper body priority</span>' : ''}</h3>
     <div class="sub num">${required} x ${range}${unit}${ex.each ? ' each side' : ''}, rest ${esc(ex.rest)}</div>
     <div class="cue">${esc(ex.cue)}</div>
+    ${howToHtml(ctx.plan, ex.how || ex.id)}
     ${lastLine(last, ex, ctx.plan.maxDumbbellKg)}
     ${rows}
     <div class="ex-foot">
@@ -157,7 +170,7 @@ export function sessionView(ctx) {
   const phase = phaseFor(week, plan);
 
   const chips = letters.map((l) => `<button class="chip" data-letter="${l}" aria-pressed="${l === letter}">${l}</button>`).join('');
-  const warm = session.retest ? '' : `<details class="card warm"><summary>Warm up, 8 to 10 min</summary><ol>${plan.warmup.map((w) => `<li>${esc(w)}</li>`).join('')}</ol></details>`;
+  const warm = session.retest ? '' : `<details class="card warm"><summary>Warm up, 8 to 10 min</summary><div class="warm-list">${plan.warmup.map((w) => howToHtml(plan, w.how, w.name)).join('')}</div></details>`;
   const cards = session.exercises.map((ex) => exerciseCard(ex, ctx, week, golf)).join('');
   const finish = done
     ? `<button class="btn ghost block" data-action="unfinish">Session done. Tap to undo</button>`

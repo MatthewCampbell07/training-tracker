@@ -131,7 +131,7 @@ def session_description(letter, week, plan, golf):
         lines.append("Golf mode: 2 sets per exercise.")
     lines.append("")
     if not session.get("retest"):
-        lines.append("Warm up: " + "; ".join(plan["warmup"]))
+        lines.append("Warm up: " + "; ".join(w["name"] for w in plan["warmup"]))
         lines.append("")
     for ex in session["exercises"]:
         n = sets_for(ex, week, plan, golf)
@@ -142,7 +142,7 @@ def session_description(letter, week, plan, golf):
         lines.append(f"{ex['name']}: {n} x {rng}{unit}{each}{star}")
     lines.append("")
     lines.append("* upper body priority (4 sets in weeks 7 to 11)")
-    lines.append("Log every set in the Training app.")
+    lines.append("Log every set in the Training app. Tap How to do it on any exercise for steps and videos.")
     return "\n".join(lines)
 
 
