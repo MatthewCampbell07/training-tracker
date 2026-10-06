@@ -36,11 +36,11 @@ The repo is public because free GitHub Pages needs that. It only holds the plan 
 
 ## 3. Daily use
 
-- **Morning (2 min):** on the Today tab, enter when you fell asleep, when you woke, and your weight on weigh-in days. Tick last night's habits. "7+ hours asleep" ticks itself from your times.
+- **Morning (1 min):** on the Today tab, adjust your sleep and wake times with − and +, or tap **Log sleep** if they're right. "7+ hours asleep" ticks itself. Add your weight on weigh-in days and tick last night's habits.
 - **Physio:** tick the morning and evening blocks when they're done.
-- **Lift days:** tap the blue session card. Enter kg and reps for each set. Exercises tagged "upper body priority" get a 4th set in weeks 7 to 11. A red label tells you when to add weight. Tick "2+ reps left" on goblet squat and RDL so the gym check works. Tap **Finish session**.
+- **Lift days:** tap the blue session card. Each exercise shows **Today's** target weight and reps, worked out from last time. Tap ✓ on a set if you hit it, or type what you actually did. Body-weight and band exercises only ask for reps. Set your smallest dumbbell jump in Settings. Exercises tagged "upper body priority" get a 4th set in weeks 7 to 11. A red label tells you when to add weight. Tick "2+ reps left" on goblet squat and RDL so the gym check works. Tap **Finish session**.
 - **Sunday review:** look at the Week tab, then Settings > **Save backup** to iCloud Drive.
-- **Stats:** badges, streaks, a 12 week heatmap, key lifts against the 20 kg line, body weight and sleep.
+- **Stats:** badges, streaks, a 12 week heatmap, body weight and sleep.
 
 To fill in a missed day, use the arrows at the top of Today.
 
@@ -82,7 +82,7 @@ npm test
 .venv/bin/python tests/preview.py 3
 ```
 
-- `npm test`: 16 tests covering week numbers, the schedule, the retest day, sets per week including 4th priority sets, the progression rule, streaks, the gym check, pain flags and badges
+- `npm test`: 24 tests covering week numbers, the schedule, the retest day, sets per week including 4th priority sets, the progression rule, weight and rep targets, streaks, the gym check, pain flags and badges
 - `pytest`: 12 tests that read the .ics with an independent parser. They cover 36 sessions on the right days, the deload weeks, the retest on 23 Dec, 4 sets for priority lifts in week 8, the clock change on 25 Oct, the 84 daily events, alerts and golf mode.
 - `preview.py 3`: prints the first 3 weeks of events
 

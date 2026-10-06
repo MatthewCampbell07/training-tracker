@@ -454,14 +454,6 @@
       "when": "day"
     }
   ],
-  "keyLifts": [
-    "goblet_squat",
-    "db_rdl",
-    "db_row_1arm",
-    "floor_press",
-    "lateral_raise",
-    "db_curl"
-  ],
   "gymCheck": [
     "goblet_squat",
     "db_rdl"
@@ -711,5 +703,14 @@
       ],
       "video": null
     }
+  },
+  "wakeDefaults": {
+    "1": "06:15",
+    "2": "07:30",
+    "3": "06:15",
+    "4": "07:30",
+    "5": "07:30",
+    "6": "08:30",
+    "0": "08:30"
   }
 }

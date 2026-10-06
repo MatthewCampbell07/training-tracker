@@ -1,7 +1,7 @@
 // Today, Session and Settings screens. Each view returns { title, sub, nav, body } as HTML strings.
 import {
   addDays, dayOfWeek, habitStreak, isDeload, isGolfMode, lastPerformance, parseIso, phaseFor,
-  progressionCall, scheduledSession, sessionIsDone, setsFor, sleepHours, topWeight, upMessage, weekOf,
+  progressionCall, scheduledSession, sessionIsDone, setsFor, sleepHours, suggestFor, topWeight, upMessage, weekOf,
 } from './logic.js';
 
 export function esc(v) {
@@ -32,12 +32,30 @@ export function habitRow(habit, pressed, streakNow) {
   </button>`;
 }
 
+// Default sleep times: your last logged value, else the plan's usual times for that weekday.
+export function sleepDefaults(plan, state, date) {
+  const before = Object.keys(state.days).filter((d) => d < date).sort().reverse();
+  const lastAsleep = before.map((d) => state.days[d].asleep).find(Boolean);
+  const sameDay = before.filter((d) => dayOfWeek(d) === dayOfWeek(date)).map((d) => state.days[d].wake).find(Boolean);
+  return { asleep: lastAsleep || '23:15', wake: sameDay || plan.wakeDefaults[String(dayOfWeek(date))] };
+}
+
+function stepper(field, label, value, logged) {
+  return `<div class="stepper${logged ? ' logged' : ''}"><span class="lbl">${label}</span>
+    <button class="step" data-action="t-step" data-field="${field}" data-d="-15" aria-label="${label} 15 minutes earlier">−</button>
+    <b class="num">${value}</b>
+    <button class="step" data-action="t-step" data-field="${field}" data-d="15" aria-label="${label} 15 minutes later">+</button></div>`;
+}
+
 export function todayView({ plan, state, date, today }) {
   const s = state.settings;
   const day = state.days[date] || {};
   const week = weekOf(date, s.startDate);
   const letter = state.sessions[date]?.letter || scheduledSession(date, plan, s);
   const hours = sleepHours(day.asleep, day.wake);
+  const logged = hours !== null;
+  const defaults = sleepDefaults(plan, state, date);
+  const defaultHours = sleepHours(day.asleep || defaults.asleep, day.wake || defaults.wake) ?? 0;
   const isToday = date === today;
   const rows = (when) => plan.habits.filter((h) => h.when === when)
     .map((h) => habitRow(h, Boolean(day.habits?.[h.id]), habitStreak(state, h.id, today, s.startDate).current)).join('');
@@ -62,12 +80,10 @@ export function todayView({ plan, state, date, today }) {
   const body = `${banner}
     <section class="card" aria-labelledby="checkin-h">
       <h2 id="checkin-h">Morning check-in</h2>
-      <div class="field-row">
-        <label class="field">Fell asleep<input type="time" data-field="asleep" value="${esc(day.asleep)}"></label>
-        <label class="field">Woke up<input type="time" data-field="wake" value="${esc(day.wake)}"></label>
-        <label class="field">Weight kg${weighDay ? ' ●' : ''}<input type="text" inputmode="decimal" data-field="weight" placeholder="${weighDay ? 'weigh in' : 'optional'}" value="${esc(day.weight)}"></label>
-      </div>
-      <p class="sleep-note">${hours !== null ? `<b class="num">${hours.toFixed(1)} h</b> asleep.` : `Aim for ${plan.sleepTargetHours}+ hours. On a 06:15 alarm, that means asleep by 23:15.`}</p>
+      ${stepper('asleep', 'Fell asleep', day.asleep || defaults.asleep, logged)}
+      ${stepper('wake', 'Woke up', day.wake || defaults.wake, logged)}
+      <p class="sleep-note">${logged ? `<b class="num">${hours.toFixed(1)} h</b> asleep. Use − and + to adjust.` : `<button class="btn red" data-action="log-sleep">Log ${defaultHours.toFixed(1)} h sleep</button> Adjust first with − and + if needed.`}</p>
+      <label class="field weight-field">Weight kg${weighDay ? ', weigh-in day' : ''}<input type="text" inputmode="decimal" data-field="weight" placeholder="${weighDay ? 'weigh in' : 'optional'}" value="${esc(day.weight)}"></label>
       ${rows('morning')}
     </section>
     ${lift}
@@ -122,19 +138,26 @@ function exerciseCard(ex, ctx, week, golf) {
   const extra = ctx.extraSets[ex.id] || 0;
   const rowsCount = Math.max(required + extra, sets.length);
   const last = lastPerformance(state, ex.id, date);
-  const lastW = last ? topWeight(last.sets) : null;
+  const target = suggestFor(state, ctx.plan, ex, date);
+  const loaded = ex.load === 'db';
   const range = ex.max === null ? 'max effort' : ex.min === ex.max ? `${ex.max}` : `${ex.min}-${ex.max}`;
   const unit = ex.unit === 'sec' ? ' sec' : '';
-  const wPh = ex.load === 'bw' ? 'body' : ex.load === 'band' ? 'band' : lastW ?? 'kg';
   let rows = '';
   for (let i = 0; i < rowsCount; i += 1) {
     const set = sets[i] || {};
-    rows += `<div class="set-row">
+    const tr = target.reps[i] ?? target.reps[target.reps.length - 1];
+    const filled = Number.isFinite(set.r);
+    rows += `<div class="set-row${loaded ? '' : ' noload'}">
       <span class="n">${i + 1}</span>
-      <input type="text" inputmode="decimal" aria-label="${esc(ex.name)} set ${i + 1} weight kg" placeholder="${esc(wPh)}" data-ex="${ex.id}" data-i="${i}" data-f="w" value="${esc(set.w)}">
-      <input type="text" inputmode="numeric" aria-label="${esc(ex.name)} set ${i + 1} ${ex.unit}" placeholder="${ex.unit === 'sec' ? 'sec' : 'reps'}" data-ex="${ex.id}" data-i="${i}" data-f="r" value="${esc(set.r)}">
+      ${loaded ? `<input type="text" inputmode="decimal" aria-label="${esc(ex.name)} set ${i + 1} weight kg" placeholder="${esc(target.w ?? 'kg')}" data-ex="${ex.id}" data-i="${i}" data-f="w" value="${esc(set.w)}">` : ''}
+      <input type="text" inputmode="numeric" aria-label="${esc(ex.name)} set ${i + 1} ${ex.unit}" placeholder="${esc(tr ?? (ex.unit === 'sec' ? 'sec' : 'reps'))}" data-ex="${ex.id}" data-i="${i}" data-f="r" value="${esc(set.r)}">
+      <button class="fill${filled ? ' on' : ''}" data-action="fill-set" data-ex="${ex.id}" data-i="${i}" aria-label="Set ${i + 1} done as suggested"${tr === undefined ? ' disabled' : ''}>✓</button>
     </div>`;
   }
+  const targetText = target.reps.length
+    ? `${target.w !== null ? `${target.w} kg x ` : ''}${target.reps.join(', ')}${ex.unit === 'sec' ? ' sec' : ''}`
+    : '';
+  const targetHtml = `<div class="target">${targetText ? `<b>Today: <span class="num">${esc(targetText)}</span></b>` : ''}<span>${esc(target.note)}${targetText ? ' Tap ✓ when a set matches.' : ''}</span></div>`;
   const reserve = ex.load === 'db' && ex.max !== null
     ? `<label class="toggle"><input type="checkbox" data-reserve="${ex.id}" ${session.reserve?.[ex.id] ? 'checked' : ''}>2+ reps left</label>` : '';
   return `<section class="card ex" id="ex-${ex.id}">
@@ -143,6 +166,7 @@ function exerciseCard(ex, ctx, week, golf) {
     <div class="cue">${esc(ex.cue)}</div>
     ${howToHtml(ctx.plan, ex.how || ex.id)}
     ${lastLine(last, ex, ctx.plan.maxDumbbellKg)}
+    ${targetHtml}
     ${rows}
     <div class="ex-foot">
       <span id="call-${ex.id}">${callHtml(ex, sets, required, ctx.plan.maxDumbbellKg, Boolean(session.pain?.[ex.id]))}</span>
@@ -205,6 +229,7 @@ export function settingsView({ plan, state, today }) {
     body: `<section class="card"><h2>Plan</h2>
         <div class="settings-row"><span>Week 1 starts</span><input type="date" data-setting="startDate" value="${esc(s.startDate)}"></div>
         ${golf}
+        <div class="settings-row"><span>Smallest dumbbell jump</span><select data-setting="jumpKg">${[1, 1.25, 2, 2.5].map((j) => `<option value="${j}"${(s.jumpKg || 2) === j ? ' selected' : ''}>${j} kg</option>`).join('')}</select></div>
       </section>
       <section class="card"><h2>Backup</h2>
         <p class="fine">Save a backup every Sunday at your weekly review. Put it in iCloud Drive.</p>

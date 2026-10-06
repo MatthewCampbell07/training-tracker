@@ -124,13 +124,6 @@ export function statsView(ctx) {
   const curWeek = Math.min(Math.max(weekOf(today, s.startDate), 1), plan.weeks);
   const adherence = [...Array(plan.weeks).keys()].map((i) => (i + 1 <= weekOf(today, s.startDate) ? weekAdherence(state, i + 1, plan, s, today) : null));
 
-  const exById = Object.fromEntries(allExercises(plan).map((e) => [e.id, e]));
-  const lifts = plan.keyLifts.map((id) => {
-    const pts = exerciseHistory(state, id).filter((h) => h.session.letter !== 'R')
-      .map((h) => ({ x: h.date, y: topWeight(h.sets) ?? 0, note: `reps ${h.sets.map((z) => z.r).join(', ')}` }));
-    const now = pts.length ? `${pts[pts.length - 1].y} kg` : '';
-    return `<div><h4>${esc(exById[id].name)}</h4><span class="now">${now}</span>${lineChart(pts, { ref: plan.maxDumbbellKg, unit: ' kg', height: 80 })}</div>`;
-  }).join('');
 
   const weeks = [...Array(plan.weeks).keys()].map((i) => ({ w: i + 1, ...weekAverages(state, i + 1, s) }));
   const bw = weeks.filter((x) => x.weight !== null).map((x) => ({ x: weekStart(x.w, s.startDate), y: Number(x.weight.toFixed(1)), note: `week ${x.w}` }));
@@ -161,7 +154,6 @@ export function statsView(ctx) {
         <div class="legend"><span><i style="background:var(--blue)"></i>habits ticked</span><span><i style="background:var(--red);border-radius:50%"></i>session done</span><span><i style="border:1.5px solid var(--red);border-radius:50%"></i>session planned</span><span style="color:var(--red)">red week = deload</span></div>
       </section>
       <section class="card"><h2>Habits by week</h2>${weekBars(adherence, curWeek, plan)}<p class="fine">Dashed line is 80%.</p></section>
-      <section class="card"><h2>Key lifts, top set kg</h2><div class="lifts">${lifts}</div><p class="fine">Dashed line is your 20 kg dumbbell limit.</p></section>
       <section class="card"><h2>Body weight, weekly average</h2>${lineChart(bw, { unit: ' kg' })}</section>
       <section class="card"><h2>Sleep, weekly average hours</h2>${lineChart(sl, { ref: 7, unit: ' h' })}</section>`,
   };

@@ -294,3 +294,54 @@ export function weekAdherence(state, week, plan, settings, todayIso) {
 export function allLoggedSets(state) {
   return Object.values(state.sessions).flatMap((s) => Object.values(s.sets || {}).flatMap(loggedSets));
 }
+
+// "HH:MM" plus minutes, wrapping round midnight.
+export function addMinutes(hhmm, minutes) {
+  const [h, m] = hhmm.split(':').map(Number);
+  const total = (((h * 60 + m + minutes) % 1440) + 1440) % 1440;
+  return `${String(Math.floor(total / 60)).padStart(2, '0')}:${String(total % 60).padStart(2, '0')}`;
+}
+
+const roundHalf = (x) => Math.round(x * 2) / 2;
+
+// Today's target for one exercise, built from the last time you did it (retests ignored).
+// Returns { w: kg or null, reps: [per set], note }.
+export function suggestFor(state, plan, ex, iso) {
+  const s = state.settings;
+  const week = Math.min(Math.max(weekOf(iso, s.startDate), 1), plan.weeks);
+  const required = setsFor(ex, week, plan, isGolfMode(iso, s));
+  const hist = exerciseHistory(state, ex.id).filter((h) => h.date < iso && h.session.letter !== 'R');
+  const last = hist[hist.length - 1];
+  const unit = ex.unit === 'sec' ? 'sec' : 'reps';
+  if (!last) {
+    const note = hasRange(ex)
+      ? `First time. Pick a ${ex.load === 'db' ? 'weight' : 'version'} where ${ex.min} ${unit} leaves about 3 in the tank.`
+      : 'First time. Go until your form starts to slip.';
+    return { w: null, reps: [], note };
+  }
+  const lastW = ex.load === 'db' ? topWeight(last.sets) : null;
+  const lastReps = (i) => (last.sets[i] ?? last.sets[last.sets.length - 1]).r;
+  const repeat = (fn) => Array.from({ length: required }, (_, i) => fn(i));
+  const maxKg = plan.maxDumbbellKg;
+  const jump = s.jumpKg || 2;
+
+  if (last.session.pain?.[ex.id]) {
+    return { w: lastW, reps: repeat(lastReps), note: 'Pain last time. Same weight or lighter, no pushing.' };
+  }
+  if (!hasRange(ex)) return { w: lastW, reps: repeat(lastReps), note: 'Match or beat last time.' };
+  if (isDeload(week, plan)) {
+    return { w: lastW, reps: repeat(() => ex.min), note: 'Deload. Same weight, stop at the bottom of the range.' };
+  }
+  const call = progressionCall(ex, last.sets, last.sets.length);
+  if (call === 'up' && ex.load === 'db' && lastW !== null && lastW < maxKg) {
+    const w = Math.min(roundHalf(lastW + jump), maxKg);
+    return { w, reps: repeat(() => ex.min), note: `Up from ${lastW} kg. Start at the bottom of the range and build.` };
+  }
+  if (call === 'up' && ex.load === 'db') {
+    return { w: lastW, reps: repeat((i) => lastReps(i) + 1), note: `At ${maxKg} kg. Add a rep, or slow the lowering to 4 sec.` };
+  }
+  if (call === 'up') {
+    return { w: null, reps: repeat(() => ex.min), note: 'Top of the range last time. Make it harder (stronger band, feet up or slower lowering) and start at the bottom.' };
+  }
+  return { w: lastW, reps: repeat((i) => Math.min(ex.max, lastReps(i) + 1)), note: 'Beat last time by 1 rep a set.' };
+}

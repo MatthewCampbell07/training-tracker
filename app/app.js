@@ -1,8 +1,8 @@
 // Wiring: load data, render the current tab, handle taps and inputs.
 import { badges } from './badges.js';
-import { addDays, localTodayIso, weekOf, isGolfMode, setsFor, sleepHours } from './logic.js';
+import { addDays, addMinutes, localTodayIso, weekOf, isGolfMode, setsFor, sleepHours, suggestFor } from './logic.js';
 import * as store from './store.js';
-import { callHtml, sessionLetterFor, sessionView, settingsView, todayView } from './views.js';
+import { callHtml, sessionLetterFor, sessionView, settingsView, sleepDefaults, todayView } from './views.js';
 import { statsView, weekView } from './stats-views.js';
 
 const plan = await fetch('plan.json').then((r) => r.json());
@@ -108,6 +108,23 @@ const ACTIONS = {
   'week-next': () => { ui = { ...ui, weekShown: clampWeek(ui.weekShown + 1) }; render(); },
   'go-today': () => { ui = { ...ui, date: today() }; render(); },
   'open-session': () => goTab('session'),
+  'log-sleep': () => commit(logSleep(state, {})),
+  't-step': (el) => {
+    const day = state.days[ui.date] || {};
+    const current = day[el.dataset.field] || sleepDefaults(plan, state, ui.date)[el.dataset.field];
+    commit(logSleep(state, { [el.dataset.field]: addMinutes(current, Number(el.dataset.d)) }));
+  },
+  'fill-set': (el) => {
+    const letter = sessionLetterFor({ plan, state, ...ui });
+    const ex = plan.sessions[letter].exercises.find((x) => x.id === el.dataset.ex);
+    const i = Number(el.dataset.i);
+    const target = suggestFor(state, plan, ex, ui.date);
+    const set = state.sessions[ui.date]?.sets?.[ex.id]?.[i] || {};
+    const reps = Number.isFinite(set.r) ? set.r : target.reps[i] ?? target.reps[target.reps.length - 1];
+    let next = store.setSetValue(state, ui.date, ex.id, i, 'r', reps);
+    if (ex.load === 'db' && !Number.isFinite(set.w) && target.w !== null) next = store.setSetValue(next, ui.date, ex.id, i, 'w', target.w);
+    commit(store.updateSession(next, ui.date, { letter, retest: letter === 'R' }));
+  },
   'add-set': (el) => { ui = { ...ui, extraSets: { ...ui.extraSets, [el.dataset.ex]: (ui.extraSets[el.dataset.ex] || 0) + 1 } }; render(); },
   finish: () => {
     const letter = sessionLetterFor({ plan, state, ...ui });
@@ -157,6 +174,17 @@ document.addEventListener('click', (e) => {
   return undefined;
 });
 
+// Saves both sleep times (filling any gap from the defaults) and ticks 7+ hours.
+function logSleep(current, patch) {
+  const defaults = sleepDefaults(plan, current, ui.date);
+  const day = current.days[ui.date] || {};
+  const asleep = patch.asleep || day.asleep || defaults.asleep;
+  const wake = patch.wake || day.wake || defaults.wake;
+  const hours = sleepHours(asleep, wake);
+  const habits = { ...(day.habits || {}), sleep_7: hours !== null && hours >= plan.sleepTargetHours };
+  return store.updateDay(current, ui.date, { asleep, wake, habits });
+}
+
 function parseNum(v) {
   const n = parseFloat(String(v).replace(',', '.'));
   return Number.isFinite(n) ? n : undefined;
@@ -166,14 +194,7 @@ document.addEventListener('change', async (e) => {
   const el = e.target;
   if (el.dataset.field) {
     const field = el.dataset.field;
-    const value = field === 'weight' ? parseNum(el.value) : el.value || undefined;
-    let next = store.updateDay(state, ui.date, { [field]: value });
-    const day = next.days[ui.date];
-    const hours = sleepHours(day.asleep, day.wake);
-    if ((field === 'asleep' || field === 'wake') && hours !== null) {
-      next = store.updateDay(next, ui.date, { habits: { ...(day.habits || {}), sleep_7: hours >= plan.sleepTargetHours } });
-    }
-    return commit(next);
+    return commit(store.updateDay(state, ui.date, { [field]: field === 'weight' ? parseNum(el.value) : el.value || undefined }));
   }
   if (el.dataset.ex) {
     const letter = sessionLetterFor({ plan, state, ...ui });
@@ -195,6 +216,9 @@ document.addEventListener('change', async (e) => {
   if (el.dataset.reserve) {
     const s = state.sessions[ui.date] || {};
     return commit(store.updateSession(state, ui.date, { reserve: { ...(s.reserve || {}), [el.dataset.reserve]: el.checked } }), { rerender: false });
+  }
+  if (el.dataset.setting === 'jumpKg') {
+    return commit(store.updateSettings(state, { jumpKg: Number(el.value) }));
   }
   if (el.dataset.setting === 'startDate') {
     if (!el.value) return undefined;

@@ -154,3 +154,55 @@ test('every exercise and warm-up item has written steps', () => {
     assert.ok(plan.howTo[k]?.steps?.length >= 3, `missing steps for ${k}`);
   }
 });
+
+const pushUp = plan.sessions.C.exercises.find((e) => e.id === 'push_up');
+const withHistory = (sessions, extra = {}) => ({ ...empty(), settings: { ...settings, ...extra }, sessions });
+
+test('suggestion: beat last time by one rep a set at the same weight', () => {
+  const st = withHistory({ '2026-10-05': { letter: 'A', sets: { goblet_squat: [{ w: 12, r: 10 }, { w: 12, r: 9 }, { w: 12, r: 12 }] } } });
+  const s = L.suggestFor(st, plan, goblet, '2026-10-12');
+  assert.equal(s.w, 12);
+  assert.deepEqual(s.reps, [11, 10, 12]);
+});
+
+test('suggestion: top of range on every set adds the jump and drops to the bottom of the range', () => {
+  const st = withHistory({ '2026-10-05': { letter: 'A', sets: { goblet_squat: [{ w: 12, r: 12 }, { w: 12, r: 12 }] } } }, { jumpKg: 2.5 });
+  const s = L.suggestFor(st, plan, goblet, '2026-10-12');
+  assert.equal(s.w, 14.5);
+  assert.deepEqual(s.reps, [8, 8, 8]);
+});
+
+test('suggestion: never above 20 kg, adds reps instead', () => {
+  const st = withHistory({ '2026-10-05': { letter: 'A', sets: { goblet_squat: [{ w: 20, r: 12 }, { w: 20, r: 12 }, { w: 20, r: 12 }] } } });
+  const s = L.suggestFor(st, plan, goblet, '2026-10-12');
+  assert.equal(s.w, 20);
+  assert.deepEqual(s.reps, [13, 13, 13]);
+});
+
+test('suggestion: bodyweight exercises get reps only', () => {
+  const st = withHistory({ '2026-10-02': { letter: 'C', sets: { push_up: [{ r: 8 }, { r: 7 }] } } });
+  const s = L.suggestFor(st, plan, pushUp, '2026-10-09');
+  assert.equal(s.w, null);
+  assert.deepEqual(s.reps, [9, 8, 8]);
+});
+
+test('suggestion: pain or deload means no push', () => {
+  const pain = withHistory({ '2026-10-05': { letter: 'A', sets: { goblet_squat: [{ w: 12, r: 12 }, { w: 12, r: 12 }] }, pain: { goblet_squat: true } } });
+  assert.equal(L.suggestFor(pain, plan, goblet, '2026-10-12').w, 12);
+  const deload = withHistory({ '2026-11-02': { letter: 'A', sets: { goblet_squat: [{ w: 16, r: 12 }, { w: 16, r: 12 }, { w: 16, r: 12 }] } } });
+  const s = L.suggestFor(deload, plan, goblet, '2026-11-09');
+  assert.equal(s.w, 16);
+  assert.deepEqual(s.reps, [8, 8]);
+});
+
+test('suggestion: first time gives guidance, no numbers', () => {
+  const s = L.suggestFor(empty(), plan, goblet, '2026-10-05');
+  assert.equal(s.w, null);
+  assert.deepEqual(s.reps, []);
+});
+
+test('time steps wrap round midnight', () => {
+  assert.equal(L.addMinutes('23:45', 15), '00:00');
+  assert.equal(L.addMinutes('00:00', -15), '23:45');
+  assert.equal(L.addMinutes('06:15', 15), '06:30');
+});
