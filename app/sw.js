@@ -1,6 +1,6 @@
-// Offline support. Serves the saved copy first, then refreshes it in the background.
-// Bump VERSION when you change any app file so phones pick up the new copy.
-const VERSION = 'tt-v7';
+// Offline support. Online: always fetch the latest files (and refresh the saved copy).
+// Offline: fall back to the saved copy. Bump VERSION when the file list changes.
+const VERSION = 'tt-v8';
 const FILES = ['./', 'index.html', 'styles.css', 'app.js', 'logic.js', 'store.js', 'views.js', 'stats-views.js',
   'badges.js', 'charts.js', 'plan.json', 'manifest.webmanifest', 'icon-180.png', 'icon-192.png', 'icon-512.png'];
 
@@ -16,12 +16,16 @@ self.addEventListener('activate', (e) => {
 
 self.addEventListener('fetch', (e) => {
   if (e.request.method !== 'GET') return;
-  e.respondWith(caches.open(VERSION).then(async (cache) => {
-    const cached = await cache.match(e.request, { ignoreSearch: true });
-    const fresh = fetch(e.request).then((res) => {
+  e.respondWith((async () => {
+    const cache = await caches.open(VERSION);
+    try {
+      const res = await fetch(e.request, { cache: 'no-cache' });
       if (res.ok) cache.put(e.request, res.clone());
       return res;
-    }).catch(() => cached);
-    return cached || fresh;
-  }));
+    } catch (err) {
+      const cached = await cache.match(e.request, { ignoreSearch: true });
+      if (cached) return cached;
+      throw err;
+    }
+  })());
 });
