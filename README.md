@@ -34,6 +34,17 @@ The app is live at **https://matthewcampbell07.github.io/training-tracker/**
 
 The repo is public because free GitHub Pages needs that. It only holds the plan and the code, not your logs.
 
+## Cloud backup
+
+Everything you log is saved on the phone and, once you sign in, to a private Firebase project (`mc-training-tracker`) on your Google account. Each change saves within a few seconds. If you delete the app or get a new phone, sign in again in Settings and everything comes back.
+
+- Only your account can read or write your data. That's enforced by `firestore.rules` and tested: another account and an anonymous request both get refused.
+- It's on Firebase's free plan with no billing, so it can't cost anything.
+- The data is stored in Google's US region (nam5).
+- You can still save a backup file in Settings, and Restore works too.
+
+To test sync locally, start the Firebase emulators (`firebase emulators:start --only auth,firestore`) and open `http://localhost:8765/?emu`.
+
 ## 3. Daily use
 
 - **Morning (1 min):** on the Today tab, adjust your sleep and wake times with − and +, or tap **Log sleep** if they're right. "7+ hours asleep" ticks itself. Add your weight on weigh-in days and tick last night's habits.

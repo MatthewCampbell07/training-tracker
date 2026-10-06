@@ -2,6 +2,7 @@
 import { badges } from './badges.js';
 import { addDays, addMinutes, localTodayIso, weekOf, isGolfMode, setsFor, sleepHours, suggestFor } from './logic.js';
 import * as store from './store.js';
+import * as cloud from './cloud.js';
 import { callHtml, sessionLetterFor, sessionView, settingsView, sleepDefaults, todayView } from './views.js';
 import { statsView, weekView } from './stats-views.js';
 
@@ -19,7 +20,7 @@ function clampWeek(w) {
 }
 
 function render() {
-  const ctx = { plan, state, today: today(), ...ui };
+  const ctx = { plan, state, today: today(), cloud: cloud.cloudStatus(), ...ui };
   const view = VIEWS[ui.tab](ctx);
   $('#title').textContent = view.title;
   $('#sub').textContent = view.sub;
@@ -37,6 +38,7 @@ function render() {
 function commit(next, { rerender = true } = {}) {
   state = next;
   if (!store.save(state)) toast('Could not save. Is storage full?');
+  cloud.schedulePush();
   checkBadges();
   if (rerender) render();
 }
@@ -108,6 +110,12 @@ const ACTIONS = {
   'week-next': () => { ui = { ...ui, weekShown: clampWeek(ui.weekShown + 1) }; render(); },
   'go-today': () => { ui = { ...ui, date: today() }; render(); },
   'open-session': () => goTab('session'),
+  'go-settings': () => goTab('settings'),
+  'cloud-signin': () => cloud.signIn(plan, $('#cloud-email').value.trim(), $('#cloud-password').value, false),
+  'cloud-signup': () => cloud.signIn(plan, $('#cloud-email').value.trim(), $('#cloud-password').value, true),
+  'cloud-reset': () => cloud.resetPassword($('#cloud-email').value.trim()),
+  'cloud-signout': () => { if (confirm('Sign out? Your data stays on this phone and in the cloud.')) cloud.signOut(); },
+  'cloud-sync': () => cloud.syncNow(plan),
   'log-sleep': () => commit(logSleep(state, {})),
   't-step': (el) => {
     const day = state.days[ui.date] || {};
@@ -146,7 +154,7 @@ const ACTIONS = {
     await shareOrDownload(`training-days-${today()}.csv`, store.daysCsv(state, plan), 'text/csv');
   },
   reset: () => {
-    if (!confirm('Delete every tick, weight and session on this phone? Save a backup first if unsure.')) return;
+    if (!confirm('Delete every tick, weight and session on this phone and in your cloud backup? Save a backup file first if unsure.')) return;
     commit(store.emptyState(plan));
     toast('All data deleted');
   },
@@ -183,6 +191,12 @@ function logSleep(current, patch) {
   const hours = sleepHours(asleep, wake);
   const habits = { ...(day.habits || {}), sleep_7: hours !== null && hours >= plan.sleepTargetHours };
   return store.updateDay(current, ui.date, { asleep, wake, habits });
+}
+
+function cloudLine(st) {
+  if (st.busy) return 'Saving...';
+  if (st.error) return st.error;
+  return st.lastSync ? `Saved to the cloud at ${new Date(st.lastSync).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}` : 'Saved to the cloud';
 }
 
 function parseNum(v) {
@@ -246,6 +260,28 @@ document.addEventListener('visibilitychange', () => {
 });
 
 store.requestPersistence();
+
+// Status changes only touch the small status line, so typing in a set box is never interrupted.
+let lastSignedIn = cloud.cloudStatus().signedIn;
+cloud.initCloud(plan, {
+  getState: () => state,
+  setState: (merged) => {
+    if (JSON.stringify(merged) === JSON.stringify(state)) return;
+    state = merged;
+    store.save(state);
+    checkBadges();
+    render();
+  },
+  onStatus: (st) => {
+    if (st.signedIn !== lastSignedIn || (ui.tab === 'settings' && !st.busy)) {
+      lastSignedIn = st.signedIn;
+      render();
+      return;
+    }
+    const el = document.getElementById('cloud-status');
+    if (el) el.textContent = cloudLine(st);
+  },
+});
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js').catch((err) => console.error('Offline mode not available', err));
 }

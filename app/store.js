@@ -45,9 +45,12 @@ export function validate(data, plan) {
   };
 }
 
+// Every day, session and the settings carry _t (last edit time) so two copies can be merged record by record.
+const now = () => Date.now();
+
 export function updateDay(state, iso, patch) {
   const day = state.days[iso] || { habits: {} };
-  return { ...state, days: { ...state.days, [iso]: { ...day, ...patch } } };
+  return { ...state, days: { ...state.days, [iso]: { ...day, ...patch, _t: now() } } };
 }
 
 export function toggleHabit(state, iso, habitId) {
@@ -58,7 +61,7 @@ export function toggleHabit(state, iso, habitId) {
 
 export function updateSession(state, iso, patch) {
   const session = state.sessions[iso] || { sets: {}, reserve: {} };
-  return { ...state, sessions: { ...state.sessions, [iso]: { ...session, ...patch } } };
+  return { ...state, sessions: { ...state.sessions, [iso]: { ...session, ...patch, _t: now() } } };
 }
 
 export function setSetValue(state, iso, exId, index, field, value) {
@@ -70,7 +73,44 @@ export function setSetValue(state, iso, exId, index, field, value) {
 }
 
 export function updateSettings(state, patch) {
-  return { ...state, settings: { ...state.settings, ...patch } };
+  return { ...state, settings: { ...state.settings, ...patch, _t: now() } };
+}
+
+function newer(a, b) {
+  if (!a) return b;
+  if (!b) return a;
+  // b is the cloud copy: on a tie (e.g. data saved before edit times existed) the cloud wins.
+  return (b._t || 0) >= (a._t || 0) ? b : a;
+}
+
+const NESTED = ['habits', 'sets', 'reserve', 'pain'];
+
+// Same day or session edited on both copies: combine them, newer values winning field by field.
+function combine(a, b) {
+  if (!a || !b) return a || b;
+  const [older, latest] = newer(a, b) === b ? [a, b] : [b, a];
+  const out = { ...older, ...latest };
+  for (const key of NESTED) {
+    if (older[key] || latest[key]) out[key] = { ...(older[key] || {}), ...(latest[key] || {}) };
+  }
+  return out;
+}
+
+function mergeRecords(a, b) {
+  const out = {};
+  for (const key of new Set([...Object.keys(a || {}), ...Object.keys(b || {})])) out[key] = combine(a?.[key], b?.[key]);
+  return out;
+}
+
+// Merge the phone copy with the cloud copy: for each day and session, the most recently edited version wins.
+export function mergeStates(local, remote) {
+  if (!remote) return local;
+  return {
+    version: 1,
+    settings: newer(local.settings, remote.settings),
+    days: mergeRecords(local.days, remote.days),
+    sessions: mergeRecords(local.sessions, remote.sessions),
+  };
 }
 
 function csvCell(v) {

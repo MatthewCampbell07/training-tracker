@@ -47,7 +47,7 @@ function stepper(field, label, value, logged) {
     <button class="step" data-action="t-step" data-field="${field}" data-d="15" aria-label="${label} 15 minutes later">+</button></div>`;
 }
 
-export function todayView({ plan, state, date, today }) {
+export function todayView({ plan, state, date, today, cloud }) {
   const s = state.settings;
   const day = state.days[date] || {};
   const week = weekOf(date, s.startDate);
@@ -62,9 +62,9 @@ export function todayView({ plan, state, date, today }) {
   const doneCount = plan.habits.filter((h) => day.habits?.[h.id]).length;
   const weighDay = plan.calendar.weighInDays.includes(dayOfWeek(date));
 
-  let banner = '';
-  if (isDeload(week, plan)) banner = `<div class="banner">Deload week: half the sets, same weights.</div>`;
-  if (scheduledSession(date, plan, s) === 'R') banner = `<div class="banner">Retest day. Max push ups, goblet squat reps, single arm row reps.</div>`;
+  let banner = cloud.signedIn ? '' : '<button class="banner blue banner-btn" data-action="go-settings">Turn on cloud backup so you never lose your streaks ›</button>';
+  if (isDeload(week, plan)) banner += `<div class="banner">Deload week: half the sets, same weights.</div>`;
+  if (scheduledSession(date, plan, s) === 'R') banner += `<div class="banner">Retest day. Max push ups, goblet squat reps, single arm row reps.</div>`;
 
   let lift = '';
   if (letter) {
@@ -217,16 +217,38 @@ function nextMonday(today) {
   return addDays(today, ((8 - dow) % 7) || 7);
 }
 
-export function settingsView({ plan, state, today }) {
+function cloudCard(c) {
+  if (c.signedIn) {
+    const line = c.busy ? 'Saving...' : c.error || (c.lastSync ? `Saved to the cloud at ${new Date(c.lastSync).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}` : 'Saved to the cloud');
+    return `<section class="card"><h2>Cloud backup</h2>
+      <p>On, as <b>${esc(c.email)}</b>. Every change saves within a few seconds.</p>
+      <p class="fine" id="cloud-status">${esc(line)}</p>
+      <div class="btn-row"><button class="btn ghost" data-action="cloud-sync">Sync now</button><button class="btn ghost" data-action="cloud-signout">Sign out</button></div>
+    </section>`;
+  }
+  return `<section class="card"><h2>Cloud backup</h2>
+    <p class="fine">Saves everything to your own private Firebase project, so deleting the app or changing phone loses nothing. Only you can read it.</p>
+    <label class="field">Email<input id="cloud-email" type="email" autocomplete="username" autocapitalize="off" spellcheck="false"></label>
+    <label class="field" style="margin-top:8px">Password (6+ characters)<input id="cloud-password" type="password" autocomplete="current-password"></label>
+    ${c.error ? `<p class="warn" style="font-size:14px">${esc(c.error)}</p>` : ''}
+    <div class="btn-row" style="margin-top:10px">
+      <button class="btn" data-action="cloud-signup"${c.busy ? ' disabled' : ''}>Create account</button>
+      <button class="btn ghost" data-action="cloud-signin"${c.busy ? ' disabled' : ''}>Sign in</button>
+      <button class="small-btn" data-action="cloud-reset">Forgot password</button>
+    </div>
+  </section>`;
+}
+
+export function settingsView({ plan, state, today, cloud }) {
   const s = state.settings;
   const golf = s.golfFrom
     ? `<div class="settings-row"><span>Golf mode on from <b>${fmtDate(s.golfFrom)}</b>. Sessions A and B, 2 sets each.</span><button class="btn ghost" data-action="golf-off">Turn off</button></div>`
     : `<div class="settings-row"><label class="field" style="flex:1">Switch to 2 sessions a week from<input type="date" id="golf-date" value="${nextMonday(today)}"></label><button class="btn" data-action="golf-on">Turn on</button></div>`;
   return {
     title: 'Settings',
-    sub: 'Everything is saved on this phone only',
+    sub: cloud.signedIn ? 'Saved on this phone and in the cloud' : 'Saved on this phone only',
     nav: [],
-    body: `<section class="card"><h2>Plan</h2>
+    body: `${cloudCard(cloud)}<section class="card"><h2>Plan</h2>
         <div class="settings-row"><span>Week 1 starts</span><input type="date" data-setting="startDate" value="${esc(s.startDate)}"></div>
         ${golf}
         <div class="settings-row"><span>Smallest dumbbell jump</span><select data-setting="jumpKg">${[1, 1.25, 2, 2.5].map((j) => `<option value="${j}"${(s.jumpKg || 2) === j ? ' selected' : ''}>${j} kg</option>`).join('')}</select></div>

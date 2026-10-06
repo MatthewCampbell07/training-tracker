@@ -1,8 +1,8 @@
 // Offline support. Online: always fetch the latest files (and refresh the saved copy).
 // Offline: fall back to the saved copy. Bump VERSION when the file list changes.
-const VERSION = 'tt-v8';
+const VERSION = 'tt-v9';
 const FILES = ['./', 'index.html', 'styles.css', 'app.js', 'logic.js', 'store.js', 'views.js', 'stats-views.js',
-  'badges.js', 'charts.js', 'plan.json', 'manifest.webmanifest', 'icon-180.png', 'icon-192.png', 'icon-512.png'];
+  'badges.js', 'charts.js', 'cloud.js', 'plan.json', 'manifest.webmanifest', 'icon-180.png', 'icon-192.png', 'icon-512.png'];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(VERSION).then((c) => c.addAll(FILES)).then(() => self.skipWaiting()));
@@ -15,7 +15,8 @@ self.addEventListener('activate', (e) => {
 });
 
 self.addEventListener('fetch', (e) => {
-  if (e.request.method !== 'GET') return;
+  // Only this app's own files. Sign in and cloud requests go straight to Google.
+  if (e.request.method !== 'GET' || new URL(e.request.url).origin !== self.location.origin) return;
   e.respondWith((async () => {
     const cache = await caches.open(VERSION);
     try {

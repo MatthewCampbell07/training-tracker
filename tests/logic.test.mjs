@@ -206,3 +206,39 @@ test('time steps wrap round midnight', () => {
   assert.equal(L.addMinutes('00:00', -15), '23:45');
   assert.equal(L.addMinutes('06:15', 15), '06:30');
 });
+
+test('merge keeps the most recently edited version of each day and session', async () => {
+  const { mergeStates } = await import('../app/store.js');
+  const phone = { version: 1, settings: { startDate: '2026-10-01', _t: 1 },
+    days: { '2026-10-06': { habits: { physio_am: true }, _t: 50 } }, sessions: {} };
+  const cloud = { version: 1, settings: { startDate: '2026-10-01', golfFrom: '2026-11-16', _t: 9 },
+    days: { '2026-10-02': { habits: { physio_am: true }, _t: 10 }, '2026-10-06': { habits: {}, _t: 5 } },
+    sessions: { '2026-10-02': { letter: 'C', done: true, _t: 10 } } };
+  const m = mergeStates(phone, cloud);
+  assert.equal(m.settings.golfFrom, '2026-11-16');
+  assert.equal(m.days['2026-10-06'].habits.physio_am, true);
+  assert.ok(m.days['2026-10-02']);
+  assert.equal(m.sessions['2026-10-02'].letter, 'C');
+});
+
+test('a fresh install merged with the cloud loses nothing', async () => {
+  const { mergeStates, emptyState } = await import('../app/store.js');
+  const cloud = { ...emptyState(plan), days: { '2026-10-02': { habits: { physio_am: true }, _t: 10 } } };
+  const m = mergeStates(emptyState(plan), cloud);
+  assert.deepEqual(Object.keys(m.days), ['2026-10-02']);
+});
+
+test('fresh install does not overwrite cloud settings saved before edit times existed', async () => {
+  const { mergeStates, emptyState } = await import('../app/store.js');
+  const cloud = { ...emptyState(plan), settings: { startDate: '2026-10-01', golfFrom: null, jumpKg: 2.5 } };
+  assert.equal(mergeStates(emptyState(plan), cloud).settings.jumpKg, 2.5);
+});
+
+test('same day edited on both copies keeps ticks from both, newer wins on clashes', async () => {
+  const { mergeStates, emptyState } = await import('../app/store.js');
+  const cloud = { ...emptyState(plan), days: { '2026-10-06': { habits: { physio_am: true, app_cap: true }, asleep: '23:30', wake: '07:30', _t: 10 } } };
+  const phone = { ...emptyState(plan), days: { '2026-10-06': { habits: { physio_pm: true, app_cap: false }, _t: 20 } } };
+  const d = mergeStates(phone, cloud).days['2026-10-06'];
+  assert.deepEqual(d.habits, { physio_am: true, app_cap: false, physio_pm: true });
+  assert.equal(d.asleep, '23:30');
+});

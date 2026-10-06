@@ -1,0 +1,11 @@
+rules_version = '2';
+// Each person can only read and write their own document. Everything else is closed.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow create, update: if request.auth != null && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['data', 'updatedAt']);
+    }
+  }
+}
