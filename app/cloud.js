@@ -20,6 +20,7 @@ const MESSAGES = {
   EMAIL_NOT_FOUND: 'No account with that email. Tap Create account.',
   INVALID_EMAIL: 'That email address does not look right.',
   OPERATION_NOT_ALLOWED: 'Email sign in is not switched on in Firebase yet.',
+  CONFIGURATION_NOT_FOUND: 'Email sign in is not switched on in Firebase yet.',
   ADMIN_ONLY_OPERATION: 'New accounts are switched off for this app.',
   TOO_MANY_ATTEMPTS_TRY_LATER: 'Too many tries. Wait a few minutes.',
 };
