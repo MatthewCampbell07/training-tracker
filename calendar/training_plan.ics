@@ -24,7 +24,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:lift-20261002@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261002T163000
 DTEND;TZID=Europe/London:20261002T174000
 SUMMARY:Session C\, week 1
@@ -47,7 +47,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261005@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261005T173000
 DTEND;TZID=Europe/London:20261005T184000
 SUMMARY:Session A\, week 1
@@ -57,11 +57,10 @@ DESCRIPTION:Week 1: Ramp in. Stop every set with 3 reps left. Week 1 is 2 s
  nd hip abduction\, 3 steps each side x 2\; Table top leg extensions\, 1 se
  t to fatigue\; Ramp up set at half your working weight\n\nGoblet squat: 2 
  x 8-12\nOne arm DB row: 2 x 8-12 each\nDB floor press\, neutral grip: 2 x 
- 8-12 *\nDB Romanian deadlift: 2 x 8-12\nBand pull apart: 2 x 12-15\nLatera
- l raise (superset): 2 x 12-20 *\nHammer curl (superset): 2 x 10-15 *\nTabl
- e top leg extension: 2 x max\n\n* upper body priority (4 sets in weeks 7 t
- o 11)\nLog every set in the Training app. Tap How to do it on any exercise
-  for steps and videos.
+ 8-12 *\nDB Romanian deadlift: 2 x 8-12\nBand pull apart: 2 x 12-15\nHammer
+  curl: 2 x 10-15 *\nTable top leg extension: 2 x max\n\n* upper body prior
+ ity (4 sets in weeks 7 to 11)\nLog every set in the Training app. Tap How 
+ to do it on any exercise for steps and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Session A\, week 1
@@ -70,7 +69,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261007@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261007T173000
 DTEND;TZID=Europe/London:20261007T184000
 SUMMARY:Session B\, week 1
@@ -79,12 +78,12 @@ DESCRIPTION:Week 1: Ramp in. Stop every set with 3 reps left. Week 1 is 2 s
  lder exercise\, 2 sets\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\; Ba
  nd hip abduction\, 3 steps each side x 2\; Table top leg extensions\, 1 se
  t to fatigue\; Ramp up set at half your working weight\n\nRear foot elevat
- ed split squat: 2 x 8-12 each\nBand lat pulldown: 2 x 10-15\nSingle leg gl
- ute bridge: 2 x 8-12 each\nPush up plus: 2 x 8-15 *\nLateral raise: 2 x 12
- -20 *\nLying DB tricep extension\, on the floor: 2 x 10-15 *\nPallof press
- : 2 x 10 each\n\n* upper body priority (4 sets in weeks 7 to 11)\nLog ever
- y set in the Training app. Tap How to do it on any exercise for steps and 
- videos.
+ ed split squat: 2 x 8-12 each\nSplit stance one arm DB row: 2 x 8-12 each\
+ nIncline push up\, hands on a worktop: 2 x 8-15 *\nStanding DB tricep kick
+ back: 2 x 10-15 each *\nBand pull apart: 2 x 12-15\nSuitcase march: 2 x 30
+ -45 sec each\n\n* upper body priority (4 sets in weeks 7 to 11)\nLog every
+  set in the Training app. Tap How to do it on any exercise for steps and v
+ ideos.
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Session B\, week 1
@@ -93,7 +92,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261009@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261009T163000
 DTEND;TZID=Europe/London:20261009T174000
 SUMMARY:Session C\, week 2
@@ -116,7 +115,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261012@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261012T173000
 DTEND;TZID=Europe/London:20261012T184000
 SUMMARY:Session A\, week 2
@@ -126,11 +125,10 @@ DESCRIPTION:Week 2: Ramp in. Stop every set with 3 reps left. Week 1 is 2 s
  nd hip abduction\, 3 steps each side x 2\; Table top leg extensions\, 1 se
  t to fatigue\; Ramp up set at half your working weight\n\nGoblet squat: 3 
  x 8-12\nOne arm DB row: 3 x 8-12 each\nDB floor press\, neutral grip: 3 x 
- 8-12 *\nDB Romanian deadlift: 3 x 8-12\nBand pull apart: 3 x 12-15\nLatera
- l raise (superset): 3 x 12-20 *\nHammer curl (superset): 3 x 10-15 *\nTabl
- e top leg extension: 3 x max\n\n* upper body priority (4 sets in weeks 7 t
- o 11)\nLog every set in the Training app. Tap How to do it on any exercise
-  for steps and videos.
+ 8-12 *\nDB Romanian deadlift: 3 x 8-12\nBand pull apart: 3 x 12-15\nHammer
+  curl: 3 x 10-15 *\nTable top leg extension: 3 x max\n\n* upper body prior
+ ity (4 sets in weeks 7 to 11)\nLog every set in the Training app. Tap How 
+ to do it on any exercise for steps and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Session A\, week 2
@@ -139,7 +137,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261014@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261014T173000
 DTEND;TZID=Europe/London:20261014T184000
 SUMMARY:Session B\, week 2
@@ -148,12 +146,12 @@ DESCRIPTION:Week 2: Ramp in. Stop every set with 3 reps left. Week 1 is 2 s
  lder exercise\, 2 sets\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\; Ba
  nd hip abduction\, 3 steps each side x 2\; Table top leg extensions\, 1 se
  t to fatigue\; Ramp up set at half your working weight\n\nRear foot elevat
- ed split squat: 3 x 8-12 each\nBand lat pulldown: 3 x 10-15\nSingle leg gl
- ute bridge: 3 x 8-12 each\nPush up plus: 3 x 8-15 *\nLateral raise: 3 x 12
- -20 *\nLying DB tricep extension\, on the floor: 3 x 10-15 *\nPallof press
- : 3 x 10 each\n\n* upper body priority (4 sets in weeks 7 to 11)\nLog ever
- y set in the Training app. Tap How to do it on any exercise for steps and 
- videos.
+ ed split squat: 3 x 8-12 each\nSplit stance one arm DB row: 3 x 8-12 each\
+ nIncline push up\, hands on a worktop: 3 x 8-15 *\nStanding DB tricep kick
+ back: 3 x 10-15 each *\nBand pull apart: 3 x 12-15\nSuitcase march: 3 x 30
+ -45 sec each\n\n* upper body priority (4 sets in weeks 7 to 11)\nLog every
+  set in the Training app. Tap How to do it on any exercise for steps and v
+ ideos.
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Session B\, week 2
@@ -162,7 +160,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261016@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261016T163000
 DTEND;TZID=Europe/London:20261016T174000
 SUMMARY:Session C\, week 3
@@ -185,7 +183,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261019@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261019T173000
 DTEND;TZID=Europe/London:20261019T184000
 SUMMARY:Session A\, week 3
@@ -195,11 +193,10 @@ DESCRIPTION:Week 3: Build. Stop 1 to 3 reps short of failure. Add reps or w
   Band hip abduction\, 3 steps each side x 2\; Table top leg extensions\, 1
   set to fatigue\; Ramp up set at half your working weight\n\nGoblet squat:
   3 x 8-12\nOne arm DB row: 3 x 8-12 each\nDB floor press\, neutral grip: 3
-  x 8-12 *\nDB Romanian deadlift: 3 x 8-12\nBand pull apart: 3 x 12-15\nLat
- eral raise (superset): 3 x 12-20 *\nHammer curl (superset): 3 x 10-15 *\nT
- able top leg extension: 3 x max\n\n* upper body priority (4 sets in weeks 
- 7 to 11)\nLog every set in the Training app. Tap How to do it on any exerc
- ise for steps and videos.
+  x 8-12 *\nDB Romanian deadlift: 3 x 8-12\nBand pull apart: 3 x 12-15\nHam
+ mer curl: 3 x 10-15 *\nTable top leg extension: 3 x max\n\n* upper body pr
+ iority (4 sets in weeks 7 to 11)\nLog every set in the Training app. Tap H
+ ow to do it on any exercise for steps and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Session A\, week 3
@@ -208,7 +205,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261021@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261021T173000
 DTEND;TZID=Europe/London:20261021T184000
 SUMMARY:Session B\, week 3
@@ -217,12 +214,12 @@ DESCRIPTION:Week 3: Build. Stop 1 to 3 reps short of failure. Add reps or w
  houlder exercise\, 2 sets\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\;
   Band hip abduction\, 3 steps each side x 2\; Table top leg extensions\, 1
   set to fatigue\; Ramp up set at half your working weight\n\nRear foot ele
- vated split squat: 3 x 8-12 each\nBand lat pulldown: 3 x 10-15\nSingle leg
-  glute bridge: 3 x 8-12 each\nPush up plus: 3 x 8-15 *\nLateral raise: 3 x
-  12-20 *\nLying DB tricep extension\, on the floor: 3 x 10-15 *\nPallof pr
- ess: 3 x 10 each\n\n* upper body priority (4 sets in weeks 7 to 11)\nLog e
- very set in the Training app. Tap How to do it on any exercise for steps a
- nd videos.
+ vated split squat: 3 x 8-12 each\nSplit stance one arm DB row: 3 x 8-12 ea
+ ch\nIncline push up\, hands on a worktop: 3 x 8-15 *\nStanding DB tricep k
+ ickback: 3 x 10-15 each *\nBand pull apart: 3 x 12-15\nSuitcase march: 3 x
+  30-45 sec each\n\n* upper body priority (4 sets in weeks 7 to 11)\nLog ev
+ ery set in the Training app. Tap How to do it on any exercise for steps an
+ d videos.
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Session B\, week 3
@@ -231,7 +228,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261023@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261023T163000
 DTEND;TZID=Europe/London:20261023T174000
 SUMMARY:Session C\, week 4
@@ -254,7 +251,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261026@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261026T173000
 DTEND;TZID=Europe/London:20261026T184000
 SUMMARY:Session A\, week 4
@@ -264,11 +261,10 @@ DESCRIPTION:Week 4: Build. Stop 1 to 3 reps short of failure. Add reps or w
   Band hip abduction\, 3 steps each side x 2\; Table top leg extensions\, 1
   set to fatigue\; Ramp up set at half your working weight\n\nGoblet squat:
   3 x 8-12\nOne arm DB row: 3 x 8-12 each\nDB floor press\, neutral grip: 3
-  x 8-12 *\nDB Romanian deadlift: 3 x 8-12\nBand pull apart: 3 x 12-15\nLat
- eral raise (superset): 3 x 12-20 *\nHammer curl (superset): 3 x 10-15 *\nT
- able top leg extension: 3 x max\n\n* upper body priority (4 sets in weeks 
- 7 to 11)\nLog every set in the Training app. Tap How to do it on any exerc
- ise for steps and videos.
+  x 8-12 *\nDB Romanian deadlift: 3 x 8-12\nBand pull apart: 3 x 12-15\nHam
+ mer curl: 3 x 10-15 *\nTable top leg extension: 3 x max\n\n* upper body pr
+ iority (4 sets in weeks 7 to 11)\nLog every set in the Training app. Tap H
+ ow to do it on any exercise for steps and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Session A\, week 4
@@ -277,7 +273,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261028@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261028T173000
 DTEND;TZID=Europe/London:20261028T184000
 SUMMARY:Session B\, week 4
@@ -286,12 +282,12 @@ DESCRIPTION:Week 4: Build. Stop 1 to 3 reps short of failure. Add reps or w
  houlder exercise\, 2 sets\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\;
   Band hip abduction\, 3 steps each side x 2\; Table top leg extensions\, 1
   set to fatigue\; Ramp up set at half your working weight\n\nRear foot ele
- vated split squat: 3 x 8-12 each\nBand lat pulldown: 3 x 10-15\nSingle leg
-  glute bridge: 3 x 8-12 each\nPush up plus: 3 x 8-15 *\nLateral raise: 3 x
-  12-20 *\nLying DB tricep extension\, on the floor: 3 x 10-15 *\nPallof pr
- ess: 3 x 10 each\n\n* upper body priority (4 sets in weeks 7 to 11)\nLog e
- very set in the Training app. Tap How to do it on any exercise for steps a
- nd videos.
+ vated split squat: 3 x 8-12 each\nSplit stance one arm DB row: 3 x 8-12 ea
+ ch\nIncline push up\, hands on a worktop: 3 x 8-15 *\nStanding DB tricep k
+ ickback: 3 x 10-15 each *\nBand pull apart: 3 x 12-15\nSuitcase march: 3 x
+  30-45 sec each\n\n* upper body priority (4 sets in weeks 7 to 11)\nLog ev
+ ery set in the Training app. Tap How to do it on any exercise for steps an
+ d videos.
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Session B\, week 4
@@ -300,7 +296,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261030@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261030T163000
 DTEND;TZID=Europe/London:20261030T174000
 SUMMARY:Session C\, week 5
@@ -323,7 +319,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261102@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261102T173000
 DTEND;TZID=Europe/London:20261102T184000
 SUMMARY:Session A\, week 5
@@ -333,11 +329,10 @@ DESCRIPTION:Week 5: Build. Stop 1 to 3 reps short of failure. Add reps or w
   Band hip abduction\, 3 steps each side x 2\; Table top leg extensions\, 1
   set to fatigue\; Ramp up set at half your working weight\n\nGoblet squat:
   3 x 8-12\nOne arm DB row: 3 x 8-12 each\nDB floor press\, neutral grip: 3
-  x 8-12 *\nDB Romanian deadlift: 3 x 8-12\nBand pull apart: 3 x 12-15\nLat
- eral raise (superset): 3 x 12-20 *\nHammer curl (superset): 3 x 10-15 *\nT
- able top leg extension: 3 x max\n\n* upper body priority (4 sets in weeks 
- 7 to 11)\nLog every set in the Training app. Tap How to do it on any exerc
- ise for steps and videos.
+  x 8-12 *\nDB Romanian deadlift: 3 x 8-12\nBand pull apart: 3 x 12-15\nHam
+ mer curl: 3 x 10-15 *\nTable top leg extension: 3 x max\n\n* upper body pr
+ iority (4 sets in weeks 7 to 11)\nLog every set in the Training app. Tap H
+ ow to do it on any exercise for steps and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Session A\, week 5
@@ -346,7 +341,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261104@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261104T173000
 DTEND;TZID=Europe/London:20261104T184000
 SUMMARY:Session B\, week 5
@@ -355,12 +350,12 @@ DESCRIPTION:Week 5: Build. Stop 1 to 3 reps short of failure. Add reps or w
  houlder exercise\, 2 sets\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\;
   Band hip abduction\, 3 steps each side x 2\; Table top leg extensions\, 1
   set to fatigue\; Ramp up set at half your working weight\n\nRear foot ele
- vated split squat: 3 x 8-12 each\nBand lat pulldown: 3 x 10-15\nSingle leg
-  glute bridge: 3 x 8-12 each\nPush up plus: 3 x 8-15 *\nLateral raise: 3 x
-  12-20 *\nLying DB tricep extension\, on the floor: 3 x 10-15 *\nPallof pr
- ess: 3 x 10 each\n\n* upper body priority (4 sets in weeks 7 to 11)\nLog e
- very set in the Training app. Tap How to do it on any exercise for steps a
- nd videos.
+ vated split squat: 3 x 8-12 each\nSplit stance one arm DB row: 3 x 8-12 ea
+ ch\nIncline push up\, hands on a worktop: 3 x 8-15 *\nStanding DB tricep k
+ ickback: 3 x 10-15 each *\nBand pull apart: 3 x 12-15\nSuitcase march: 3 x
+  30-45 sec each\n\n* upper body priority (4 sets in weeks 7 to 11)\nLog ev
+ ery set in the Training app. Tap How to do it on any exercise for steps an
+ d videos.
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Session B\, week 5
@@ -369,7 +364,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261106@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261106T163000
 DTEND;TZID=Europe/London:20261106T174000
 SUMMARY:Session C\, week 6 (deload)
@@ -392,7 +387,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261109@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261109T173000
 DTEND;TZID=Europe/London:20261109T184000
 SUMMARY:Session A\, week 6 (deload)
@@ -402,11 +397,10 @@ DESCRIPTION:Week 6: Deload. Half the sets\, same weights. Keep the daily ph
  n\, 3 steps each side x 2\; Table top leg extensions\, 1 set to fatigue\; 
  Ramp up set at half your working weight\n\nGoblet squat: 2 x 8-12\nOne arm
   DB row: 2 x 8-12 each\nDB floor press\, neutral grip: 2 x 8-12 *\nDB Roma
- nian deadlift: 2 x 8-12\nBand pull apart: 2 x 12-15\nLateral raise (supers
- et): 2 x 12-20 *\nHammer curl (superset): 2 x 10-15 *\nTable top leg exten
- sion: 2 x max\n\n* upper body priority (4 sets in weeks 7 to 11)\nLog ever
- y set in the Training app. Tap How to do it on any exercise for steps and 
- videos.
+ nian deadlift: 2 x 8-12\nBand pull apart: 2 x 12-15\nHammer curl: 2 x 10-1
+ 5 *\nTable top leg extension: 2 x max\n\n* upper body priority (4 sets in 
+ weeks 7 to 11)\nLog every set in the Training app. Tap How to do it on any
+  exercise for steps and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Session A\, week 6 (deload)
@@ -415,7 +409,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261111@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261111T173000
 DTEND;TZID=Europe/London:20261111T184000
 SUMMARY:Session B\, week 6 (deload)
@@ -424,11 +418,11 @@ DESCRIPTION:Week 6: Deload. Half the sets\, same weights. Keep the daily ph
   2 sets\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abductio
  n\, 3 steps each side x 2\; Table top leg extensions\, 1 set to fatigue\; 
  Ramp up set at half your working weight\n\nRear foot elevated split squat:
-  2 x 8-12 each\nBand lat pulldown: 2 x 10-15\nSingle leg glute bridge: 2 x
-  8-12 each\nPush up plus: 2 x 8-15 *\nLateral raise: 2 x 12-20 *\nLying DB
-  tricep extension\, on the floor: 2 x 10-15 *\nPallof press: 2 x 10 each\n
- \n* upper body priority (4 sets in weeks 7 to 11)\nLog every set in the Tr
- aining app. Tap How to do it on any exercise for steps and videos.
+  2 x 8-12 each\nSplit stance one arm DB row: 2 x 8-12 each\nIncline push u
+ p\, hands on a worktop: 2 x 8-15 *\nStanding DB tricep kickback: 2 x 10-15
+  each *\nBand pull apart: 2 x 12-15\nSuitcase march: 2 x 30-45 sec each\n\
+ n* upper body priority (4 sets in weeks 7 to 11)\nLog every set in the Tra
+ ining app. Tap How to do it on any exercise for steps and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Session B\, week 6 (deload)
@@ -437,7 +431,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261113@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261113T163000
 DTEND;TZID=Europe/London:20261113T174000
 SUMMARY:Session C\, week 7
@@ -461,7 +455,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261116@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261116T173000
 DTEND;TZID=Europe/London:20261116T184000
 SUMMARY:Session A\, week 7
@@ -472,10 +466,10 @@ DESCRIPTION:Week 7: Build\, harder. Priority exercises (marked) get a 4th s
  de x 2\; Table top leg extensions\, 1 set to fatigue\; Ramp up set at half
   your working weight\n\nGoblet squat: 3 x 8-12\nOne arm DB row: 3 x 8-12 e
  ach\nDB floor press\, neutral grip: 4 x 8-12 *\nDB Romanian deadlift: 3 x 
- 8-12\nBand pull apart: 3 x 12-15\nLateral raise (superset): 4 x 12-20 *\nH
- ammer curl (superset): 4 x 10-15 *\nTable top leg extension: 3 x max\n\n* 
- upper body priority (4 sets in weeks 7 to 11)\nLog every set in the Traini
- ng app. Tap How to do it on any exercise for steps and videos.
+ 8-12\nBand pull apart: 3 x 12-15\nHammer curl: 4 x 10-15 *\nTable top leg 
+ extension: 3 x max\n\n* upper body priority (4 sets in weeks 7 to 11)\nLog
+  every set in the Training app. Tap How to do it on any exercise for steps
+  and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Session A\, week 7
@@ -484,7 +478,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261118@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261118T173000
 DTEND;TZID=Europe/London:20261118T184000
 SUMMARY:Session B\, week 7
@@ -493,12 +487,12 @@ DESCRIPTION:Week 7: Build\, harder. Priority exercises (marked) get a 4th s
  up: Wall walk out 2 x 10 sec\; Band shoulder exercise\, 2 sets\; Standing 
  row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each si
  de x 2\; Table top leg extensions\, 1 set to fatigue\; Ramp up set at half
-  your working weight\n\nRear foot elevated split squat: 3 x 8-12 each\nBan
- d lat pulldown: 3 x 10-15\nSingle leg glute bridge: 3 x 8-12 each\nPush up
-  plus: 4 x 8-15 *\nLateral raise: 4 x 12-20 *\nLying DB tricep extension\,
-  on the floor: 4 x 10-15 *\nPallof press: 3 x 10 each\n\n* upper body prio
- rity (4 sets in weeks 7 to 11)\nLog every set in the Training app. Tap How
-  to do it on any exercise for steps and videos.
+  your working weight\n\nRear foot elevated split squat: 3 x 8-12 each\nSpl
+ it stance one arm DB row: 3 x 8-12 each\nIncline push up\, hands on a work
+ top: 4 x 8-15 *\nStanding DB tricep kickback: 4 x 10-15 each *\nBand pull 
+ apart: 3 x 12-15\nSuitcase march: 3 x 30-45 sec each\n\n* upper body prior
+ ity (4 sets in weeks 7 to 11)\nLog every set in the Training app. Tap How 
+ to do it on any exercise for steps and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Session B\, week 7
@@ -507,7 +501,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261120@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261120T163000
 DTEND;TZID=Europe/London:20261120T174000
 SUMMARY:Session C\, week 8
@@ -531,7 +525,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261123@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261123T173000
 DTEND;TZID=Europe/London:20261123T184000
 SUMMARY:Session A\, week 8
@@ -542,10 +536,10 @@ DESCRIPTION:Week 8: Build\, harder. Priority exercises (marked) get a 4th s
  de x 2\; Table top leg extensions\, 1 set to fatigue\; Ramp up set at half
   your working weight\n\nGoblet squat: 3 x 8-12\nOne arm DB row: 3 x 8-12 e
  ach\nDB floor press\, neutral grip: 4 x 8-12 *\nDB Romanian deadlift: 3 x 
- 8-12\nBand pull apart: 3 x 12-15\nLateral raise (superset): 4 x 12-20 *\nH
- ammer curl (superset): 4 x 10-15 *\nTable top leg extension: 3 x max\n\n* 
- upper body priority (4 sets in weeks 7 to 11)\nLog every set in the Traini
- ng app. Tap How to do it on any exercise for steps and videos.
+ 8-12\nBand pull apart: 3 x 12-15\nHammer curl: 4 x 10-15 *\nTable top leg 
+ extension: 3 x max\n\n* upper body priority (4 sets in weeks 7 to 11)\nLog
+  every set in the Training app. Tap How to do it on any exercise for steps
+  and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Session A\, week 8
@@ -554,7 +548,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261125@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261125T173000
 DTEND;TZID=Europe/London:20261125T184000
 SUMMARY:Session B\, week 8
@@ -563,12 +557,12 @@ DESCRIPTION:Week 8: Build\, harder. Priority exercises (marked) get a 4th s
  up: Wall walk out 2 x 10 sec\; Band shoulder exercise\, 2 sets\; Standing 
  row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each si
  de x 2\; Table top leg extensions\, 1 set to fatigue\; Ramp up set at half
-  your working weight\n\nRear foot elevated split squat: 3 x 8-12 each\nBan
- d lat pulldown: 3 x 10-15\nSingle leg glute bridge: 3 x 8-12 each\nPush up
-  plus: 4 x 8-15 *\nLateral raise: 4 x 12-20 *\nLying DB tricep extension\,
-  on the floor: 4 x 10-15 *\nPallof press: 3 x 10 each\n\n* upper body prio
- rity (4 sets in weeks 7 to 11)\nLog every set in the Training app. Tap How
-  to do it on any exercise for steps and videos.
+  your working weight\n\nRear foot elevated split squat: 3 x 8-12 each\nSpl
+ it stance one arm DB row: 3 x 8-12 each\nIncline push up\, hands on a work
+ top: 4 x 8-15 *\nStanding DB tricep kickback: 4 x 10-15 each *\nBand pull 
+ apart: 3 x 12-15\nSuitcase march: 3 x 30-45 sec each\n\n* upper body prior
+ ity (4 sets in weeks 7 to 11)\nLog every set in the Training app. Tap How 
+ to do it on any exercise for steps and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Session B\, week 8
@@ -577,7 +571,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261127@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261127T163000
 DTEND;TZID=Europe/London:20261127T174000
 SUMMARY:Session C\, week 9
@@ -601,7 +595,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261130@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261130T173000
 DTEND;TZID=Europe/London:20261130T184000
 SUMMARY:Session A\, week 9
@@ -612,10 +606,10 @@ DESCRIPTION:Week 9: Build\, harder. Priority exercises (marked) get a 4th s
  de x 2\; Table top leg extensions\, 1 set to fatigue\; Ramp up set at half
   your working weight\n\nGoblet squat: 3 x 8-12\nOne arm DB row: 3 x 8-12 e
  ach\nDB floor press\, neutral grip: 4 x 8-12 *\nDB Romanian deadlift: 3 x 
- 8-12\nBand pull apart: 3 x 12-15\nLateral raise (superset): 4 x 12-20 *\nH
- ammer curl (superset): 4 x 10-15 *\nTable top leg extension: 3 x max\n\n* 
- upper body priority (4 sets in weeks 7 to 11)\nLog every set in the Traini
- ng app. Tap How to do it on any exercise for steps and videos.
+ 8-12\nBand pull apart: 3 x 12-15\nHammer curl: 4 x 10-15 *\nTable top leg 
+ extension: 3 x max\n\n* upper body priority (4 sets in weeks 7 to 11)\nLog
+  every set in the Training app. Tap How to do it on any exercise for steps
+  and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Session A\, week 9
@@ -624,7 +618,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261202@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261202T173000
 DTEND;TZID=Europe/London:20261202T184000
 SUMMARY:Session B\, week 9
@@ -633,12 +627,12 @@ DESCRIPTION:Week 9: Build\, harder. Priority exercises (marked) get a 4th s
  up: Wall walk out 2 x 10 sec\; Band shoulder exercise\, 2 sets\; Standing 
  row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each si
  de x 2\; Table top leg extensions\, 1 set to fatigue\; Ramp up set at half
-  your working weight\n\nRear foot elevated split squat: 3 x 8-12 each\nBan
- d lat pulldown: 3 x 10-15\nSingle leg glute bridge: 3 x 8-12 each\nPush up
-  plus: 4 x 8-15 *\nLateral raise: 4 x 12-20 *\nLying DB tricep extension\,
-  on the floor: 4 x 10-15 *\nPallof press: 3 x 10 each\n\n* upper body prio
- rity (4 sets in weeks 7 to 11)\nLog every set in the Training app. Tap How
-  to do it on any exercise for steps and videos.
+  your working weight\n\nRear foot elevated split squat: 3 x 8-12 each\nSpl
+ it stance one arm DB row: 3 x 8-12 each\nIncline push up\, hands on a work
+ top: 4 x 8-15 *\nStanding DB tricep kickback: 4 x 10-15 each *\nBand pull 
+ apart: 3 x 12-15\nSuitcase march: 3 x 30-45 sec each\n\n* upper body prior
+ ity (4 sets in weeks 7 to 11)\nLog every set in the Training app. Tap How 
+ to do it on any exercise for steps and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Session B\, week 9
@@ -647,7 +641,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261204@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261204T163000
 DTEND;TZID=Europe/London:20261204T174000
 SUMMARY:Session C\, week 10
@@ -671,7 +665,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261207@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261207T173000
 DTEND;TZID=Europe/London:20261207T184000
 SUMMARY:Session A\, week 10
@@ -682,10 +676,10 @@ DESCRIPTION:Week 10: Build\, harder. Priority exercises (marked) get a 4th
  ide x 2\; Table top leg extensions\, 1 set to fatigue\; Ramp up set at hal
  f your working weight\n\nGoblet squat: 3 x 8-12\nOne arm DB row: 3 x 8-12 
  each\nDB floor press\, neutral grip: 4 x 8-12 *\nDB Romanian deadlift: 3 x
-  8-12\nBand pull apart: 3 x 12-15\nLateral raise (superset): 4 x 12-20 *\n
- Hammer curl (superset): 4 x 10-15 *\nTable top leg extension: 3 x max\n\n*
-  upper body priority (4 sets in weeks 7 to 11)\nLog every set in the Train
- ing app. Tap How to do it on any exercise for steps and videos.
+  8-12\nBand pull apart: 3 x 12-15\nHammer curl: 4 x 10-15 *\nTable top leg
+  extension: 3 x max\n\n* upper body priority (4 sets in weeks 7 to 11)\nLo
+ g every set in the Training app. Tap How to do it on any exercise for step
+ s and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Session A\, week 10
@@ -694,7 +688,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261209@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261209T173000
 DTEND;TZID=Europe/London:20261209T184000
 SUMMARY:Session B\, week 10
@@ -703,12 +697,12 @@ DESCRIPTION:Week 10: Build\, harder. Priority exercises (marked) get a 4th
   up: Wall walk out 2 x 10 sec\; Band shoulder exercise\, 2 sets\; Standing
   row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each s
  ide x 2\; Table top leg extensions\, 1 set to fatigue\; Ramp up set at hal
- f your working weight\n\nRear foot elevated split squat: 3 x 8-12 each\nBa
- nd lat pulldown: 3 x 10-15\nSingle leg glute bridge: 3 x 8-12 each\nPush u
- p plus: 4 x 8-15 *\nLateral raise: 4 x 12-20 *\nLying DB tricep extension\
- , on the floor: 4 x 10-15 *\nPallof press: 3 x 10 each\n\n* upper body pri
- ority (4 sets in weeks 7 to 11)\nLog every set in the Training app. Tap Ho
- w to do it on any exercise for steps and videos.
+ f your working weight\n\nRear foot elevated split squat: 3 x 8-12 each\nSp
+ lit stance one arm DB row: 3 x 8-12 each\nIncline push up\, hands on a wor
+ ktop: 4 x 8-15 *\nStanding DB tricep kickback: 4 x 10-15 each *\nBand pull
+  apart: 3 x 12-15\nSuitcase march: 3 x 30-45 sec each\n\n* upper body prio
+ rity (4 sets in weeks 7 to 11)\nLog every set in the Training app. Tap How
+  to do it on any exercise for steps and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Session B\, week 10
@@ -717,7 +711,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261211@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261211T163000
 DTEND;TZID=Europe/London:20261211T174000
 SUMMARY:Session C\, week 11
@@ -741,7 +735,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261214@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261214T173000
 DTEND;TZID=Europe/London:20261214T184000
 SUMMARY:Session A\, week 11
@@ -752,10 +746,10 @@ DESCRIPTION:Week 11: Build\, harder. Priority exercises (marked) get a 4th
  ide x 2\; Table top leg extensions\, 1 set to fatigue\; Ramp up set at hal
  f your working weight\n\nGoblet squat: 3 x 8-12\nOne arm DB row: 3 x 8-12 
  each\nDB floor press\, neutral grip: 4 x 8-12 *\nDB Romanian deadlift: 3 x
-  8-12\nBand pull apart: 3 x 12-15\nLateral raise (superset): 4 x 12-20 *\n
- Hammer curl (superset): 4 x 10-15 *\nTable top leg extension: 3 x max\n\n*
-  upper body priority (4 sets in weeks 7 to 11)\nLog every set in the Train
- ing app. Tap How to do it on any exercise for steps and videos.
+  8-12\nBand pull apart: 3 x 12-15\nHammer curl: 4 x 10-15 *\nTable top leg
+  extension: 3 x max\n\n* upper body priority (4 sets in weeks 7 to 11)\nLo
+ g every set in the Training app. Tap How to do it on any exercise for step
+ s and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Session A\, week 11
@@ -764,7 +758,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261216@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261216T173000
 DTEND;TZID=Europe/London:20261216T184000
 SUMMARY:Session B\, week 11
@@ -773,12 +767,12 @@ DESCRIPTION:Week 11: Build\, harder. Priority exercises (marked) get a 4th
   up: Wall walk out 2 x 10 sec\; Band shoulder exercise\, 2 sets\; Standing
   row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each s
  ide x 2\; Table top leg extensions\, 1 set to fatigue\; Ramp up set at hal
- f your working weight\n\nRear foot elevated split squat: 3 x 8-12 each\nBa
- nd lat pulldown: 3 x 10-15\nSingle leg glute bridge: 3 x 8-12 each\nPush u
- p plus: 4 x 8-15 *\nLateral raise: 4 x 12-20 *\nLying DB tricep extension\
- , on the floor: 4 x 10-15 *\nPallof press: 3 x 10 each\n\n* upper body pri
- ority (4 sets in weeks 7 to 11)\nLog every set in the Training app. Tap Ho
- w to do it on any exercise for steps and videos.
+ f your working weight\n\nRear foot elevated split squat: 3 x 8-12 each\nSp
+ lit stance one arm DB row: 3 x 8-12 each\nIncline push up\, hands on a wor
+ ktop: 4 x 8-15 *\nStanding DB tricep kickback: 4 x 10-15 each *\nBand pull
+  apart: 3 x 12-15\nSuitcase march: 3 x 30-45 sec each\n\n* upper body prio
+ rity (4 sets in weeks 7 to 11)\nLog every set in the Training app. Tap How
+  to do it on any exercise for steps and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Session B\, week 11
@@ -787,7 +781,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261218@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261218T163000
 DTEND;TZID=Europe/London:20261218T174000
 SUMMARY:Session C\, week 12 (deload)
@@ -811,7 +805,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261221@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261221T173000
 DTEND;TZID=Europe/London:20261221T184000
 SUMMARY:Session A\, week 12 (deload)
@@ -822,11 +816,10 @@ DESCRIPTION:Week 12: Deload and retest. Half sets in the first two sessions
  on\, 3 steps each side x 2\; Table top leg extensions\, 1 set to fatigue\;
   Ramp up set at half your working weight\n\nGoblet squat: 2 x 8-12\nOne ar
  m DB row: 2 x 8-12 each\nDB floor press\, neutral grip: 2 x 8-12 *\nDB Rom
- anian deadlift: 2 x 8-12\nBand pull apart: 2 x 12-15\nLateral raise (super
- set): 2 x 12-20 *\nHammer curl (superset): 2 x 10-15 *\nTable top leg exte
- nsion: 2 x max\n\n* upper body priority (4 sets in weeks 7 to 11)\nLog eve
- ry set in the Training app. Tap How to do it on any exercise for steps and
-  videos.
+ anian deadlift: 2 x 8-12\nBand pull apart: 2 x 12-15\nHammer curl: 2 x 10-
+ 15 *\nTable top leg extension: 2 x max\n\n* upper body priority (4 sets in
+  weeks 7 to 11)\nLog every set in the Training app. Tap How to do it on an
+ y exercise for steps and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Session A\, week 12 (deload)
@@ -835,7 +828,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261223@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261223T173000
 DTEND;TZID=Europe/London:20261223T184000
 SUMMARY:Retest\, week 12 (deload)
@@ -853,7 +846,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:am-MOWE@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261005T062500
 DTEND;TZID=Europe/London:20261005T063500
 SUMMARY:Weigh in\, check-in\, physio
@@ -868,7 +861,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:am-THTU@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261001T074000
 DTEND;TZID=Europe/London:20261001T075000
 SUMMARY:Check-in\, physio
@@ -883,7 +876,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:am-FR@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261002T074000
 DTEND;TZID=Europe/London:20261002T075000
 SUMMARY:Weigh in\, check-in\, physio
@@ -898,7 +891,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:am-SA@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261003T083000
 DTEND;TZID=Europe/London:20261003T084000
 SUMMARY:Check-in\, physio
@@ -913,7 +906,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:am-SU@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261004T083000
 DTEND;TZID=Europe/London:20261004T084000
 SUMMARY:Weigh in\, check-in\, physio
@@ -928,7 +921,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:pm-physio@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261001T213000
 DTEND;TZID=Europe/London:20261001T214000
 SUMMARY:Physio\, evening
@@ -942,7 +935,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:phone-away@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261001T223000
 DTEND;TZID=Europe/London:20261001T224500
 SUMMARY:Phone away
@@ -957,7 +950,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:weekly-review@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;TZID=Europe/London:20261004T190000
 DTEND;TZID=Europe/London:20261004T191500
 SUMMARY:Weekly review
@@ -972,7 +965,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:deload-w6@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261112
 SUMMARY:Deload week 6
@@ -981,7 +974,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:deload-w12@training-tracker
-DTSTAMP:20261006T124429Z
+DTSTAMP:20261007T204146Z
 DTSTART;VALUE=DATE:20261217
 DTEND;VALUE=DATE:20261224
 SUMMARY:Deload week 12

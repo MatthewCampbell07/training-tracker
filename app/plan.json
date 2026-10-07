@@ -166,21 +166,8 @@
           "cue": "Arms straight, thumbs up, 2 sec hold."
         },
         {
-          "id": "lateral_raise_a",
-          "name": "Lateral raise (superset)",
-          "sets": 3,
-          "min": 12,
-          "max": 20,
-          "unit": "reps",
-          "load": "db",
-          "rest": "none",
-          "cue": "Light, lead with elbows, stop at shoulder height. Straight into hammer curls.",
-          "priority": true,
-          "how": "lateral_raise"
-        },
-        {
           "id": "hammer_curl",
-          "name": "Hammer curl (superset)",
+          "name": "Hammer curl",
           "sets": 3,
           "min": 10,
           "max": 15,
@@ -204,7 +191,7 @@
       ]
     },
     "B": {
-      "title": "Single leg, pull down, push up, arms, core",
+      "title": "Single leg, row, push up, arms, trunk",
       "exercises": [
         {
           "id": "rfe_split_squat",
@@ -219,19 +206,8 @@
           "cue": "Back foot on a chair. Front foot slightly out if it feels better."
         },
         {
-          "id": "band_pulldown",
-          "name": "Band lat pulldown",
-          "sets": 3,
-          "min": 10,
-          "max": 15,
-          "unit": "reps",
-          "load": "band",
-          "rest": "90 sec",
-          "cue": "Chin back, elbows to ribs."
-        },
-        {
-          "id": "sl_glute_bridge",
-          "name": "Single leg glute bridge",
+          "id": "split_row",
+          "name": "Split stance one arm DB row",
           "sets": 3,
           "min": 8,
           "max": 12,
@@ -239,55 +215,55 @@
           "load": "db",
           "each": true,
           "rest": "90 sec",
-          "cue": "Tuck the pelvis at the top. Glutes, not lower back."
+          "cue": "Standing, hand on a table. Shoulder blade back, chin tucked, elbow to back pocket."
         },
         {
-          "id": "push_up_plus",
-          "name": "Push up plus",
+          "id": "incline_push_up",
+          "name": "Incline push up, hands on a worktop",
           "sets": 3,
           "min": 8,
           "max": 15,
           "unit": "reps",
           "load": "bw",
           "rest": "90 sec",
-          "cue": "Push the floor away at the top.",
+          "cue": "Shoulder blades back and down the whole time. No pushing through at the top.",
           "priority": true
         },
         {
-          "id": "lateral_raise",
-          "name": "Lateral raise",
-          "sets": 3,
-          "min": 12,
-          "max": 20,
-          "unit": "reps",
-          "load": "db",
-          "rest": "60 sec",
-          "cue": "Light, lead with elbows, stop at shoulder height.",
-          "priority": true
-        },
-        {
-          "id": "lying_tricep",
-          "name": "Lying DB tricep extension, on the floor",
+          "id": "kickback",
+          "name": "Standing DB tricep kickback",
           "sets": 3,
           "min": 10,
           "max": 15,
           "unit": "reps",
           "load": "db",
+          "each": true,
           "rest": "60 sec",
-          "cue": "Palms facing, elbows point up, lower to beside the ears.",
+          "cue": "Hand on a table, upper arm still and tight to your side.",
           "priority": true
         },
         {
-          "id": "pallof",
-          "name": "Pallof press",
+          "id": "band_pull_apart",
+          "name": "Band pull apart",
           "sets": 3,
-          "min": 10,
-          "max": 10,
+          "min": 12,
+          "max": 15,
           "unit": "reps",
           "load": "band",
+          "rest": "60 sec",
+          "cue": "Arms straight, thumbs up, 2 sec hold."
+        },
+        {
+          "id": "suitcase_march",
+          "name": "Suitcase march",
+          "sets": 3,
+          "min": 30,
+          "max": 45,
+          "unit": "sec",
+          "load": "db",
           "each": true,
           "rest": "60 sec",
-          "cue": "Do not let the trunk turn."
+          "cue": "One dumbbell at your side, march slowly on the spot. Stay level."
         }
       ]
     },
@@ -515,15 +491,6 @@
       ],
       "video": "band pull apart form"
     },
-    "lateral_raise": {
-      "steps": [
-        "Stand tall with a light dumbbell in each hand at your sides.",
-        "Keep a slight bend in your elbows and raise your arms out to the sides, leading with the elbows.",
-        "Stop at shoulder height and pause briefly.",
-        "Lower over 2 to 3 seconds. No swinging."
-      ],
-      "video": "dumbbell lateral raise form"
-    },
     "hammer_curl": {
       "steps": [
         "Stand tall with a dumbbell in each hand, palms facing your thighs.",
@@ -550,51 +517,6 @@
         "Push through your front foot to stand up. Do all your reps, then switch legs."
       ],
       "video": "rear foot elevated split squat dumbbell form"
-    },
-    "band_pulldown": {
-      "steps": [
-        "Anchor a band high on a door: shut the door anchor in the door above head height.",
-        "Kneel or stand facing the door, arms reaching up and holding the band.",
-        "Tuck your chin and pull your elbows down to your ribs, squeezing your shoulder blades down.",
-        "Return slowly."
-      ],
-      "video": "resistance band lat pulldown door anchor"
-    },
-    "sl_glute_bridge": {
-      "steps": [
-        "Lie on your back with one knee bent and that foot flat. Lift the other leg or hug it to your chest. Rest a dumbbell on your hips.",
-        "Tuck your pelvis under so your lower back flattens.",
-        "Push through your heel and lift your hips until your body is straight from knee to shoulder. Squeeze the glute.",
-        "Lower slowly. You should feel it in your glute, not your lower back."
-      ],
-      "video": "single leg glute bridge form"
-    },
-    "push_up_plus": {
-      "steps": [
-        "Get into a push up position with your hands under your shoulders. Put your hands on a worktop to make it easier.",
-        "Do a normal push up with your body in a straight line.",
-        "At the top, push the floor further away so your upper back rounds slightly and your shoulder blades wrap around your ribs.",
-        "Relax back to a normal top position, then do the next rep."
-      ],
-      "video": "push up plus serratus"
-    },
-    "lying_tricep": {
-      "steps": [
-        "Lie on the floor, knees bent, a dumbbell in each hand, arms straight above your shoulders, palms facing each other.",
-        "Keep your upper arms still and your elbows pointing at the ceiling.",
-        "Bend your elbows to lower the dumbbells beside your ears.",
-        "Straighten your arms back up."
-      ],
-      "video": "lying dumbbell tricep extension neutral grip"
-    },
-    "pallof": {
-      "steps": [
-        "Anchor a band at chest height, beside you (door anchor or a post).",
-        "Stand side on to the anchor, feet hip width, holding the band with both hands at your chest.",
-        "Press your hands straight out in front of you. Do not let the band twist you round.",
-        "Hold 2 seconds, then bring your hands back in. Do all your reps, then face the other way."
-      ],
-      "video": "pallof press band form"
     },
     "reverse_lunge": {
       "steps": [
@@ -702,6 +624,42 @@
         "Use it to practise the position and cues, not to tire yourself out."
       ],
       "video": null
+    },
+    "split_row": {
+      "steps": [
+        "Stand side on to a table. Put one hand on it and step that same leg forward, back leg straight behind you.",
+        "Hinge forward with a flat back. Let the dumbbell hang under your shoulder in the other hand.",
+        "Set the shoulder blade back, tuck your chin and pull your elbow towards your back pocket. Squeeze for 1 second.",
+        "Lower over 3 seconds. Do all your reps, then switch sides."
+      ],
+      "video": "split stance single arm dumbbell row"
+    },
+    "incline_push_up": {
+      "steps": [
+        "Hands on a kitchen worktop or sturdy table, slightly wider than your shoulders. Walk your feet back until your body is straight.",
+        "Set your shoulder blades back and down, ribs down, glutes squeezed.",
+        "Lower your chest to the edge with control, elbows about 45 degrees from your body.",
+        "Push back up until your arms are straight. Stop there, no extra push at the top. Lower surface = harder."
+      ],
+      "video": "incline push up form"
+    },
+    "kickback": {
+      "steps": [
+        "Stand with one hand on a table, opposite foot back, flat back, dumbbell in the free hand.",
+        "Pin that upper arm to your side, elbow bent to 90 degrees, shoulder blade back.",
+        "Straighten your arm behind you, moving only at the elbow. Squeeze for 1 second.",
+        "Lower back to 90 degrees under control. Do all your reps, then switch sides."
+      ],
+      "video": "dumbbell tricep kickback form"
+    },
+    "suitcase_march": {
+      "steps": [
+        "Hold one dumbbell at your side like a suitcase. Stand tall, ribs down, pelvis level.",
+        "Slowly lift one knee to hip height, put it down, then the other.",
+        "Don't lean towards the weight or let your hips drop.",
+        "March for the set time, then swap hands."
+      ],
+      "video": "suitcase march exercise"
     }
   },
   "wakeDefaults": {

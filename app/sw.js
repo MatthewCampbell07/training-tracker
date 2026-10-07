@@ -1,6 +1,6 @@
 // Offline support. Online: always fetch the latest files (and refresh the saved copy).
 // Offline: fall back to the saved copy. Bump VERSION when the file list changes.
-const VERSION = 'tt-v9';
+const VERSION = 'tt-v10';
 const FILES = ['./', 'index.html', 'styles.css', 'app.js', 'logic.js', 'store.js', 'views.js', 'stats-views.js',
   'badges.js', 'charts.js', 'cloud.js', 'plan.json', 'manifest.webmanifest', 'icon-180.png', 'icon-192.png', 'icon-512.png'];
 
