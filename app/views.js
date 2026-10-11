@@ -2,6 +2,7 @@
 import {
   addDays, dayOfWeek, habitStreak, isDeload, isGolfMode, lastPerformance, parseIso, phaseFor,
   progressionCall, scheduledSession, sessionIsDone, setsFor, sleepHours, suggestFor, topWeight, upMessage, weekOf,
+  isWeekend, weekendMobilityDone,
 } from './logic.js';
 
 export function esc(v) {
@@ -51,7 +52,8 @@ export function todayView({ plan, state, date, today, cloud }) {
   const s = state.settings;
   const day = state.days[date] || {};
   const week = weekOf(date, s.startDate);
-  const letter = state.sessions[date]?.letter || scheduledSession(date, plan, s);
+  const loggedLetter = state.sessions[date]?.letter;
+  const letter = (loggedLetter !== 'M' && loggedLetter) || scheduledSession(date, plan, s);
   const hours = sleepHours(day.asleep, day.wake);
   const logged = hours !== null;
   const defaults = sleepDefaults(plan, state, date);
@@ -67,6 +69,14 @@ export function todayView({ plan, state, date, today, cloud }) {
   if (scheduledSession(date, plan, s) === 'R') banner += `<div class="banner">Retest day. Max push ups, goblet squat reps, single arm row reps.</div>`;
 
   let lift = '';
+  if (!letter && isWeekend(date)) {
+    const done = weekendMobilityDone(state, date);
+    lift = `<button class="lift${done ? ' done' : ''}" data-action="open-mobility" style="border:0;width:100%;text-align:left;cursor:pointer">
+      <span class="letter">M</span>
+      <span class="meta"><b>${done ? 'Mobility done this weekend' : 'Golf mobility, 20 min'}</b><span>Hip turn, not sway. Optional, Saturday or Sunday.</span></span>
+      <span aria-hidden="true" style="font-size:22px">›</span>
+    </button>`;
+  }
   if (letter) {
     const title = plan.sessions[letter].title;
     const done = sessionIsDone(state.sessions[date]);
@@ -177,9 +187,38 @@ function exerciseCard(ex, ctx, week, golf) {
   </section>`;
 }
 
+function mobilityCard(ex, plan, ticked) {
+  return `<section class="card ex">
+    <h3>${esc(ex.name)}</h3>
+    <div class="sub num">${esc(ex.dose)}</div>
+    <div class="cue">${esc(ex.cue)}</div>
+    ${howToHtml(plan, ex.id)}
+    <button class="habit mob-tick" data-action="mob-tick" data-ex="${ex.id}" aria-pressed="${ticked}"><span class="tick" aria-hidden="true"></span><span class="label">Done</span></button>
+  </section>`;
+}
+
+function mobilityView(ctx, letters) {
+  const { plan, state, date } = ctx;
+  const m = plan.sessions.M;
+  const rec = state.sessions[date] || {};
+  const chips = letters.map((l) => `<button class="chip" data-letter="${l}" aria-pressed="${l === 'M'}">${l}</button>`).join('');
+  const finish = rec.done
+    ? '<button class="btn ghost block" data-action="unfinish">Mobility done. Tap to undo</button>'
+    : '<button class="btn red block" data-action="finish">Finish mobility</button>';
+  return {
+    title: 'Golf mobility',
+    sub: `${fmtDate(date)}. About 20 min`,
+    nav: ['day-prev', 'day-next'],
+    body: `<div class="chips" role="group" aria-label="Choose session">${chips}</div>
+      <div class="banner blue">${esc(m.intro)}</div>
+      ${m.exercises.map((ex) => mobilityCard(ex, plan, Boolean(rec.ticks?.[ex.id]))).join('')}
+      ${finish}`,
+  };
+}
+
 export function sessionLetterFor(ctx) {
   const { plan, state, date } = ctx;
-  return state.sessions[date]?.letter || ctx.pickedLetter || scheduledSession(date, plan, state.settings) || 'A';
+  return state.sessions[date]?.letter || ctx.pickedLetter || scheduledSession(date, plan, state.settings) || (isWeekend(date) ? 'M' : 'A');
 }
 
 export function sessionView(ctx) {
@@ -190,7 +229,8 @@ export function sessionView(ctx) {
   const letter = sessionLetterFor(ctx);
   const session = plan.sessions[letter];
   const done = sessionIsDone(state.sessions[date]) && state.sessions[date]?.done;
-  const letters = week === plan.retestWeek || letter === 'R' ? ['A', 'B', 'C', 'R'] : ['A', 'B', 'C'];
+  const letters = [...(week === plan.retestWeek || letter === 'R' ? ['A', 'B', 'C', 'R'] : ['A', 'B', 'C']), 'M'];
+  if (letter === 'M') return mobilityView(ctx, letters);
   const phase = phaseFor(week, plan);
 
   const chips = letters.map((l) => `<button class="chip" data-letter="${l}" aria-pressed="${l === letter}">${l}</button>`).join('');

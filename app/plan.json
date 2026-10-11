@@ -48,6 +48,10 @@
     "golf": {
       "1": "A",
       "3": "B"
+    },
+    "mobility": {
+      "6": "M",
+      "0": "M"
     }
   },
   "calendar": {
@@ -76,7 +80,10 @@
     ],
     "phoneAway": "22:30",
     "reviewDay": 0,
-    "reviewTime": "19:00"
+    "reviewTime": "19:00",
+    "mobilityDay": 6,
+    "mobilityTime": "10:00",
+    "mobilityMinutes": 20
   },
   "warmup": [
     {
@@ -393,6 +400,49 @@
           "cue": "Your current working weight."
         }
       ]
+    },
+    "M": {
+      "title": "Golf mobility: hip turn, not sway",
+      "mobility": true,
+      "intro": "Your hip shape (retroverted) limits how far your hips turn inward. These drills will not change the bone. They help you use the range you have and turn instead of slide. Keep your feet flared, as your physio said.",
+      "exercises": [
+        {
+          "id": "mob_90_90",
+          "name": "90/90 hip switches",
+          "dose": "2 x 8 switches",
+          "cue": "Sit tall. Only go as far as is comfortable on the inward-turning side."
+        },
+        {
+          "id": "mob_hip_flexor",
+          "name": "Half kneeling hip flexor stretch",
+          "dose": "2 x 30 sec each side",
+          "cue": "Pelvis tucked, kneeling glute squeezed, ribs down."
+        },
+        {
+          "id": "mob_hip_rot",
+          "name": "Standing hip rotations",
+          "dose": "5 each way, each leg",
+          "cue": "Hand on a wall, pelvis level and still."
+        },
+        {
+          "id": "mob_tspine",
+          "name": "Half kneeling thoracic rotation",
+          "dose": "2 x 8 each side",
+          "cue": "Arms crossed, hips square, turn from the breastbone."
+        },
+        {
+          "id": "mob_separation",
+          "name": "Hip and chest separation in golf posture",
+          "dose": "2 x 10 each way",
+          "cue": "Turn one half while the other stays still."
+        },
+        {
+          "id": "mob_no_sway",
+          "name": "No-sway turn drill",
+          "dose": "2 x 10 slow turns",
+          "cue": "Trail hip turns back and behind, not sideways into the stick."
+        }
+      ]
     }
   },
   "habits": [
@@ -660,6 +710,60 @@
         "March for the set time, then swap hands."
       ],
       "video": "suitcase march exercise"
+    },
+    "mob_90_90": {
+      "steps": [
+        "Sit on the floor with both knees bent to 90 degrees: front leg turned out in front of you, back leg turned in to the side.",
+        "Lean back on your hands and sit tall.",
+        "Lift both knees and rotate them over to the other side so the legs swap roles.",
+        "Go slowly and only as far as is comfortable. With your hip shape the inward-turning side will always be stiffer, and that is normal."
+      ],
+      "video": "90 90 hip switch"
+    },
+    "mob_hip_flexor": {
+      "steps": [
+        "Kneel on one knee with a cushion under it, other foot flat in front.",
+        "Tuck your pelvis under and squeeze the glute of the kneeling leg.",
+        "Shift forward a little until you feel a stretch at the front of the kneeling hip. Ribs down, do not arch your back.",
+        "Hold and breathe, then switch sides."
+      ],
+      "video": "half kneeling hip flexor stretch posterior pelvic tilt"
+    },
+    "mob_hip_rot": {
+      "steps": [
+        "Stand side on to a wall with one hand on it. Lift the outside knee to hip height.",
+        "Keep your pelvis level and still, standing knee soft.",
+        "Slowly swing your shin outward and inward, turning at the hip, only as far as you can control.",
+        "Do 5 each way, then switch legs."
+      ],
+      "video": "standing hip internal external rotation drill"
+    },
+    "mob_tspine": {
+      "steps": [
+        "Kneel on one knee, other foot flat in front, arms crossed on your chest.",
+        "Squeeze the kneeling glute so your hips stay square.",
+        "Turn your chest towards the front-knee side, leading with your breastbone, then come back to the middle.",
+        "Your hips should not move. Do your reps, then switch legs and turn the other way."
+      ],
+      "video": "half kneeling thoracic rotation"
+    },
+    "mob_separation": {
+      "steps": [
+        "Get into your golf posture, feet flared, club held across your chest.",
+        "Keep your chest still and turn just your pelvis back and through, 10 times.",
+        "Then keep your pelvis still and turn just your chest, 10 times.",
+        "Small and smooth beats big and messy."
+      ],
+      "video": "pelvis torso separation drill golf"
+    },
+    "mob_no_sway": {
+      "steps": [
+        "Set up in golf posture with a club or alignment stick pushed into the ground just outside your trail hip, or stand with your trail hip a few cm from a wall.",
+        "Arms crossed on your chest, turn back as if to the top of your backswing.",
+        "Turn the trail hip back and behind you. Do not let it slide into the stick or wall.",
+        "Hold 2 seconds at the top, then turn through to a full finish with your feet free to turn out, and hold 3 seconds."
+      ],
+      "video": "golf hip turn no sway drill alignment stick"
     }
   },
   "wakeDefaults": {

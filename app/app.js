@@ -110,6 +110,14 @@ const ACTIONS = {
   'week-next': () => { ui = { ...ui, weekShown: clampWeek(ui.weekShown + 1) }; render(); },
   'go-today': () => { ui = { ...ui, date: today() }; render(); },
   'open-session': () => goTab('session'),
+  'open-mobility': () => { ui = { ...ui, pickedLetter: 'M' }; goTab('session'); },
+  'mob-tick': (el) => {
+    const rec = state.sessions[ui.date] || {};
+    const ticks = { ...(rec.ticks || {}), [el.dataset.ex]: !rec.ticks?.[el.dataset.ex] };
+    const allDone = plan.sessions.M.exercises.every((x) => ticks[x.id]);
+    commit(store.updateSession(state, ui.date, { letter: 'M', ticks, done: rec.done || allDone }));
+    if (allDone && !rec.done) { confetti(); toast('Mobility done. Hips thank you.'); }
+  },
   'go-settings': () => goTab('settings'),
   'cloud-signin': () => cloud.signIn(plan, $('#cloud-email').value.trim(), $('#cloud-password').value, false),
   'cloud-signup': () => cloud.signIn(plan, $('#cloud-email').value.trim(), $('#cloud-password').value, true),
@@ -138,7 +146,7 @@ const ACTIONS = {
     const letter = sessionLetterFor({ plan, state, ...ui });
     commit(store.updateSession(state, ui.date, { letter, done: true, retest: letter === 'R' }));
     confetti();
-    toast(`Session ${letter} done. Nice work.`);
+    toast(letter === 'M' ? 'Mobility done. Hips thank you.' : `Session ${letter} done. Nice work.`);
   },
   unfinish: () => commit(store.updateSession(state, ui.date, { done: false })),
   'golf-on': () => {

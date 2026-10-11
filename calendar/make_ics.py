@@ -208,6 +208,14 @@ def build(plan, start: date, golf_from: date | None, stamp: str) -> str:
                  "Aim for 7+ hours asleep: on a 06:15 alarm, asleep by 23:15.",
                  rrule=f"FREQ=DAILY;UNTIL={until}", alarm_before=0, stamp=stamp)
 
+    # Weekend golf mobility: optional, on the Saturday, with a note that Sunday works too.
+    mob_py = (cal["mobilityDay"] - 1) % 7  # plan.json uses JavaScript day numbers
+    first_mob = start + timedelta(days=(mob_py - start.weekday()) % 7)
+    mob_desc = "Optional, about 20 min. Move it to Sunday if that suits. In the Training app: Session tab, M.\n\n" + \
+        "\n".join(f"{ex['name']}: {ex['dose']}" for ex in plan["sessions"]["M"]["exercises"])
+    out += event("golf-mobility", "Golf mobility (Sat or Sun)", first_mob, cal["mobilityTime"], cal["mobilityMinutes"],
+                 mob_desc, rrule=f"FREQ=WEEKLY;BYDAY={DAY_CODES[mob_py]};UNTIL={until}", alarm_before=0, stamp=stamp)
+
     first_review = start + timedelta(days=(6 - start.weekday()) % 7)
     out += event("weekly-review", "Weekly review", first_review, cal["reviewTime"], 15,
                  "Training app, Week tab: sessions, weigh in average, add load list, gym check. "

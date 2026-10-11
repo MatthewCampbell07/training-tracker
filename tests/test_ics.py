@@ -132,3 +132,9 @@ def test_priority_lifts_get_4_sets_in_week_8(events):
     desc = str(week8_a["DESCRIPTION"])
     assert "DB floor press, neutral grip: 4 x 8-12 *" in desc
     assert "Goblet squat: 3 x 8-12" in desc
+
+
+def test_weekend_mobility_every_saturday_at_10(events):
+    mob = starts(events, "Golf mobility")
+    assert len(mob) == 12
+    assert all(d.weekday() == 5 and d.astimezone(LONDON).strftime("%H:%M") == "10:00" for d in mob)

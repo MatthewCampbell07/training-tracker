@@ -1,7 +1,7 @@
 // Badges are worked out from your data each time, never stored, so editing a past day updates them.
 import {
   allLoggedSets, countWeightIncreases, gymStatus, groupStreak, habitStreak, sessionIsDone,
-  sessionWeekStreak, sessionsDoneInWeek, sessionTarget, weekOf, weekStart, addDays, habitDone,
+  sessionWeekStreak, sessionsDoneInWeek, sessionTarget, mobilityCount, weekOf, weekStart, addDays, habitDone,
 } from './logic.js';
 
 function perfectWeeks(state, plan, settings, todayIso) {
@@ -39,6 +39,7 @@ export function badges(state, plan, todayIso) {
     { id: 'rested_14', icon: '7h', title: 'Well rested', desc: '7+ hours asleep 14 nights running', cur: rested, target: 14 },
     { id: 'sleep_7', icon: 'Z7', title: 'Sleep week', desc: 'All sleep habits 7 nights running', cur: sleep, target: 7 },
     { id: 'cap_21', icon: 'S21', title: 'Three week cap', desc: 'Under the app cap 21 days running, as in Hunt et al.', cur: cap, target: 21 },
+    { id: 'mobility_4', icon: 'M4', title: 'Loose hips', desc: '4 weekend golf mobility sessions', cur: mobilityCount(state), target: 4 },
     { id: 'first_up', icon: '+', title: 'Heavier', desc: 'First weight increase', cur: increases, target: 1 },
     { id: 'ten_up', icon: '+10', title: 'Ten jumps', desc: '10 weight increases across lifts', cur: increases, target: 10 },
     { id: 'club_20', icon: '20', title: '20 kg club', desc: 'Any set with the 20 kg dumbbell', cur: heaviest >= plan.maxDumbbellKg ? 1 : 0, target: 1 },

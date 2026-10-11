@@ -242,3 +242,23 @@ test('same day edited on both copies keeps ticks from both, newer wins on clashe
   assert.deepEqual(d.habits, { physio_am: true, app_cap: false, physio_pm: true });
   assert.equal(d.asleep, '23:30');
 });
+
+test('weekend mobility does not count as a lifting session', () => {
+  const st = { ...empty(), sessions: { '2026-10-10': { letter: 'M', done: true } } };
+  assert.equal(L.sessionIsDone(st.sessions['2026-10-10']), false);
+  assert.equal(L.mobilityDone(st.sessions['2026-10-10']), true);
+  assert.equal(L.sessionsDoneInWeek(st, 2, settings), 0);
+});
+
+test('one mobility session covers both weekend days', () => {
+  const st = { ...empty(), sessions: { '2026-10-10': { letter: 'M', done: true } } };
+  assert.equal(L.weekendMobilityDone(st, '2026-10-10'), true);
+  assert.equal(L.weekendMobilityDone(st, '2026-10-11'), true);
+  assert.equal(L.weekendMobilityDone(st, '2026-10-17'), false);
+  assert.equal(L.weekendMobilityDone(st, '2026-10-12'), false);
+  assert.equal(L.mobilityCount(st), 1);
+});
+
+test('every mobility drill has steps', () => {
+  for (const ex of plan.sessions.M.exercises) assert.ok(plan.howTo[ex.id]?.steps?.length >= 3, ex.id);
+});

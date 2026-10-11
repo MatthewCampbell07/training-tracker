@@ -116,8 +116,9 @@ export function topWeight(sets) {
   return ws.length ? Math.max(...ws) : null;
 }
 
+// Lifting sessions only. The weekend mobility session (letter M) is counted separately.
 export function sessionIsDone(session) {
-  if (!session) return false;
+  if (!session || session.letter === 'M') return false;
   if (session.done) return true;
   return Object.values(session.sets || {}).some((sets) => loggedSets(sets).length > 0);
 }
@@ -344,4 +345,23 @@ export function suggestFor(state, plan, ex, iso) {
     return { w: null, reps: repeat(() => ex.min), note: 'Top of the range last time. Make it harder (stronger band, feet up or slower lowering) and start at the bottom.' };
   }
   return { w: lastW, reps: repeat((i) => Math.min(ex.max, lastReps(i) + 1)), note: 'Beat last time by 1 rep a set.' };
+}
+
+export function mobilityDone(session) {
+  return Boolean(session && session.letter === 'M' && session.done);
+}
+
+export function isWeekend(iso) {
+  return [0, 6].includes(dayOfWeek(iso));
+}
+
+// The weekend runs Saturday and Sunday; one mobility session on either day counts for both.
+export function weekendMobilityDone(state, iso) {
+  if (!isWeekend(iso)) return false;
+  const sat = dayOfWeek(iso) === 6 ? iso : addDays(iso, -1);
+  return mobilityDone(state.sessions[sat]) || mobilityDone(state.sessions[addDays(sat, 1)]);
+}
+
+export function mobilityCount(state) {
+  return Object.values(state.sessions).filter(mobilityDone).length;
 }

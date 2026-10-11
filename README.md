@@ -18,6 +18,7 @@ What's in it:
 - **Sessions:** Mon A at 17:30, Wed B at 17:30, Fri C at 16:30
 - **Morning check-in and physio:** 06:25 on office days, 07:40 at home, 08:30 at weekends. Weigh in on Mon, Wed, Fri and Sun.
 - **Every evening:** physio at 21:30, phone away at 22:30
+- **Saturdays:** optional golf mobility at 10:00, about 20 min (Sunday works too)
 - **Sundays:** weekly review at 19:00
 - **Banners:** deload weeks 6 (5 to 11 Nov) and 12 (17 to 23 Dec)
 - **Retest:** the last session, Wed 23 Dec
