@@ -316,17 +316,6 @@
           "priority": true
         },
         {
-          "id": "reverse_fly",
-          "name": "Bent over reverse fly",
-          "sets": 3,
-          "min": 12,
-          "max": 20,
-          "unit": "reps",
-          "load": "db",
-          "rest": "60 sec",
-          "cue": "Thumbs forward."
-        },
-        {
           "id": "db_curl",
           "name": "DB curl (superset)",
           "sets": 3,
@@ -603,15 +592,6 @@
         "Too hard: put your hands on a worktop. Too easy: put your feet on a chair."
       ],
       "video": "push up proper form"
-    },
-    "reverse_fly": {
-      "steps": [
-        "Hinge forward from your hips with a flat back, a light dumbbell in each hand hanging under your chest.",
-        "Point your thumbs forward and keep a slight bend in your elbows.",
-        "Raise your arms out to the sides until they're level with your body, squeezing your shoulder blades.",
-        "Lower slowly."
-      ],
-      "video": "bent over dumbbell reverse fly"
     },
     "db_curl": {
       "steps": [
