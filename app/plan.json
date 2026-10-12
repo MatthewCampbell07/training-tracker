@@ -48,10 +48,6 @@
     "golf": {
       "1": "A",
       "3": "B"
-    },
-    "mobility": {
-      "6": "M",
-      "0": "M"
     }
   },
   "calendar": {
@@ -81,9 +77,16 @@
     "phoneAway": "22:30",
     "reviewDay": 0,
     "reviewTime": "19:00",
-    "mobilityDay": 6,
-    "mobilityTime": "10:00",
-    "mobilityMinutes": 20
+    "mobilityMinutes": 20,
+    "mobilityTimes": {
+      "1": "21:00",
+      "2": "21:00",
+      "3": "21:00",
+      "4": "21:00",
+      "5": "21:00",
+      "6": "10:00",
+      "0": "10:00"
+    }
   },
   "warmup": [
     {
@@ -478,6 +481,12 @@
       "label": "Physio block, evening",
       "group": "physio",
       "when": "day"
+    },
+    {
+      "id": "mobility",
+      "label": "Golf mobility",
+      "group": "golf",
+      "when": "mobility"
     }
   ],
   "gymCheck": [

@@ -30,6 +30,19 @@ export function save(state) {
 // Start dates that were only ever the built-in default, never chosen by hand.
 const OLD_DEFAULT_STARTS = ['2026-10-05'];
 
+// Mobility used to be stored as a session with letter M. It is now a daily habit.
+function migrateMobility(days, sessions) {
+  const outDays = { ...days };
+  const outSessions = {};
+  for (const [date, rec] of Object.entries(sessions)) {
+    if (rec?.letter !== 'M') { outSessions[date] = rec; continue; }
+    const day = outDays[date] || { habits: {} };
+    outDays[date] = { ...day, mobTicks: { ...(rec.ticks || {}), ...(day.mobTicks || {}) },
+      habits: { ...(day.habits || {}), mobility: Boolean(rec.done || day.habits?.mobility) } };
+  }
+  return { days: outDays, sessions: outSessions };
+}
+
 function migrateSettings(settings, plan) {
   return OLD_DEFAULT_STARTS.includes(settings.startDate) ? { ...settings, startDate: plan.startDate } : settings;
 }
@@ -40,8 +53,10 @@ export function validate(data, plan) {
   return {
     version: 1,
     settings: migrateSettings({ ...base.settings, ...(data.settings || {}) }, plan),
-    days: typeof data.days === 'object' && data.days ? data.days : {},
-    sessions: typeof data.sessions === 'object' && data.sessions ? data.sessions : {},
+    ...migrateMobility(
+      typeof data.days === 'object' && data.days ? data.days : {},
+      typeof data.sessions === 'object' && data.sessions ? data.sessions : {},
+    ),
   };
 }
 
@@ -83,7 +98,7 @@ function newer(a, b) {
   return (b._t || 0) >= (a._t || 0) ? b : a;
 }
 
-const NESTED = ['habits', 'sets', 'reserve', 'pain'];
+const NESTED = ['habits', 'sets', 'reserve', 'pain', 'mobTicks'];
 
 // Same day or session edited on both copies: combine them, newer values winning field by field.
 function combine(a, b) {

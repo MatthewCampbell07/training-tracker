@@ -146,6 +146,19 @@ export function schedulePush() {
   }, PUSH_DELAY_MS);
 }
 
+// Overwrite the cloud copy straight away (used after deleting everything).
+export async function pushNow() {
+  if (!auth) return;
+  clearTimeout(pushTimer);
+  try {
+    await push(hooks.getState());
+    setStatus({ lastSync: Date.now(), error: '' });
+  } catch (err) {
+    console.error('Cloud save failed', err);
+    setStatus({ error: err.message });
+  }
+}
+
 export async function signIn(plan, email, password, create) {
   if (!email || !password) return setStatus({ error: 'Enter your email and a password.' });
   if (create && password.length < 6) return setStatus({ error: 'Use a password of at least 6 characters.' });

@@ -134,7 +134,9 @@ def test_priority_lifts_get_4_sets_in_week_8(events):
     assert "Goblet squat: 3 x 8-12" in desc
 
 
-def test_weekend_mobility_every_saturday_at_10(events):
+def test_golf_mobility_every_day(events):
     mob = starts(events, "Golf mobility")
-    assert len(mob) == 12
-    assert all(d.weekday() == 5 and d.astimezone(LONDON).strftime("%H:%M") == "10:00" for d in mob)
+    assert len(mob) == 84
+    for d in mob:
+        local = d.astimezone(LONDON).strftime("%H:%M")
+        assert local == ("10:00" if d.weekday() >= 5 else "21:00")

@@ -18,7 +18,7 @@ What's in it:
 - **Sessions:** Mon A at 17:30, Wed B at 17:30, Fri C at 16:30
 - **Morning check-in and physio:** 06:25 on office days, 07:40 at home, 08:30 at weekends. Weigh in on Mon, Wed, Fri and Sun.
 - **Every evening:** physio at 21:30, phone away at 22:30
-- **Saturdays:** optional golf mobility at 10:00, about 20 min (Sunday works too)
+- **Golf mobility, every day:** 21:00 on weekdays, 10:00 at weekends, about 20 min
 - **Sundays:** weekly review at 19:00
 - **Banners:** deload weeks 6 (5 to 11 Nov) and 12 (17 to 23 Dec)
 - **Retest:** the last session, Wed 23 Dec
@@ -51,6 +51,8 @@ To test sync locally, start the Firebase emulators (`firebase emulators:start --
 - **Morning (1 min):** on the Today tab, adjust your sleep and wake times with − and +, or tap **Log sleep** if they're right. "7+ hours asleep" ticks itself. Add your weight on weigh-in days and tick last night's habits.
 - **Physio:** tick the morning and evening blocks when they're done.
 - **Lift days:** tap the blue session card. Each exercise shows **Today's** target weight and reps, worked out from last time. Tap ✓ on a set if you hit it, or type what you actually did. Body-weight and band exercises only ask for reps. Set your smallest dumbbell jump in Settings. Exercises tagged "upper body priority" get a 4th set in weeks 7 to 11. A red label tells you when to add weight. Tick "2+ reps left" on goblet squat and RDL so the gym check works. Tap **Finish session**.
+- **Golf mobility:** tap the Golf mobility card on Today and tick each drill. It's a daily habit with its own streak.
+- **Doing something else instead of a session** (climbing, say): on the Session tab, tap "Doing something else today?". It counts as that day's session.
 - **Sunday review:** look at the Week tab, then Settings > **Save backup** to iCloud Drive.
 - **Stats:** badges, streaks, a 12 week heatmap, body weight and sleep.
 

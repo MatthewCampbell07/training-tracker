@@ -243,20 +243,23 @@ test('same day edited on both copies keeps ticks from both, newer wins on clashe
   assert.equal(d.asleep, '23:30');
 });
 
-test('weekend mobility does not count as a lifting session', () => {
-  const st = { ...empty(), sessions: { '2026-10-10': { letter: 'M', done: true } } };
-  assert.equal(L.sessionIsDone(st.sessions['2026-10-10']), false);
-  assert.equal(L.mobilityDone(st.sessions['2026-10-10']), true);
-  assert.equal(L.sessionsDoneInWeek(st, 2, settings), 0);
+test('another activity in place of a session counts, mobility is a daily habit', () => {
+  const st = { ...empty(), sessions: { '2026-10-14': { letter: 'X', activity: 'Climbing', done: true } },
+    days: { '2026-10-14': { habits: { mobility: true } } } };
+  assert.equal(L.sessionsDoneInWeek(st, 2, settings), 1);
+  assert.equal(L.habitStreak(st, 'mobility', '2026-10-14', settings.startDate).current, 1);
+  const undone = { ...st, sessions: { '2026-10-14': { letter: null, activity: null, done: false } } };
+  assert.equal(L.sessionsDoneInWeek(undone, 2, settings), 0);
 });
 
-test('one mobility session covers both weekend days', () => {
-  const st = { ...empty(), sessions: { '2026-10-10': { letter: 'M', done: true } } };
-  assert.equal(L.weekendMobilityDone(st, '2026-10-10'), true);
-  assert.equal(L.weekendMobilityDone(st, '2026-10-11'), true);
-  assert.equal(L.weekendMobilityDone(st, '2026-10-17'), false);
-  assert.equal(L.weekendMobilityDone(st, '2026-10-12'), false);
-  assert.equal(L.mobilityCount(st), 1);
+test('old mobility sessions move onto the day as a habit', async () => {
+  const { validate } = await import('../app/store.js');
+  const v = validate({ version: 1, settings: {}, days: {}, sessions: {
+    '2026-10-11': { letter: 'M', done: true, ticks: { mob_90_90: true } },
+    '2026-10-12': { letter: 'A', done: true } } }, plan);
+  assert.equal(v.days['2026-10-11'].habits.mobility, true);
+  assert.equal(v.days['2026-10-11'].mobTicks.mob_90_90, true);
+  assert.deepEqual(Object.keys(v.sessions), ['2026-10-12']);
 });
 
 test('every mobility drill has steps', () => {

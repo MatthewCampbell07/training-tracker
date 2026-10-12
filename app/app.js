@@ -112,12 +112,22 @@ const ACTIONS = {
   'open-session': () => goTab('session'),
   'open-mobility': () => { ui = { ...ui, pickedLetter: 'M' }; goTab('session'); },
   'mob-tick': (el) => {
-    const rec = state.sessions[ui.date] || {};
-    const ticks = { ...(rec.ticks || {}), [el.dataset.ex]: !rec.ticks?.[el.dataset.ex] };
-    const allDone = plan.sessions.M.exercises.every((x) => ticks[x.id]);
-    commit(store.updateSession(state, ui.date, { letter: 'M', ticks, done: rec.done || allDone }));
-    if (allDone && !rec.done) { confetti(); toast('Mobility done. Hips thank you.'); }
+    const day = state.days[ui.date] || {};
+    const mobTicks = { ...(day.mobTicks || {}), [el.dataset.ex]: !day.mobTicks?.[el.dataset.ex] };
+    const allDone = plan.sessions.M.exercises.every((x) => mobTicks[x.id]);
+    const wasDone = Boolean(day.habits?.mobility);
+    commit(store.updateDay(state, ui.date, { mobTicks, habits: { ...(day.habits || {}), mobility: wasDone || allDone } }));
+    if (allDone && !wasDone) { confetti(); toast('Mobility done. Hips thank you.'); }
   },
+  'swap-activity': () => {
+    const activity = (prompt('What are you doing instead?', 'Climbing') || '').trim().slice(0, 40);
+    if (!activity) return;
+    commit(store.updateSession(state, ui.date, { letter: 'X', activity, done: true }));
+    toast(`${activity} logged. Counts as today's session.`);
+  },
+  // Undo by marking the record empty (not deleting it), so the cloud copy doesn't bring it back.
+  unswap: () => commit(store.updateSession(state, ui.date, { letter: null, activity: null, done: false })),
+
   'go-settings': () => goTab('settings'),
   'cloud-signin': () => cloud.signIn(plan, $('#cloud-email').value.trim(), $('#cloud-password').value, false),
   'cloud-signup': () => cloud.signIn(plan, $('#cloud-email').value.trim(), $('#cloud-password').value, true),
@@ -144,11 +154,24 @@ const ACTIONS = {
   'add-set': (el) => { ui = { ...ui, extraSets: { ...ui.extraSets, [el.dataset.ex]: (ui.extraSets[el.dataset.ex] || 0) + 1 } }; render(); },
   finish: () => {
     const letter = sessionLetterFor({ plan, state, ...ui });
+    if (letter === 'M') {
+      const day = state.days[ui.date] || {};
+      commit(store.updateDay(state, ui.date, { habits: { ...(day.habits || {}), mobility: true } }));
+      confetti();
+      toast('Mobility done. Hips thank you.');
+      return;
+    }
     commit(store.updateSession(state, ui.date, { letter, done: true, retest: letter === 'R' }));
     confetti();
     toast(letter === 'M' ? 'Mobility done. Hips thank you.' : `Session ${letter} done. Nice work.`);
   },
-  unfinish: () => commit(store.updateSession(state, ui.date, { done: false })),
+  unfinish: () => {
+    if (sessionLetterFor({ plan, state, ...ui }) === 'M') {
+      const day = state.days[ui.date] || {};
+      return commit(store.updateDay(state, ui.date, { habits: { ...(day.habits || {}), mobility: false } }));
+    }
+    return commit(store.updateSession(state, ui.date, { done: false }));
+  },
   'golf-on': () => {
     const from = $('#golf-date').value;
     if (!from) return toast('Pick a start date first');
@@ -164,6 +187,7 @@ const ACTIONS = {
   reset: () => {
     if (!confirm('Delete every tick, weight and session on this phone and in your cloud backup? Save a backup file first if unsure.')) return;
     commit(store.emptyState(plan));
+    cloud.pushNow();
     toast('All data deleted');
   },
 };

@@ -2,7 +2,7 @@
 import {
   addDays, dayOfWeek, habitStreak, isDeload, isGolfMode, lastPerformance, parseIso, phaseFor,
   progressionCall, scheduledSession, sessionIsDone, setsFor, sleepHours, suggestFor, topWeight, upMessage, weekOf,
-  isWeekend, weekendMobilityDone,
+  isWeekend,
 } from './logic.js';
 
 export function esc(v) {
@@ -53,7 +53,7 @@ export function todayView({ plan, state, date, today, cloud }) {
   const day = state.days[date] || {};
   const week = weekOf(date, s.startDate);
   const loggedLetter = state.sessions[date]?.letter;
-  const letter = (loggedLetter !== 'M' && loggedLetter) || scheduledSession(date, plan, s);
+  const letter = (loggedLetter !== 'X' && loggedLetter) || scheduledSession(date, plan, s);
   const hours = sleepHours(day.asleep, day.wake);
   const logged = hours !== null;
   const defaults = sleepDefaults(plan, state, date);
@@ -69,15 +69,19 @@ export function todayView({ plan, state, date, today, cloud }) {
   if (scheduledSession(date, plan, s) === 'R') banner += `<div class="banner">Retest day. Max push ups, goblet squat reps, single arm row reps.</div>`;
 
   let lift = '';
-  if (!letter && isWeekend(date)) {
-    const done = weekendMobilityDone(state, date);
-    lift = `<button class="lift${done ? ' done' : ''}" data-action="open-mobility" style="border:0;width:100%;text-align:left;cursor:pointer">
+  const mobDone = Boolean(day.habits?.mobility);
+  const mobility = `<button class="lift mob${mobDone ? ' done' : ''}" data-action="open-mobility" style="border:0;width:100%;text-align:left;cursor:pointer">
       <span class="letter">M</span>
-      <span class="meta"><b>${done ? 'Mobility done this weekend' : 'Golf mobility, 20 min'}</b><span>Hip turn, not sway. Optional, Saturday or Sunday.</span></span>
+      <span class="meta"><b>${mobDone ? 'Golf mobility done' : 'Golf mobility, 20 min'}</b><span>Hip turn, not sway. ${habitStreak(state, 'mobility', today, s.startDate).current} day streak</span></span>
       <span aria-hidden="true" style="font-size:22px">›</span>
     </button>`;
-  }
-  if (letter) {
+  if (loggedLetter === 'X') {
+    lift = `<button class="lift done" data-action="open-session" style="border:0;width:100%;text-align:left;cursor:pointer">
+      <span class="letter">${esc(state.sessions[date].activity.charAt(0).toUpperCase())}</span>
+      <span class="meta"><b>${esc(state.sessions[date].activity)} done</b><span>Counts as today's session</span></span>
+      <span aria-hidden="true" style="font-size:22px">›</span>
+    </button>`;
+  } else if (letter) {
     const title = plan.sessions[letter].title;
     const done = sessionIsDone(state.sessions[date]);
     lift = `<button class="lift${done ? ' done' : ''}" data-action="open-session" style="border:0;width:100%;text-align:left;cursor:pointer">
@@ -97,6 +101,7 @@ export function todayView({ plan, state, date, today, cloud }) {
       ${rows('morning')}
     </section>
     ${lift}
+    ${mobility}
     <section class="card" aria-labelledby="physio-h">
       <h2 id="physio-h">Physio</h2>
       ${rows('day')}
@@ -200,9 +205,9 @@ function mobilityCard(ex, plan, ticked) {
 function mobilityView(ctx, letters) {
   const { plan, state, date } = ctx;
   const m = plan.sessions.M;
-  const rec = state.sessions[date] || {};
+  const day = state.days[date] || {};
   const chips = letters.map((l) => `<button class="chip" data-letter="${l}" aria-pressed="${l === 'M'}">${l}</button>`).join('');
-  const finish = rec.done
+  const finish = day.habits?.mobility
     ? '<button class="btn ghost block" data-action="unfinish">Mobility done. Tap to undo</button>'
     : '<button class="btn red block" data-action="finish">Finish mobility</button>';
   return {
@@ -211,13 +216,29 @@ function mobilityView(ctx, letters) {
     nav: ['day-prev', 'day-next'],
     body: `<div class="chips" role="group" aria-label="Choose session">${chips}</div>
       <div class="banner blue">${esc(m.intro)}</div>
-      ${m.exercises.map((ex) => mobilityCard(ex, plan, Boolean(rec.ticks?.[ex.id]))).join('')}
+      ${m.exercises.map((ex) => mobilityCard(ex, plan, Boolean(day.mobTicks?.[ex.id]))).join('')}
       ${finish}`,
+  };
+}
+
+function otherActivityView(ctx, letters) {
+  const { state, date } = ctx;
+  const rec = state.sessions[date];
+  const chips = letters.map((l) => `<button class="chip" data-letter="${l}" aria-pressed="false">${l}</button>`).join('');
+  return {
+    title: rec.activity,
+    sub: `${fmtDate(date)}. In place of today's session`,
+    nav: ['day-prev', 'day-next'],
+    body: `<div class="chips" role="group" aria-label="Choose session">${chips}</div>
+      <section class="card"><h3>${esc(rec.activity)} logged</h3>
+        <p>This counts as today's session, so your weekly streak stays intact.</p>
+        <button class="btn ghost" data-action="unswap">Undo, I'll do the planned session</button></section>`,
   };
 }
 
 export function sessionLetterFor(ctx) {
   const { plan, state, date } = ctx;
+  if (ctx.pickedLetter === 'M') return 'M';
   return state.sessions[date]?.letter || ctx.pickedLetter || scheduledSession(date, plan, state.settings) || (isWeekend(date) ? 'M' : 'A');
 }
 
@@ -231,6 +252,7 @@ export function sessionView(ctx) {
   const done = sessionIsDone(state.sessions[date]) && state.sessions[date]?.done;
   const letters = [...(week === plan.retestWeek || letter === 'R' ? ['A', 'B', 'C', 'R'] : ['A', 'B', 'C']), 'M'];
   if (letter === 'M') return mobilityView(ctx, letters);
+  if (letter === 'X') return otherActivityView(ctx, letters);
   const phase = phaseFor(week, plan);
 
   const chips = letters.map((l) => `<button class="chip" data-letter="${l}" aria-pressed="${l === letter}">${l}</button>`).join('');
@@ -246,6 +268,7 @@ export function sessionView(ctx) {
     nav: ['day-prev', 'day-next'],
     body: `<div class="chips" role="group" aria-label="Choose session">${chips}</div>
       ${phase ? `<div class="banner ${isDeload(week, plan) ? '' : 'blue'}">${esc(phase.name)}: ${esc(phase.note)}${golf ? ' Golf mode: 2 sets.' : ''}</div>` : ''}
+      ${!state.sessions[date]?.letter && scheduledSession(date, plan, s) ? '<button class="btn ghost block swap" data-action="swap-activity">Doing something else today? Log it instead</button>' : ''}
       ${warm}
       <p class="fine">Stop a set if your lower back arches, shoulder blades flare, or neck and traps take over. Drop the weight, not the quality.</p>
       ${cards}${finish}`,

@@ -2,7 +2,7 @@
 import {
   addDays, exerciseHistory, gymStatus, groupStreak, habitDone, habitStreak, isDeload, phaseFor,
   progressionCall, scheduledSession, sessionIsDone, sessionTarget, sessionWeekStreak, sessionsDoneInWeek,
-  recentPain, setsFor, topWeight, upMessage, weekAdherence, weekAverages, weekOf, weekStart, isGolfMode, dayOfWeek, mobilityDone,
+  recentPain, setsFor, topWeight, upMessage, weekAdherence, weekAverages, weekOf, weekStart, isGolfMode, dayOfWeek,
 } from './logic.js';
 import { badges } from './badges.js';
 import { heatmap, lineChart, weekBars } from './charts.js';
@@ -62,11 +62,11 @@ export function weekView(ctx) {
     const d = addDays(start, i);
     const letter = scheduledSession(d, plan, s);
     if (!letter) return '';
-    const ok = sessionIsDone(state.sessions[d]);
-    return `<li><b>${DOW[dayOfWeek(d)]}</b> ${letter === 'R' ? 'Retest' : `Session ${letter}`} <span class="${ok ? 'good' : 'fine'}">${ok ? 'done' : d < today ? 'missed' : 'to do'}</span></li>`;
+    const rec = state.sessions[d];
+    const ok = sessionIsDone(rec);
+    const name = rec?.letter === 'X' ? `${esc(rec.activity)} (instead of ${letter})` : letter === 'R' ? 'Retest' : `Session ${letter}`;
+    return `<li><b>${DOW[dayOfWeek(d)]}</b> ${name} <span class="${ok ? 'good' : 'fine'}">${ok ? 'done' : d < today ? 'missed' : 'to do'}</span></li>`;
   }).join('');
-  const mobDay = [...Array(7).keys()].map((i) => addDays(start, i)).find((d) => mobilityDone(state.sessions[d]));
-  const mobilityPill = `<li><b>Weekend</b> Golf mobility <span class="${mobDay ? 'good' : 'fine'}">${mobDay ? `done ${DOW[dayOfWeek(mobDay)]}` : 'optional'}</span></li>`;
 
   const head = `<tr><th></th>${[...Array(7).keys()].map((i) => `<th>${DOW[dayOfWeek(addDays(start, i))][0]}</th>`).join('')}</tr>`;
   const grid = plan.habits.map((h) => `<tr><td>${esc(shortLabel(h.label))}</td>${[...Array(7).keys()].map((i) => {
@@ -92,7 +92,7 @@ export function weekView(ctx) {
         <div class="stat"><b>${(() => { const a = weekAdherence(state, week, plan, s, today); return a === null ? '-' : `${Math.round(a * 100)}%`; })()}</b><span>habits ticked</span></div>
       </div>
       ${painCard}
-      <section class="card"><h2>Sessions</h2><ul class="list-plain">${sessionPills || '<li>No sessions this week.</li>'}${mobilityPill}</ul></section>
+      <section class="card"><h2>Sessions</h2><ul class="list-plain">${sessionPills || '<li>No sessions this week.</li>'}</ul></section>
       <section class="card"><h2>Habits</h2><table class="week-grid">${head}${grid}</table></section>
       <section class="card"><h2>Weigh in</h2>${weightLine(cur, prev)}</section>
       <section class="card"><h2>Add load next time</h2>${calls.length ? `<ul class="list-plain">${calls.map((c) => `<li><b>${esc(c.ex.name)}</b>: ${esc(c.msg)}</li>`).join('')}</ul>` : '<p class="empty">Nothing yet. Hit the top of the range on every set to earn a jump.</p>'}</section>
