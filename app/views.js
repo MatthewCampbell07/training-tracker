@@ -1,6 +1,6 @@
 // Today, Session and Settings screens. Each view returns { title, sub, nav, body } as HTML strings.
 import {
-  addDays, dayOfWeek, habitStreak, isDeload, isGolfMode, lastPerformance, parseIso, phaseFor,
+  addDays, dayOfWeek, habitStreak, habitsDueOn, isDeload, isGolfMode, lastPerformance, parseIso, phaseFor,
   progressionCall, scheduledSession, sessionIsDone, setsFor, sleepHours, suggestFor, topWeight, upMessage, weekOf,
   isWeekend,
 } from './logic.js';
@@ -48,6 +48,15 @@ function stepper(field, label, value, logged) {
     <button class="step" data-action="t-step" data-field="${field}" data-d="15" aria-label="${label} 15 minutes later">+</button></div>`;
 }
 
+function activityCard(day) {
+  const list = day.activities || [];
+  const chips = list.map((a, i) => `<button class="chip act" data-action="remove-activity" data-i="${i}" aria-label="Remove ${esc(a)}">${esc(a)} ×</button>`).join('');
+  return `<section class="card"><h2>Other activity</h2>
+    <div class="chips act-row">${chips}<button class="chip add" data-action="add-activity">+ Log activity</button></div>
+    ${list.length ? '' : '<p class="fine">Golf, a walk, climbing: anything extra you did today.</p>'}
+  </section>`;
+}
+
 export function todayView({ plan, state, date, today, cloud }) {
   const s = state.settings;
   const day = state.days[date] || {};
@@ -60,8 +69,9 @@ export function todayView({ plan, state, date, today, cloud }) {
   const defaultHours = sleepHours(day.asleep || defaults.asleep, day.wake || defaults.wake) ?? 0;
   const isToday = date === today;
   const rows = (when) => plan.habits.filter((h) => h.when === when)
-    .map((h) => habitRow(h, Boolean(day.habits?.[h.id]), habitStreak(state, h.id, today, s.startDate).current)).join('');
-  const doneCount = plan.habits.filter((h) => day.habits?.[h.id]).length;
+    .map((h) => habitRow(h, Boolean(day.habits?.[h.id]), habitStreak(state, h.id, today, s.startDate, plan).current)).join('');
+  const dueToday = habitsDueOn(date, plan, s);
+  const doneCount = dueToday.filter((h) => day.habits?.[h.id]).length;
   const weighDay = plan.calendar.weighInDays.includes(dayOfWeek(date));
 
   let banner = cloud.signedIn ? '' : '<button class="banner blue banner-btn" data-action="go-settings">Turn on cloud backup so you never lose your streaks ›</button>';
@@ -70,9 +80,10 @@ export function todayView({ plan, state, date, today, cloud }) {
 
   let lift = '';
   const mobDone = Boolean(day.habits?.mobility);
-  const mobility = `<button class="lift mob${mobDone ? ' done' : ''}" data-action="open-mobility" style="border:0;width:100%;text-align:left;cursor:pointer">
+  const mobDue = habitsDueOn(date, plan, s).some((h) => h.id === 'mobility');
+  const mobility = !mobDue && !mobDone ? '' : `<button class="lift mob${mobDone ? ' done' : ''}" data-action="open-mobility" style="border:0;width:100%;text-align:left;cursor:pointer">
       <span class="letter">M</span>
-      <span class="meta"><b>${mobDone ? 'Golf mobility done' : 'Golf mobility, 20 min'}</b><span>Hip turn, not sway. ${habitStreak(state, 'mobility', today, s.startDate).current} day streak</span></span>
+      <span class="meta"><b>${mobDone ? 'Golf mobility done' : 'Golf mobility, 20 min'}</b><span>Hip turn, not sway. ${habitStreak(state, 'mobility', today, s.startDate, plan).current} in a row</span></span>
       <span aria-hidden="true" style="font-size:22px">›</span>
     </button>`;
   if (loggedLetter === 'X') {
@@ -102,11 +113,12 @@ export function todayView({ plan, state, date, today, cloud }) {
     </section>
     ${lift}
     ${mobility}
+    ${activityCard(day)}
     <section class="card" aria-labelledby="physio-h">
       <h2 id="physio-h">Physio</h2>
       ${rows('day')}
     </section>
-    <p class="fine" style="text-align:center"><span class="num">${doneCount} of ${plan.habits.length}</span> done ${isToday ? 'today' : 'this day'}${isToday ? '' : `. <button class="small-btn" data-action="go-today">Back to today</button>`}</p>`;
+    <p class="fine" style="text-align:center"><span class="num">${doneCount} of ${dueToday.length}</span> done ${isToday ? 'today' : 'this day'}${isToday ? '' : `. <button class="small-btn" data-action="go-today">Back to today</button>`}</p>`;
 
   return {
     title: isToday ? 'Today' : fmtDate(date),

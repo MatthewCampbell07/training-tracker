@@ -460,6 +460,18 @@
       "hint": "Check Settings > Screen Time"
     },
     {
+      "id": "read_book",
+      "label": "Read 10 pages of a book",
+      "group": "reading",
+      "when": "morning"
+    },
+    {
+      "id": "read_article",
+      "label": "Read 1 article",
+      "group": "reading",
+      "when": "morning"
+    },
+    {
       "id": "physio_am",
       "label": "Physio block, morning",
       "group": "physio",
@@ -473,9 +485,10 @@
     },
     {
       "id": "mobility",
-      "label": "Golf mobility",
+      "label": "Golf mobility (non-gym days)",
       "group": "golf",
-      "when": "mobility"
+      "when": "mobility",
+      "due": "nonLift"
     }
   ],
   "gymCheck": [

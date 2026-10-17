@@ -208,12 +208,14 @@ def build(plan, start: date, golf_from: date | None, stamp: str) -> str:
                  "Aim for 7+ hours asleep: on a 06:15 alarm, asleep by 23:15.",
                  rrule=f"FREQ=DAILY;UNTIL={until}", alarm_before=0, stamp=stamp)
 
-    # Daily golf mobility, grouped by time (weekday evenings, weekend mornings).
+    # Golf mobility on non-gym days, grouped by time (weekday evenings, weekend mornings).
     mob_desc = "About 20 min. In the Training app: tap the Golf mobility card on Today.\n\n" + \
         "\n".join(f"{ex['name']}: {ex['dose']}" for ex in plan["sessions"]["M"]["exercises"])
     mob_groups: dict[str, list[date]] = {}
     for i in range(7):
         d = start + timedelta(days=i)
+        if plan["schedule"]["normal"].get(js_dow(d)):
+            continue
         mob_groups.setdefault(cal["mobilityTimes"][js_dow(d)], []).append(d)
     for time, days in sorted(mob_groups.items()):
         byday = ",".join(DAY_CODES[d.weekday()] for d in days)

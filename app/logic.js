@@ -184,35 +184,55 @@ export function habitDone(state, iso, habitId) {
   return Boolean(state.days[iso]?.habits?.[habitId]);
 }
 
+// Some habits are only due on some days: due "nonLift" means days with no planned lifting session.
+export function habitDue(habit, iso, plan, settings) {
+  if (habit.due === 'nonLift') return !scheduledSession(iso, plan, settings);
+  return true;
+}
+
+export function habitsDueOn(iso, plan, settings) {
+  return plan.habits.filter((h) => habitDue(h, iso, plan, settings));
+}
+
 export function dayScore(state, iso, plan) {
-  const done = plan.habits.filter((h) => habitDone(state, iso, h.id)).length;
-  return done / plan.habits.length;
+  const due = habitsDueOn(iso, plan, state.settings);
+  if (!due.length) return 0;
+  return due.filter((h) => habitDone(state, iso, h.id)).length / due.length;
 }
 
 // Current streak counts back from today; if today is not ticked yet it starts from yesterday.
-export function streak(isDoneOn, todayIso, earliestIso) {
+// Days where the habit isn't due are skipped: they neither count nor break the streak.
+export function streak(isDoneOn, todayIso, earliestIso, isDue = () => true) {
   let day = isDoneOn(todayIso) ? todayIso : addDays(todayIso, -1);
   let current = 0;
-  while (day >= earliestIso && isDoneOn(day)) {
-    current += 1;
+  while (day >= earliestIso) {
+    if (isDue(day)) {
+      if (!isDoneOn(day)) break;
+      current += 1;
+    }
     day = addDays(day, -1);
   }
   let best = 0;
   let run = 0;
   for (let d = earliestIso; d <= todayIso; d = addDays(d, 1)) {
-    run = isDoneOn(d) ? run + 1 : 0;
+    if (!isDue(d)) continue;
+    if (isDoneOn(d)) run += 1;
+    else if (d !== todayIso) run = 0;
     best = Math.max(best, run);
   }
   return { current, best };
 }
 
-export function habitStreak(state, habitId, todayIso, startIso) {
-  return streak((d) => habitDone(state, d, habitId), todayIso, startIso);
+export function habitStreak(state, habitId, todayIso, startIso, plan) {
+  const habit = plan?.habits.find((h) => h.id === habitId);
+  const isDue = habit && plan ? (d) => habitDue(habit, d, plan, state.settings) : undefined;
+  return streak((d) => habitDone(state, d, habitId), todayIso, startIso, isDue);
 }
 
 export function groupStreak(state, plan, group, todayIso, startIso) {
-  const ids = plan.habits.filter((h) => h.group === group).map((h) => h.id);
-  return streak((d) => ids.every((id) => habitDone(state, d, id)), todayIso, startIso);
+  const habits = plan.habits.filter((h) => h.group === group);
+  const dueOn = (d) => habits.filter((h) => habitDue(h, d, plan, state.settings));
+  return streak((d) => dueOn(d).every((h) => habitDone(state, d, h.id)), todayIso, startIso, (d) => dueOn(d).length > 0);
 }
 
 export function sessionTarget(week, plan, settings) {
@@ -286,8 +306,9 @@ export function weekAdherence(state, week, plan, settings, todayIso) {
   for (let i = 0; i < 7; i += 1) {
     const d = addDays(start, i);
     if (d > todayIso) break;
-    ticks += plan.habits.filter((h) => habitDone(state, d, h.id)).length;
-    possible += plan.habits.length;
+    const due = habitsDueOn(d, plan, settings);
+    ticks += due.filter((h) => habitDone(state, d, h.id)).length;
+    possible += due.length;
   }
   return possible ? ticks / possible : null;
 }

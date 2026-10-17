@@ -265,3 +265,24 @@ test('old mobility sessions move onto the day as a habit', async () => {
 test('every mobility drill has steps', () => {
   for (const ex of plan.sessions.M.exercises) assert.ok(plan.howTo[ex.id]?.steps?.length >= 3, ex.id);
 });
+
+test('mobility is only due on non-gym days, and gym days do not break its streak', () => {
+  const mob = plan.habits.find((h) => h.id === 'mobility');
+  assert.equal(L.habitDue(mob, '2026-10-12', plan, settings), false); // Monday, Session A
+  assert.equal(L.habitDue(mob, '2026-10-13', plan, settings), true);  // Tuesday
+  const st = { ...empty(), days: {
+    '2026-10-10': { habits: { mobility: true } }, '2026-10-11': { habits: { mobility: true } },
+    '2026-10-13': { habits: { mobility: true } }, '2026-10-15': { habits: { mobility: true } } } };
+  assert.deepEqual(L.habitStreak(st, 'mobility', '2026-10-16', settings.startDate, plan), { current: 4, best: 4 });
+});
+
+test('reading habits sit in the morning check-in, after the screen cap', () => {
+  const morning = plan.habits.filter((h) => h.when === 'morning').map((h) => h.id);
+  assert.deepEqual(morning.slice(-3), ['app_cap', 'read_book', 'read_article']);
+});
+
+test('day score only counts habits due that day', () => {
+  const ids = plan.habits.filter((h) => h.id !== 'mobility').map((h) => h.id);
+  const st = { ...empty(), days: { '2026-10-12': { habits: Object.fromEntries(ids.map((id) => [id, true])) } } };
+  assert.equal(L.dayScore(st, '2026-10-12', plan), 1);
+});

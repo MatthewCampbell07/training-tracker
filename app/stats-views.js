@@ -1,6 +1,6 @@
 // Week and Stats screens.
 import {
-  addDays, exerciseHistory, gymStatus, groupStreak, habitDone, habitStreak, isDeload, phaseFor,
+  addDays, exerciseHistory, gymStatus, groupStreak, habitDone, habitDue, habitStreak, isDeload, phaseFor,
   progressionCall, scheduledSession, sessionIsDone, sessionTarget, sessionWeekStreak, sessionsDoneInWeek,
   recentPain, setsFor, topWeight, upMessage, weekAdherence, weekAverages, weekOf, weekStart, isGolfMode, dayOfWeek,
 } from './logic.js';
@@ -71,6 +71,7 @@ export function weekView(ctx) {
   const head = `<tr><th></th>${[...Array(7).keys()].map((i) => `<th>${DOW[dayOfWeek(addDays(start, i))][0]}</th>`).join('')}</tr>`;
   const grid = plan.habits.map((h) => `<tr><td>${esc(shortLabel(h.label))}</td>${[...Array(7).keys()].map((i) => {
     const d = addDays(start, i);
+    if (!habitDue(h, d, plan, s)) return '<td><span class="dot na" aria-label="not due"></span></td>';
     return `<td><span class="dot${habitDone(state, d, h.id) ? ' on' : ''}" data-goto="${d}" role="button" aria-label="${esc(h.label)} ${d}"></span></td>`;
   }).join('')}</tr>`).join('');
 
@@ -93,6 +94,10 @@ export function weekView(ctx) {
       </div>
       ${painCard}
       <section class="card"><h2>Sessions</h2><ul class="list-plain">${sessionPills || '<li>No sessions this week.</li>'}</ul></section>
+      ${(() => {
+    const acts = [...Array(7).keys()].flatMap((i) => (state.days[addDays(start, i)]?.activities || []).map((a) => `<li><b>${DOW[dayOfWeek(addDays(start, i))]}</b> ${esc(a)}</li>`));
+    return acts.length ? `<section class="card"><h2>Other activity</h2><ul class="list-plain">${acts.join('')}</ul></section>` : '';
+  })()}
       <section class="card"><h2>Habits</h2><table class="week-grid">${head}${grid}</table></section>
       <section class="card"><h2>Weigh in</h2>${weightLine(cur, prev)}</section>
       <section class="card"><h2>Add load next time</h2>${calls.length ? `<ul class="list-plain">${calls.map((c) => `<li><b>${esc(c.ex.name)}</b>: ${esc(c.msg)}</li>`).join('')}</ul>` : '<p class="empty">Nothing yet. Hit the top of the range on every set to earn a jump.</p>'}</section>
@@ -118,7 +123,7 @@ export function statsView(ctx) {
     ticks += plan.habits.filter((h) => habitDone(state, d, h.id)).length;
     possible += plan.habits.length;
   }
-  const streaks = plan.habits.map((h) => ({ label: shortLabel(h.label), ...habitStreak(state, h.id, today, s.startDate) }));
+  const streaks = plan.habits.map((h) => ({ label: shortLabel(h.label), ...habitStreak(state, h.id, today, s.startDate, plan) }));
   const groups = [['Both physio blocks', 'physio'], ['All sleep habits', 'sleep']].map(([label, g]) => ({ label, ...groupStreak(state, plan, g, today, s.startDate) }));
   const weekStreak = sessionWeekStreak(state, plan, s, today);
   const bestNow = Math.max(0, ...streaks.map((x) => x.current));

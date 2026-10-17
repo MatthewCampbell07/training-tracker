@@ -289,3 +289,7 @@ select { font: 600 16px var(--font); color: var(--ink); background: var(--bg); b
 .banner-btn { appearance: none; border: 0; width: 100%; text-align: left; font: 600 14px var(--font); cursor: pointer; }
 .btn:disabled { opacity: 0.5; }
 .mob-tick { border-top: 1px solid var(--line); margin-top: 4px; }
+.dot.na { background: transparent; border: 1.5px dashed var(--line); }
+.act-row { flex-wrap: wrap; margin-bottom: 4px; }
+.chip.act { background: var(--blue-soft); color: var(--blue); border-color: transparent; font-size: 14px; }
+.chip.add { color: var(--blue); font-size: 14px; }

@@ -1,7 +1,7 @@
 // Badges are worked out from your data each time, never stored, so editing a past day updates them.
 import {
   allLoggedSets, countWeightIncreases, gymStatus, groupStreak, habitStreak, sessionIsDone,
-  sessionWeekStreak, sessionsDoneInWeek, sessionTarget, weekOf, weekStart, addDays, habitDone,
+  sessionWeekStreak, sessionsDoneInWeek, sessionTarget, weekOf, weekStart, addDays, habitDone, habitsDueOn,
 } from './logic.js';
 
 function perfectWeeks(state, plan, settings, todayIso) {
@@ -9,7 +9,7 @@ function perfectWeeks(state, plan, settings, todayIso) {
   let count = 0;
   for (let w = 1; w <= Math.min(lastFull, plan.weeks); w += 1) {
     const start = weekStart(w, settings.startDate);
-    const allHabits = [...Array(7).keys()].every((i) => plan.habits.every((h) => habitDone(state, addDays(start, i), h.id)));
+    const allHabits = [...Array(7).keys()].every((i) => habitsDueOn(addDays(start, i), plan, settings).every((h) => habitDone(state, addDays(start, i), h.id)));
     if (allHabits && sessionsDoneInWeek(state, w, settings) >= sessionTarget(w, plan, settings)) count += 1;
   }
   return count;
@@ -20,8 +20,9 @@ export function badges(state, plan, todayIso) {
   const sessionsDone = Object.values(state.sessions).filter(sessionIsDone).length;
   const physio = groupStreak(state, plan, 'physio', todayIso, s.startDate).best;
   const sleep = groupStreak(state, plan, 'sleep', todayIso, s.startDate).best;
-  const rested = habitStreak(state, 'sleep_7', todayIso, s.startDate).best;
-  const cap = habitStreak(state, 'app_cap', todayIso, s.startDate).best;
+  const rested = habitStreak(state, 'sleep_7', todayIso, s.startDate, plan).best;
+  const cap = habitStreak(state, 'app_cap', todayIso, s.startDate, plan).best;
+  const mobility = habitStreak(state, 'mobility', todayIso, s.startDate, plan).best;
   const weekStreak = sessionWeekStreak(state, plan, s, todayIso).best;
   const increases = countWeightIncreases(state, plan);
   const heaviest = Math.max(0, ...allLoggedSets(state).map((x) => x.w).filter(Number.isFinite));
@@ -39,8 +40,9 @@ export function badges(state, plan, todayIso) {
     { id: 'rested_14', icon: '7h', title: 'Well rested', desc: '7+ hours asleep 14 nights running', cur: rested, target: 14 },
     { id: 'sleep_7', icon: 'Z7', title: 'Sleep week', desc: 'All sleep habits 7 nights running', cur: sleep, target: 7 },
     { id: 'cap_21', icon: 'S21', title: 'Three week cap', desc: 'Under the app cap 21 days running, as in Hunt et al.', cur: cap, target: 21 },
-    { id: 'mobility_7', icon: 'M7', title: 'Loose hips', desc: 'Golf mobility 7 days running', cur: habitStreak(state, 'mobility', todayIso, s.startDate).best, target: 7 },
-    { id: 'mobility_30', icon: 'M30', title: 'Mobility month', desc: 'Golf mobility 30 days running', cur: habitStreak(state, 'mobility', todayIso, s.startDate).best, target: 30 },
+    { id: 'mobility_7', icon: 'M7', title: 'Loose hips', desc: 'Golf mobility on 7 non-gym days in a row', cur: mobility, target: 7 },
+    { id: 'mobility_16', icon: 'M16', title: 'Mobility month', desc: 'Golf mobility on 16 non-gym days in a row (about a month)', cur: mobility, target: 16 },
+    { id: 'reader_14', icon: 'B14', title: 'Bookworm', desc: '10 pages a day, 14 days running', cur: habitStreak(state, 'read_book', todayIso, s.startDate, plan).best, target: 14 },
     { id: 'first_up', icon: '+', title: 'Heavier', desc: 'First weight increase', cur: increases, target: 1 },
     { id: 'ten_up', icon: '+10', title: 'Ten jumps', desc: '10 weight increases across lifts', cur: increases, target: 10 },
     { id: 'club_20', icon: '20', title: '20 kg club', desc: 'Any set with the 20 kg dumbbell', cur: heaviest >= plan.maxDumbbellKg ? 1 : 0, target: 1 },

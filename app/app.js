@@ -119,6 +119,20 @@ const ACTIONS = {
     commit(store.updateDay(state, ui.date, { mobTicks, habits: { ...(day.habits || {}), mobility: wasDone || allDone } }));
     if (allDone && !wasDone) { confetti(); toast('Mobility done. Hips thank you.'); }
   },
+  'add-activity': () => {
+    const name = (prompt('What did you do?', 'Golf') || '').trim().slice(0, 40);
+    if (!name) return;
+    const day = state.days[ui.date] || {};
+    commit(store.updateDay(state, ui.date, { activities: [...(day.activities || []), name] }));
+    toast(`${name} logged`);
+  },
+  'remove-activity': (el) => {
+    const day = state.days[ui.date] || {};
+    const list = day.activities || [];
+    const i = Number(el.dataset.i);
+    if (!confirm(`Remove ${list[i]}?`)) return;
+    commit(store.updateDay(state, ui.date, { activities: list.filter((_, j) => j !== i) }));
+  },
   'swap-activity': () => {
     const activity = (prompt('What are you doing instead?', 'Climbing') || '').trim().slice(0, 40);
     if (!activity) return;
