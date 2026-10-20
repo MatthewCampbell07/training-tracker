@@ -58,15 +58,21 @@ export function isGolfMode(iso, settings) {
   return Boolean(settings.golfFrom) && iso >= settings.golfFrom;
 }
 
+// The weekly schedule in force on a date: the latest change that has started, else the original.
+export function scheduleFor(iso, plan) {
+  const changes = (plan.scheduleChanges || []).filter((c) => c.from <= iso).sort((a, b) => (a.from < b.from ? 1 : -1));
+  return changes[0] || plan.schedule;
+}
+
 function normalLetter(iso, plan) {
-  return plan.schedule.normal[String(dayOfWeek(iso))] || null;
+  return scheduleFor(iso, plan).normal[String(dayOfWeek(iso))] || null;
 }
 
 // Which session (A, B, C, R or null) is scheduled on a date.
 // The retest replaces the last session of the retest week, whatever weekday the plan starts on.
 export function scheduledSession(iso, plan, settings) {
   if (!inPlan(iso, plan, settings.startDate)) return null;
-  if (isGolfMode(iso, settings)) return plan.schedule.golf[String(dayOfWeek(iso))] || null;
+  if (isGolfMode(iso, settings)) return scheduleFor(iso, plan).golf[String(dayOfWeek(iso))] || null;
   const letter = normalLetter(iso, plan);
   if (!letter) return null;
   const week = weekOf(iso, settings.startDate);

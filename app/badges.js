@@ -18,6 +18,7 @@ function perfectWeeks(state, plan, settings, todayIso) {
 export function badges(state, plan, todayIso) {
   const s = state.settings;
   const sessionsDone = Object.values(state.sessions).filter(sessionIsDone).length;
+  const planned = [...Array(plan.weeks).keys()].reduce((n, i) => n + sessionTarget(i + 1, plan, s), 0);
   const physio = groupStreak(state, plan, 'physio', todayIso, s.startDate).best;
   const sleep = groupStreak(state, plan, 'sleep', todayIso, s.startDate).best;
   const rested = habitStreak(state, 'sleep_7', todayIso, s.startDate, plan).best;
@@ -48,7 +49,7 @@ export function badges(state, plan, todayIso) {
     { id: 'club_20', icon: '20', title: '20 kg club', desc: 'Any set with the 20 kg dumbbell', cur: heaviest >= plan.maxDumbbellKg ? 1 : 0, target: 1 },
     { id: 'deload', icon: 'D', title: 'Took the deload', desc: 'All sessions in week 6, at half sets', cur: deloadDone, target: 1 },
     { id: 'perfect', icon: '★', title: 'Perfect week', desc: 'Every habit, every day, every session', cur: perfect, target: 1 },
-    { id: 'all_36', icon: '36', title: 'The full block', desc: '36 sessions logged', cur: sessionsDone, target: 36 },
+    { id: 'all_sessions', icon: String(planned), title: 'The full block', desc: `All ${planned} sessions logged`, cur: sessionsDone, target: planned },
     { id: 'retest', icon: 'R', title: 'Retested', desc: 'Week 12 retest done', cur: retest, target: 1 },
     { id: 'gym', icon: 'G', title: 'Gym ready', desc: 'Goblet squat and RDL maxed at 20 kg', cur: gymReady, target: 1 },
   ];

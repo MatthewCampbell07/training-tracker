@@ -107,6 +107,12 @@ def all_day(uid, summary, first: date, days: int, description="", stamp=""):
     ]
 
 
+def schedule_for(d: date, plan) -> dict:
+    """The weekly schedule in force on a date (same rule as scheduleFor in app/logic.js)."""
+    started = [c for c in plan.get("scheduleChanges", []) if c["from"] <= d.isoformat()]
+    return max(started, key=lambda c: c["from"]) if started else {**plan["schedule"], "liftTimes": plan["calendar"]["liftTimes"]}
+
+
 def phase_for(week, plan):
     return next(p for p in plan["phases"] if p["from"] <= week <= p["to"])
 
@@ -166,15 +172,16 @@ def build(plan, start: date, golf_from: date | None, stamp: str) -> str:
 
     # The retest replaces the last session of the retest week.
     rw_start = start + timedelta(days=(plan["retestWeek"] - 1) * 7)
-    retest_day = max(rw_start + timedelta(days=k) for k in range(7)
-                     if plan["schedule"]["normal"].get(js_dow(rw_start + timedelta(days=k))))
+    retest_day = max(d for d in (rw_start + timedelta(days=k) for k in range(7))
+                     if schedule_for(d, plan)["normal"].get(js_dow(d)))
 
     # Lifting sessions: one event each so the title can carry the week and phase.
     for i in range(weeks * 7):
         d = start + timedelta(days=i)
         week = i // 7 + 1
         golf = golf_from is not None and d >= golf_from
-        letter = plan["schedule"]["golf" if golf else "normal"].get(js_dow(d))
+        sched = schedule_for(d, plan)
+        letter = sched["golf" if golf else "normal"].get(js_dow(d))
         if not letter:
             continue
         if d == retest_day and not golf:
@@ -182,7 +189,7 @@ def build(plan, start: date, golf_from: date | None, stamp: str) -> str:
         tag = " (deload)" if week in plan["deloadWeeks"] else ""
         name = "Retest" if letter == "R" else f"Session {letter}"
         summary = f"{name}, week {week}{tag}"
-        out += event(f"lift-{d:%Y%m%d}", summary, d, cal["liftTimes"][js_dow(d)], cal["liftMinutes"],
+        out += event(f"lift-{d:%Y%m%d}", summary, d, sched["liftTimes"][js_dow(d)], cal["liftMinutes"],
                      session_description(letter, week, plan, golf), alarm_before=30, stamp=stamp)
 
     # Morning check-in and physio: group days that share a time and a weigh in.
@@ -211,16 +218,14 @@ def build(plan, start: date, golf_from: date | None, stamp: str) -> str:
     # Golf mobility on non-gym days, grouped by time (weekday evenings, weekend mornings).
     mob_desc = "About 20 min. In the Training app: tap the Golf mobility card on Today.\n\n" + \
         "\n".join(f"{ex['name']}: {ex['dose']}" for ex in plan["sessions"]["M"]["exercises"])
-    mob_groups: dict[str, list[date]] = {}
-    for i in range(7):
+    # One event per day, because which days are gym days changed partway through the plan.
+    for i in range(weeks * 7):
         d = start + timedelta(days=i)
-        if plan["schedule"]["normal"].get(js_dow(d)):
+        golf = golf_from is not None and d >= golf_from
+        if schedule_for(d, plan)["golf" if golf else "normal"].get(js_dow(d)):
             continue
-        mob_groups.setdefault(cal["mobilityTimes"][js_dow(d)], []).append(d)
-    for time, days in sorted(mob_groups.items()):
-        byday = ",".join(DAY_CODES[d.weekday()] for d in days)
-        out += event(f"mobility-{byday.replace(',', '')}", "Golf mobility", days[0], time, cal["mobilityMinutes"], mob_desc,
-                     rrule=f"FREQ=WEEKLY;BYDAY={byday};UNTIL={until}", alarm_before=0, stamp=stamp)
+        out += event(f"mobility-{d:%Y%m%d}", "Golf mobility", d, cal["mobilityTimes"][js_dow(d)], cal["mobilityMinutes"],
+                     mob_desc, alarm_before=0, stamp=stamp)
 
     first_review = start + timedelta(days=(6 - start.weekday()) % 7)
     out += event("weekly-review", "Weekly review", first_review, cal["reviewTime"], 15,

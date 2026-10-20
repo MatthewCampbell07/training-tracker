@@ -15,13 +15,13 @@ Week 1 started on Thu 1 Oct 2026, so weeks run Thursday to Wednesday and the pla
 3. The events sync to your iPhone through iCloud. Alerts are built in: 30 minutes before each session, and at the start of physio, phone away and the weekly review.
 
 What's in it:
-- **Sessions:** Mon A at 17:30, Wed B at 17:30, Fri C at 16:30
+- **Sessions:** Tue A at 16:30, Thu B at 16:30, Sat C at 10:00 (from 19 Oct; weeks 1 to 3 were Mon, Wed, Fri)
 - **Morning check-in and physio:** 06:25 on office days, 07:40 at home, 08:30 at weekends. Weigh in on Mon, Wed, Fri and Sun.
 - **Every evening:** physio at 21:30, phone away at 22:30
-- **Golf mobility on non-gym days (Tue, Thu, Sat, Sun):** 21:00 on weekdays, 10:00 at weekends, about 20 min
+- **Golf mobility on non-gym days (Mon, Wed, Fri, Sun):** 21:00 on weekdays, 10:00 at weekends, about 20 min
 - **Sundays:** weekly review at 19:00
 - **Banners:** deload weeks 6 (5 to 11 Nov) and 12 (17 to 23 Dec)
-- **Retest:** the last session, Wed 23 Dec
+- **Retest:** the last session, Tue 22 Dec
 
 The clocks go back on 25 Oct. Every event keeps its local time.
 
@@ -76,6 +76,7 @@ To fill in a missed day, use the arrows at the top of Today.
 
 Other changes:
 - **Move week 1:** run `python3 calendar/make_ics.py --start 2026-10-08` (any weekday) and change the start date in the app's Settings.
+- **Change lifting days:** add an entry to `scheduleChanges` in `app/plan.json` with a `from` date. Earlier weeks keep their old days.
 - **Change times or exercises:** edit `app/plan.json`, which both the app and the calendar read. Rebuild the calendar. Bump `VERSION` in `app/sw.js`, then run `git commit -am "update plan" && git push`. The phone picks up the change the second time you open the app.
 
 ## Moving to a gym

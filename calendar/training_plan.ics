@@ -24,7 +24,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:lift-20261002@training-tracker
-DTSTAMP:20261017T184633Z
+DTSTAMP:20261020T091957Z
 DTSTART;TZID=Europe/London:20261002T163000
 DTEND;TZID=Europe/London:20261002T174000
 SUMMARY:Session C\, week 1
@@ -47,7 +47,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261005@training-tracker
-DTSTAMP:20261017T184633Z
+DTSTAMP:20261020T091957Z
 DTSTART;TZID=Europe/London:20261005T173000
 DTEND;TZID=Europe/London:20261005T184000
 SUMMARY:Session A\, week 1
@@ -69,7 +69,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261007@training-tracker
-DTSTAMP:20261017T184633Z
+DTSTAMP:20261020T091957Z
 DTSTART;TZID=Europe/London:20261007T173000
 DTEND;TZID=Europe/London:20261007T184000
 SUMMARY:Session B\, week 1
@@ -92,7 +92,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261009@training-tracker
-DTSTAMP:20261017T184633Z
+DTSTAMP:20261020T091957Z
 DTSTART;TZID=Europe/London:20261009T163000
 DTEND;TZID=Europe/London:20261009T174000
 SUMMARY:Session C\, week 2
@@ -115,7 +115,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261012@training-tracker
-DTSTAMP:20261017T184633Z
+DTSTAMP:20261020T091957Z
 DTSTART;TZID=Europe/London:20261012T173000
 DTEND;TZID=Europe/London:20261012T184000
 SUMMARY:Session A\, week 2
@@ -137,7 +137,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261014@training-tracker
-DTSTAMP:20261017T184633Z
+DTSTAMP:20261020T091957Z
 DTSTART;TZID=Europe/London:20261014T173000
 DTEND;TZID=Europe/London:20261014T184000
 SUMMARY:Session B\, week 2
@@ -160,7 +160,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:lift-20261016@training-tracker
-DTSTAMP:20261017T184633Z
+DTSTAMP:20261020T091957Z
 DTSTART;TZID=Europe/London:20261016T163000
 DTEND;TZID=Europe/London:20261016T174000
 SUMMARY:Session C\, week 3
@@ -182,10 +182,10 @@ TRIGGER:-PT30M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lift-20261019@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261019T173000
-DTEND;TZID=Europe/London:20261019T184000
+UID:lift-20261020@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261020T163000
+DTEND;TZID=Europe/London:20261020T174000
 SUMMARY:Session A\, week 3
 DESCRIPTION:Week 3: Build. Stop 1 to 3 reps short of failure. Add reps or w
  eight every session you can.\n\nWarm up: Wall walk out 2 x 10 sec\; Band s
@@ -204,78 +204,10 @@ TRIGGER:-PT30M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lift-20261021@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261021T173000
-DTEND;TZID=Europe/London:20261021T184000
-SUMMARY:Session B\, week 3
-DESCRIPTION:Week 3: Build. Stop 1 to 3 reps short of failure. Add reps or w
- eight every session you can.\n\nWarm up: Wall walk out 2 x 10 sec\; Band s
- houlder exercise\, 2 sets\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\;
-  Band hip abduction\, 3 steps each side x 2\; Table top leg extensions\, 1
-  set to fatigue\; Ramp up set at half your working weight\n\nRear foot ele
- vated split squat: 3 x 8-12 each\nSplit stance one arm DB row: 3 x 8-12 ea
- ch\nIncline push up\, hands on a worktop: 3 x 8-15 *\nStanding DB tricep k
- ickback: 3 x 10-15 each *\nBand pull apart: 3 x 12-15\nSuitcase march: 3 x
-  30-45 sec each\n\n* upper body priority (4 sets in weeks 7 to 11)\nLog ev
- ery set in the Training app. Tap How to do it on any exercise for steps an
- d videos.
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Session B\, week 3
-TRIGGER:-PT30M
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:lift-20261023@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261023T163000
-DTEND;TZID=Europe/London:20261023T174000
-SUMMARY:Session C\, week 4
-DESCRIPTION:Week 4: Build. Stop 1 to 3 reps short of failure. Add reps or w
- eight every session you can.\n\nWarm up: Wall walk out 2 x 10 sec\; Band s
- houlder exercise\, 2 sets\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\;
-  Band hip abduction\, 3 steps each side x 2\; Table top leg extensions\, 1
-  set to fatigue\; Ramp up set at half your working weight\n\nDB reverse lu
- nge or step up: 3 x 8-12 each\nChest supported 2 arm DB row: 3 x 8-12\nPus
- h up (feet up or standard): 3 x 6-15 *\nDB curl (superset): 3 x 10-15 *\nO
- verhead tricep extension (superset): 3 x 10-15 *\nSuitcase carry or side p
- lank: 3 x 30-45 sec each\n\n* upper body priority (4 sets in weeks 7 to 11
- )\nLog every set in the Training app. Tap How to do it on any exercise for
-  steps and videos.
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Session C\, week 4
-TRIGGER:-PT30M
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:lift-20261026@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261026T173000
-DTEND;TZID=Europe/London:20261026T184000
-SUMMARY:Session A\, week 4
-DESCRIPTION:Week 4: Build. Stop 1 to 3 reps short of failure. Add reps or w
- eight every session you can.\n\nWarm up: Wall walk out 2 x 10 sec\; Band s
- houlder exercise\, 2 sets\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\;
-  Band hip abduction\, 3 steps each side x 2\; Table top leg extensions\, 1
-  set to fatigue\; Ramp up set at half your working weight\n\nGoblet squat:
-  3 x 8-12\nOne arm DB row: 3 x 8-12 each\nDB floor press\, neutral grip: 3
-  x 8-12 *\nDB Romanian deadlift: 3 x 8-12\nBand pull apart: 3 x 12-15\nHam
- mer curl: 3 x 10-15 *\nTable top leg extension: 3 x max\n\n* upper body pr
- iority (4 sets in weeks 7 to 11)\nLog every set in the Training app. Tap H
- ow to do it on any exercise for steps and videos.
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Session A\, week 4
-TRIGGER:-PT30M
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:lift-20261028@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261028T173000
-DTEND;TZID=Europe/London:20261028T184000
+UID:lift-20261022@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261022T163000
+DTEND;TZID=Europe/London:20261022T174000
 SUMMARY:Session B\, week 4
 DESCRIPTION:Week 4: Build. Stop 1 to 3 reps short of failure. Add reps or w
  eight every session you can.\n\nWarm up: Wall walk out 2 x 10 sec\; Band s
@@ -295,12 +227,12 @@ TRIGGER:-PT30M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lift-20261030@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261030T163000
-DTEND;TZID=Europe/London:20261030T174000
-SUMMARY:Session C\, week 5
-DESCRIPTION:Week 5: Build. Stop 1 to 3 reps short of failure. Add reps or w
+UID:lift-20261024@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261024T100000
+DTEND;TZID=Europe/London:20261024T111000
+SUMMARY:Session C\, week 4
+DESCRIPTION:Week 4: Build. Stop 1 to 3 reps short of failure. Add reps or w
  eight every session you can.\n\nWarm up: Wall walk out 2 x 10 sec\; Band s
  houlder exercise\, 2 sets\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\;
   Band hip abduction\, 3 steps each side x 2\; Table top leg extensions\, 1
@@ -313,17 +245,17 @@ DESCRIPTION:Week 5: Build. Stop 1 to 3 reps short of failure. Add reps or w
   steps and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:Session C\, week 5
+DESCRIPTION:Session C\, week 4
 TRIGGER:-PT30M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lift-20261102@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261102T173000
-DTEND;TZID=Europe/London:20261102T184000
-SUMMARY:Session A\, week 5
-DESCRIPTION:Week 5: Build. Stop 1 to 3 reps short of failure. Add reps or w
+UID:lift-20261027@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261027T163000
+DTEND;TZID=Europe/London:20261027T174000
+SUMMARY:Session A\, week 4
+DESCRIPTION:Week 4: Build. Stop 1 to 3 reps short of failure. Add reps or w
  eight every session you can.\n\nWarm up: Wall walk out 2 x 10 sec\; Band s
  houlder exercise\, 2 sets\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\;
   Band hip abduction\, 3 steps each side x 2\; Table top leg extensions\, 1
@@ -335,15 +267,15 @@ DESCRIPTION:Week 5: Build. Stop 1 to 3 reps short of failure. Add reps or w
  ow to do it on any exercise for steps and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:Session A\, week 5
+DESCRIPTION:Session A\, week 4
 TRIGGER:-PT30M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lift-20261104@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261104T173000
-DTEND;TZID=Europe/London:20261104T184000
+UID:lift-20261029@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261029T163000
+DTEND;TZID=Europe/London:20261029T174000
 SUMMARY:Session B\, week 5
 DESCRIPTION:Week 5: Build. Stop 1 to 3 reps short of failure. Add reps or w
  eight every session you can.\n\nWarm up: Wall walk out 2 x 10 sec\; Band s
@@ -363,54 +295,55 @@ TRIGGER:-PT30M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lift-20261106@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261106T163000
-DTEND;TZID=Europe/London:20261106T174000
-SUMMARY:Session C\, week 6 (deload)
-DESCRIPTION:Week 6: Deload. Half the sets\, same weights. Keep the daily ph
- ysio work.\n\nWarm up: Wall walk out 2 x 10 sec\; Band shoulder exercise\,
-  2 sets\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abductio
- n\, 3 steps each side x 2\; Table top leg extensions\, 1 set to fatigue\; 
- Ramp up set at half your working weight\n\nDB reverse lunge or step up: 2 
- x 8-12 each\nChest supported 2 arm DB row: 2 x 8-12\nPush up (feet up or s
- tandard): 2 x 6-15 *\nDB curl (superset): 2 x 10-15 *\nOverhead tricep ext
- ension (superset): 2 x 10-15 *\nSuitcase carry or side plank: 2 x 30-45 se
- c each\n\n* upper body priority (4 sets in weeks 7 to 11)\nLog every set i
- n the Training app. Tap How to do it on any exercise for steps and videos.
+UID:lift-20261031@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261031T100000
+DTEND;TZID=Europe/London:20261031T111000
+SUMMARY:Session C\, week 5
+DESCRIPTION:Week 5: Build. Stop 1 to 3 reps short of failure. Add reps or w
+ eight every session you can.\n\nWarm up: Wall walk out 2 x 10 sec\; Band s
+ houlder exercise\, 2 sets\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\;
+  Band hip abduction\, 3 steps each side x 2\; Table top leg extensions\, 1
+  set to fatigue\; Ramp up set at half your working weight\n\nDB reverse lu
+ nge or step up: 3 x 8-12 each\nChest supported 2 arm DB row: 3 x 8-12\nPus
+ h up (feet up or standard): 3 x 6-15 *\nDB curl (superset): 3 x 10-15 *\nO
+ verhead tricep extension (superset): 3 x 10-15 *\nSuitcase carry or side p
+ lank: 3 x 30-45 sec each\n\n* upper body priority (4 sets in weeks 7 to 11
+ )\nLog every set in the Training app. Tap How to do it on any exercise for
+  steps and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:Session C\, week 6 (deload)
+DESCRIPTION:Session C\, week 5
 TRIGGER:-PT30M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lift-20261109@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261109T173000
-DTEND;TZID=Europe/London:20261109T184000
-SUMMARY:Session A\, week 6 (deload)
-DESCRIPTION:Week 6: Deload. Half the sets\, same weights. Keep the daily ph
- ysio work.\n\nWarm up: Wall walk out 2 x 10 sec\; Band shoulder exercise\,
-  2 sets\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abductio
- n\, 3 steps each side x 2\; Table top leg extensions\, 1 set to fatigue\; 
- Ramp up set at half your working weight\n\nGoblet squat: 2 x 8-12\nOne arm
-  DB row: 2 x 8-12 each\nDB floor press\, neutral grip: 2 x 8-12 *\nDB Roma
- nian deadlift: 2 x 8-12\nBand pull apart: 2 x 12-15\nHammer curl: 2 x 10-1
- 5 *\nTable top leg extension: 2 x max\n\n* upper body priority (4 sets in 
- weeks 7 to 11)\nLog every set in the Training app. Tap How to do it on any
-  exercise for steps and videos.
+UID:lift-20261103@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261103T163000
+DTEND;TZID=Europe/London:20261103T174000
+SUMMARY:Session A\, week 5
+DESCRIPTION:Week 5: Build. Stop 1 to 3 reps short of failure. Add reps or w
+ eight every session you can.\n\nWarm up: Wall walk out 2 x 10 sec\; Band s
+ houlder exercise\, 2 sets\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\;
+  Band hip abduction\, 3 steps each side x 2\; Table top leg extensions\, 1
+  set to fatigue\; Ramp up set at half your working weight\n\nGoblet squat:
+  3 x 8-12\nOne arm DB row: 3 x 8-12 each\nDB floor press\, neutral grip: 3
+  x 8-12 *\nDB Romanian deadlift: 3 x 8-12\nBand pull apart: 3 x 12-15\nHam
+ mer curl: 3 x 10-15 *\nTable top leg extension: 3 x max\n\n* upper body pr
+ iority (4 sets in weeks 7 to 11)\nLog every set in the Training app. Tap H
+ ow to do it on any exercise for steps and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:Session A\, week 6 (deload)
+DESCRIPTION:Session A\, week 5
 TRIGGER:-PT30M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lift-20261111@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261111T173000
-DTEND;TZID=Europe/London:20261111T184000
+UID:lift-20261105@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261105T163000
+DTEND;TZID=Europe/London:20261105T174000
 SUMMARY:Session B\, week 6 (deload)
 DESCRIPTION:Week 6: Deload. Half the sets\, same weights. Keep the daily ph
  ysio work.\n\nWarm up: Wall walk out 2 x 10 sec\; Band shoulder exercise\,
@@ -429,56 +362,54 @@ TRIGGER:-PT30M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lift-20261113@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261113T163000
-DTEND;TZID=Europe/London:20261113T174000
-SUMMARY:Session C\, week 7
-DESCRIPTION:Week 7: Build\, harder. Priority exercises (marked) get a 4th s
- et: chest\, shoulders and arms. Isolation work can go to failure.\n\nWarm 
- up: Wall walk out 2 x 10 sec\; Band shoulder exercise\, 2 sets\; Standing 
- row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each si
- de x 2\; Table top leg extensions\, 1 set to fatigue\; Ramp up set at half
-  your working weight\n\nDB reverse lunge or step up: 3 x 8-12 each\nChest 
- supported 2 arm DB row: 3 x 8-12\nPush up (feet up or standard): 4 x 6-15 
- *\nDB curl (superset): 4 x 10-15 *\nOverhead tricep extension (superset): 
- 4 x 10-15 *\nSuitcase carry or side plank: 3 x 30-45 sec each\n\n* upper b
- ody priority (4 sets in weeks 7 to 11)\nLog every set in the Training app.
-  Tap How to do it on any exercise for steps and videos.
+UID:lift-20261107@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261107T100000
+DTEND;TZID=Europe/London:20261107T111000
+SUMMARY:Session C\, week 6 (deload)
+DESCRIPTION:Week 6: Deload. Half the sets\, same weights. Keep the daily ph
+ ysio work.\n\nWarm up: Wall walk out 2 x 10 sec\; Band shoulder exercise\,
+  2 sets\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abductio
+ n\, 3 steps each side x 2\; Table top leg extensions\, 1 set to fatigue\; 
+ Ramp up set at half your working weight\n\nDB reverse lunge or step up: 2 
+ x 8-12 each\nChest supported 2 arm DB row: 2 x 8-12\nPush up (feet up or s
+ tandard): 2 x 6-15 *\nDB curl (superset): 2 x 10-15 *\nOverhead tricep ext
+ ension (superset): 2 x 10-15 *\nSuitcase carry or side plank: 2 x 30-45 se
+ c each\n\n* upper body priority (4 sets in weeks 7 to 11)\nLog every set i
+ n the Training app. Tap How to do it on any exercise for steps and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:Session C\, week 7
+DESCRIPTION:Session C\, week 6 (deload)
 TRIGGER:-PT30M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lift-20261116@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261116T173000
-DTEND;TZID=Europe/London:20261116T184000
-SUMMARY:Session A\, week 7
-DESCRIPTION:Week 7: Build\, harder. Priority exercises (marked) get a 4th s
- et: chest\, shoulders and arms. Isolation work can go to failure.\n\nWarm 
- up: Wall walk out 2 x 10 sec\; Band shoulder exercise\, 2 sets\; Standing 
- row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each si
- de x 2\; Table top leg extensions\, 1 set to fatigue\; Ramp up set at half
-  your working weight\n\nGoblet squat: 3 x 8-12\nOne arm DB row: 3 x 8-12 e
- ach\nDB floor press\, neutral grip: 4 x 8-12 *\nDB Romanian deadlift: 3 x 
- 8-12\nBand pull apart: 3 x 12-15\nHammer curl: 4 x 10-15 *\nTable top leg 
- extension: 3 x max\n\n* upper body priority (4 sets in weeks 7 to 11)\nLog
-  every set in the Training app. Tap How to do it on any exercise for steps
-  and videos.
+UID:lift-20261110@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261110T163000
+DTEND;TZID=Europe/London:20261110T174000
+SUMMARY:Session A\, week 6 (deload)
+DESCRIPTION:Week 6: Deload. Half the sets\, same weights. Keep the daily ph
+ ysio work.\n\nWarm up: Wall walk out 2 x 10 sec\; Band shoulder exercise\,
+  2 sets\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abductio
+ n\, 3 steps each side x 2\; Table top leg extensions\, 1 set to fatigue\; 
+ Ramp up set at half your working weight\n\nGoblet squat: 2 x 8-12\nOne arm
+  DB row: 2 x 8-12 each\nDB floor press\, neutral grip: 2 x 8-12 *\nDB Roma
+ nian deadlift: 2 x 8-12\nBand pull apart: 2 x 12-15\nHammer curl: 2 x 10-1
+ 5 *\nTable top leg extension: 2 x max\n\n* upper body priority (4 sets in 
+ weeks 7 to 11)\nLog every set in the Training app. Tap How to do it on any
+  exercise for steps and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:Session A\, week 7
+DESCRIPTION:Session A\, week 6 (deload)
 TRIGGER:-PT30M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lift-20261118@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261118T173000
-DTEND;TZID=Europe/London:20261118T184000
+UID:lift-20261112@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261112T163000
+DTEND;TZID=Europe/London:20261112T174000
 SUMMARY:Session B\, week 7
 DESCRIPTION:Week 7: Build\, harder. Priority exercises (marked) get a 4th s
  et: chest\, shoulders and arms. Isolation work can go to failure.\n\nWarm 
@@ -498,12 +429,12 @@ TRIGGER:-PT30M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lift-20261120@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261120T163000
-DTEND;TZID=Europe/London:20261120T174000
-SUMMARY:Session C\, week 8
-DESCRIPTION:Week 8: Build\, harder. Priority exercises (marked) get a 4th s
+UID:lift-20261114@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261114T100000
+DTEND;TZID=Europe/London:20261114T111000
+SUMMARY:Session C\, week 7
+DESCRIPTION:Week 7: Build\, harder. Priority exercises (marked) get a 4th s
  et: chest\, shoulders and arms. Isolation work can go to failure.\n\nWarm 
  up: Wall walk out 2 x 10 sec\; Band shoulder exercise\, 2 sets\; Standing 
  row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each si
@@ -516,17 +447,17 @@ DESCRIPTION:Week 8: Build\, harder. Priority exercises (marked) get a 4th s
   Tap How to do it on any exercise for steps and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:Session C\, week 8
+DESCRIPTION:Session C\, week 7
 TRIGGER:-PT30M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lift-20261123@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261123T173000
-DTEND;TZID=Europe/London:20261123T184000
-SUMMARY:Session A\, week 8
-DESCRIPTION:Week 8: Build\, harder. Priority exercises (marked) get a 4th s
+UID:lift-20261117@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261117T163000
+DTEND;TZID=Europe/London:20261117T174000
+SUMMARY:Session A\, week 7
+DESCRIPTION:Week 7: Build\, harder. Priority exercises (marked) get a 4th s
  et: chest\, shoulders and arms. Isolation work can go to failure.\n\nWarm 
  up: Wall walk out 2 x 10 sec\; Band shoulder exercise\, 2 sets\; Standing 
  row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each si
@@ -539,15 +470,15 @@ DESCRIPTION:Week 8: Build\, harder. Priority exercises (marked) get a 4th s
   and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:Session A\, week 8
+DESCRIPTION:Session A\, week 7
 TRIGGER:-PT30M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lift-20261125@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261125T173000
-DTEND;TZID=Europe/London:20261125T184000
+UID:lift-20261119@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261119T163000
+DTEND;TZID=Europe/London:20261119T174000
 SUMMARY:Session B\, week 8
 DESCRIPTION:Week 8: Build\, harder. Priority exercises (marked) get a 4th s
  et: chest\, shoulders and arms. Isolation work can go to failure.\n\nWarm 
@@ -567,12 +498,12 @@ TRIGGER:-PT30M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lift-20261127@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261127T163000
-DTEND;TZID=Europe/London:20261127T174000
-SUMMARY:Session C\, week 9
-DESCRIPTION:Week 9: Build\, harder. Priority exercises (marked) get a 4th s
+UID:lift-20261121@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261121T100000
+DTEND;TZID=Europe/London:20261121T111000
+SUMMARY:Session C\, week 8
+DESCRIPTION:Week 8: Build\, harder. Priority exercises (marked) get a 4th s
  et: chest\, shoulders and arms. Isolation work can go to failure.\n\nWarm 
  up: Wall walk out 2 x 10 sec\; Band shoulder exercise\, 2 sets\; Standing 
  row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each si
@@ -585,17 +516,17 @@ DESCRIPTION:Week 9: Build\, harder. Priority exercises (marked) get a 4th s
   Tap How to do it on any exercise for steps and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:Session C\, week 9
+DESCRIPTION:Session C\, week 8
 TRIGGER:-PT30M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lift-20261130@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261130T173000
-DTEND;TZID=Europe/London:20261130T184000
-SUMMARY:Session A\, week 9
-DESCRIPTION:Week 9: Build\, harder. Priority exercises (marked) get a 4th s
+UID:lift-20261124@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261124T163000
+DTEND;TZID=Europe/London:20261124T174000
+SUMMARY:Session A\, week 8
+DESCRIPTION:Week 8: Build\, harder. Priority exercises (marked) get a 4th s
  et: chest\, shoulders and arms. Isolation work can go to failure.\n\nWarm 
  up: Wall walk out 2 x 10 sec\; Band shoulder exercise\, 2 sets\; Standing 
  row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each si
@@ -608,15 +539,15 @@ DESCRIPTION:Week 9: Build\, harder. Priority exercises (marked) get a 4th s
   and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:Session A\, week 9
+DESCRIPTION:Session A\, week 8
 TRIGGER:-PT30M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lift-20261202@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261202T173000
-DTEND;TZID=Europe/London:20261202T184000
+UID:lift-20261126@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261126T163000
+DTEND;TZID=Europe/London:20261126T174000
 SUMMARY:Session B\, week 9
 DESCRIPTION:Week 9: Build\, harder. Priority exercises (marked) get a 4th s
  et: chest\, shoulders and arms. Isolation work can go to failure.\n\nWarm 
@@ -636,56 +567,56 @@ TRIGGER:-PT30M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lift-20261204@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261204T163000
-DTEND;TZID=Europe/London:20261204T174000
-SUMMARY:Session C\, week 10
-DESCRIPTION:Week 10: Build\, harder. Priority exercises (marked) get a 4th 
- set: chest\, shoulders and arms. Isolation work can go to failure.\n\nWarm
-  up: Wall walk out 2 x 10 sec\; Band shoulder exercise\, 2 sets\; Standing
-  row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each s
- ide x 2\; Table top leg extensions\, 1 set to fatigue\; Ramp up set at hal
- f your working weight\n\nDB reverse lunge or step up: 3 x 8-12 each\nChest
-  supported 2 arm DB row: 3 x 8-12\nPush up (feet up or standard): 4 x 6-15
-  *\nDB curl (superset): 4 x 10-15 *\nOverhead tricep extension (superset):
-  4 x 10-15 *\nSuitcase carry or side plank: 3 x 30-45 sec each\n\n* upper 
- body priority (4 sets in weeks 7 to 11)\nLog every set in the Training app
- . Tap How to do it on any exercise for steps and videos.
+UID:lift-20261128@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261128T100000
+DTEND;TZID=Europe/London:20261128T111000
+SUMMARY:Session C\, week 9
+DESCRIPTION:Week 9: Build\, harder. Priority exercises (marked) get a 4th s
+ et: chest\, shoulders and arms. Isolation work can go to failure.\n\nWarm 
+ up: Wall walk out 2 x 10 sec\; Band shoulder exercise\, 2 sets\; Standing 
+ row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each si
+ de x 2\; Table top leg extensions\, 1 set to fatigue\; Ramp up set at half
+  your working weight\n\nDB reverse lunge or step up: 3 x 8-12 each\nChest 
+ supported 2 arm DB row: 3 x 8-12\nPush up (feet up or standard): 4 x 6-15 
+ *\nDB curl (superset): 4 x 10-15 *\nOverhead tricep extension (superset): 
+ 4 x 10-15 *\nSuitcase carry or side plank: 3 x 30-45 sec each\n\n* upper b
+ ody priority (4 sets in weeks 7 to 11)\nLog every set in the Training app.
+  Tap How to do it on any exercise for steps and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:Session C\, week 10
+DESCRIPTION:Session C\, week 9
 TRIGGER:-PT30M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lift-20261207@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261207T173000
-DTEND;TZID=Europe/London:20261207T184000
-SUMMARY:Session A\, week 10
-DESCRIPTION:Week 10: Build\, harder. Priority exercises (marked) get a 4th 
- set: chest\, shoulders and arms. Isolation work can go to failure.\n\nWarm
-  up: Wall walk out 2 x 10 sec\; Band shoulder exercise\, 2 sets\; Standing
-  row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each s
- ide x 2\; Table top leg extensions\, 1 set to fatigue\; Ramp up set at hal
- f your working weight\n\nGoblet squat: 3 x 8-12\nOne arm DB row: 3 x 8-12 
- each\nDB floor press\, neutral grip: 4 x 8-12 *\nDB Romanian deadlift: 3 x
-  8-12\nBand pull apart: 3 x 12-15\nHammer curl: 4 x 10-15 *\nTable top leg
-  extension: 3 x max\n\n* upper body priority (4 sets in weeks 7 to 11)\nLo
- g every set in the Training app. Tap How to do it on any exercise for step
- s and videos.
+UID:lift-20261201@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261201T163000
+DTEND;TZID=Europe/London:20261201T174000
+SUMMARY:Session A\, week 9
+DESCRIPTION:Week 9: Build\, harder. Priority exercises (marked) get a 4th s
+ et: chest\, shoulders and arms. Isolation work can go to failure.\n\nWarm 
+ up: Wall walk out 2 x 10 sec\; Band shoulder exercise\, 2 sets\; Standing 
+ row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each si
+ de x 2\; Table top leg extensions\, 1 set to fatigue\; Ramp up set at half
+  your working weight\n\nGoblet squat: 3 x 8-12\nOne arm DB row: 3 x 8-12 e
+ ach\nDB floor press\, neutral grip: 4 x 8-12 *\nDB Romanian deadlift: 3 x 
+ 8-12\nBand pull apart: 3 x 12-15\nHammer curl: 4 x 10-15 *\nTable top leg 
+ extension: 3 x max\n\n* upper body priority (4 sets in weeks 7 to 11)\nLog
+  every set in the Training app. Tap How to do it on any exercise for steps
+  and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:Session A\, week 10
+DESCRIPTION:Session A\, week 9
 TRIGGER:-PT30M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lift-20261209@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261209T173000
-DTEND;TZID=Europe/London:20261209T184000
+UID:lift-20261203@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261203T163000
+DTEND;TZID=Europe/London:20261203T174000
 SUMMARY:Session B\, week 10
 DESCRIPTION:Week 10: Build\, harder. Priority exercises (marked) get a 4th 
  set: chest\, shoulders and arms. Isolation work can go to failure.\n\nWarm
@@ -705,12 +636,12 @@ TRIGGER:-PT30M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lift-20261211@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261211T163000
-DTEND;TZID=Europe/London:20261211T174000
-SUMMARY:Session C\, week 11
-DESCRIPTION:Week 11: Build\, harder. Priority exercises (marked) get a 4th 
+UID:lift-20261205@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261205T100000
+DTEND;TZID=Europe/London:20261205T111000
+SUMMARY:Session C\, week 10
+DESCRIPTION:Week 10: Build\, harder. Priority exercises (marked) get a 4th 
  set: chest\, shoulders and arms. Isolation work can go to failure.\n\nWarm
   up: Wall walk out 2 x 10 sec\; Band shoulder exercise\, 2 sets\; Standing
   row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each s
@@ -723,17 +654,17 @@ DESCRIPTION:Week 11: Build\, harder. Priority exercises (marked) get a 4th
  . Tap How to do it on any exercise for steps and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:Session C\, week 11
+DESCRIPTION:Session C\, week 10
 TRIGGER:-PT30M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lift-20261214@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261214T173000
-DTEND;TZID=Europe/London:20261214T184000
-SUMMARY:Session A\, week 11
-DESCRIPTION:Week 11: Build\, harder. Priority exercises (marked) get a 4th 
+UID:lift-20261208@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261208T163000
+DTEND;TZID=Europe/London:20261208T174000
+SUMMARY:Session A\, week 10
+DESCRIPTION:Week 10: Build\, harder. Priority exercises (marked) get a 4th 
  set: chest\, shoulders and arms. Isolation work can go to failure.\n\nWarm
   up: Wall walk out 2 x 10 sec\; Band shoulder exercise\, 2 sets\; Standing
   row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each s
@@ -746,15 +677,15 @@ DESCRIPTION:Week 11: Build\, harder. Priority exercises (marked) get a 4th
  s and videos.
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:Session A\, week 11
+DESCRIPTION:Session A\, week 10
 TRIGGER:-PT30M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lift-20261216@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261216T173000
-DTEND;TZID=Europe/London:20261216T184000
+UID:lift-20261210@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261210T163000
+DTEND;TZID=Europe/London:20261210T174000
 SUMMARY:Session B\, week 11
 DESCRIPTION:Week 11: Build\, harder. Priority exercises (marked) get a 4th 
  set: chest\, shoulders and arms. Isolation work can go to failure.\n\nWarm
@@ -774,10 +705,79 @@ TRIGGER:-PT30M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lift-20261218@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261218T163000
-DTEND;TZID=Europe/London:20261218T174000
+UID:lift-20261212@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261212T100000
+DTEND;TZID=Europe/London:20261212T111000
+SUMMARY:Session C\, week 11
+DESCRIPTION:Week 11: Build\, harder. Priority exercises (marked) get a 4th 
+ set: chest\, shoulders and arms. Isolation work can go to failure.\n\nWarm
+  up: Wall walk out 2 x 10 sec\; Band shoulder exercise\, 2 sets\; Standing
+  row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each s
+ ide x 2\; Table top leg extensions\, 1 set to fatigue\; Ramp up set at hal
+ f your working weight\n\nDB reverse lunge or step up: 3 x 8-12 each\nChest
+  supported 2 arm DB row: 3 x 8-12\nPush up (feet up or standard): 4 x 6-15
+  *\nDB curl (superset): 4 x 10-15 *\nOverhead tricep extension (superset):
+  4 x 10-15 *\nSuitcase carry or side plank: 3 x 30-45 sec each\n\n* upper 
+ body priority (4 sets in weeks 7 to 11)\nLog every set in the Training app
+ . Tap How to do it on any exercise for steps and videos.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session C\, week 11
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261215@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261215T163000
+DTEND;TZID=Europe/London:20261215T174000
+SUMMARY:Session A\, week 11
+DESCRIPTION:Week 11: Build\, harder. Priority exercises (marked) get a 4th 
+ set: chest\, shoulders and arms. Isolation work can go to failure.\n\nWarm
+  up: Wall walk out 2 x 10 sec\; Band shoulder exercise\, 2 sets\; Standing
+  row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abduction\, 3 steps each s
+ ide x 2\; Table top leg extensions\, 1 set to fatigue\; Ramp up set at hal
+ f your working weight\n\nGoblet squat: 3 x 8-12\nOne arm DB row: 3 x 8-12 
+ each\nDB floor press\, neutral grip: 4 x 8-12 *\nDB Romanian deadlift: 3 x
+  8-12\nBand pull apart: 3 x 12-15\nHammer curl: 4 x 10-15 *\nTable top leg
+  extension: 3 x max\n\n* upper body priority (4 sets in weeks 7 to 11)\nLo
+ g every set in the Training app. Tap How to do it on any exercise for step
+ s and videos.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session A\, week 11
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261217@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261217T163000
+DTEND;TZID=Europe/London:20261217T174000
+SUMMARY:Session B\, week 12 (deload)
+DESCRIPTION:Week 12: Deload and retest. Half sets in the first two sessions
+ . Retest in the last session: max push ups\, goblet squat reps\, single ar
+ m row reps.\n\nWarm up: Wall walk out 2 x 10 sec\; Band shoulder exercise\
+ , 2 sets\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abducti
+ on\, 3 steps each side x 2\; Table top leg extensions\, 1 set to fatigue\;
+  Ramp up set at half your working weight\n\nRear foot elevated split squat
+ : 2 x 8-12 each\nSplit stance one arm DB row: 2 x 8-12 each\nIncline push 
+ up\, hands on a worktop: 2 x 8-15 *\nStanding DB tricep kickback: 2 x 10-1
+ 5 each *\nBand pull apart: 2 x 12-15\nSuitcase march: 2 x 30-45 sec each\n
+ \n* upper body priority (4 sets in weeks 7 to 11)\nLog every set in the Tr
+ aining app. Tap How to do it on any exercise for steps and videos.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Session B\, week 12 (deload)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lift-20261219@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261219T100000
+DTEND;TZID=Europe/London:20261219T111000
 SUMMARY:Session C\, week 12 (deload)
 DESCRIPTION:Week 12: Deload and retest. Half sets in the first two sessions
  . Retest in the last session: max push ups\, goblet squat reps\, single ar
@@ -798,33 +798,10 @@ TRIGGER:-PT30M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lift-20261221@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261221T173000
-DTEND;TZID=Europe/London:20261221T184000
-SUMMARY:Session A\, week 12 (deload)
-DESCRIPTION:Week 12: Deload and retest. Half sets in the first two sessions
- . Retest in the last session: max push ups\, goblet squat reps\, single ar
- m row reps.\n\nWarm up: Wall walk out 2 x 10 sec\; Band shoulder exercise\
- , 2 sets\; Standing row 2.5 kg\, 1 x 10 with 6 sec hold\; Band hip abducti
- on\, 3 steps each side x 2\; Table top leg extensions\, 1 set to fatigue\;
-  Ramp up set at half your working weight\n\nGoblet squat: 2 x 8-12\nOne ar
- m DB row: 2 x 8-12 each\nDB floor press\, neutral grip: 2 x 8-12 *\nDB Rom
- anian deadlift: 2 x 8-12\nBand pull apart: 2 x 12-15\nHammer curl: 2 x 10-
- 15 *\nTable top leg extension: 2 x max\n\n* upper body priority (4 sets in
-  weeks 7 to 11)\nLog every set in the Training app. Tap How to do it on an
- y exercise for steps and videos.
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Session A\, week 12 (deload)
-TRIGGER:-PT30M
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:lift-20261223@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261223T173000
-DTEND;TZID=Europe/London:20261223T184000
+UID:lift-20261222@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261222T163000
+DTEND;TZID=Europe/London:20261222T174000
 SUMMARY:Retest\, week 12 (deload)
 DESCRIPTION:Week 12: Deload and retest. Half sets in the first two sessions
  . Retest in the last session: max push ups\, goblet squat reps\, single ar
@@ -840,7 +817,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:am-MOWE@training-tracker
-DTSTAMP:20261017T184633Z
+DTSTAMP:20261020T091957Z
 DTSTART;TZID=Europe/London:20261005T062500
 DTEND;TZID=Europe/London:20261005T063500
 SUMMARY:Weigh in\, check-in\, physio
@@ -855,7 +832,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:am-THTU@training-tracker
-DTSTAMP:20261017T184633Z
+DTSTAMP:20261020T091957Z
 DTSTART;TZID=Europe/London:20261001T074000
 DTEND;TZID=Europe/London:20261001T075000
 SUMMARY:Check-in\, physio
@@ -870,7 +847,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:am-FR@training-tracker
-DTSTAMP:20261017T184633Z
+DTSTAMP:20261020T091957Z
 DTSTART;TZID=Europe/London:20261002T074000
 DTEND;TZID=Europe/London:20261002T075000
 SUMMARY:Weigh in\, check-in\, physio
@@ -885,7 +862,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:am-SA@training-tracker
-DTSTAMP:20261017T184633Z
+DTSTAMP:20261020T091957Z
 DTSTART;TZID=Europe/London:20261003T083000
 DTEND;TZID=Europe/London:20261003T084000
 SUMMARY:Check-in\, physio
@@ -900,7 +877,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:am-SU@training-tracker
-DTSTAMP:20261017T184633Z
+DTSTAMP:20261020T091957Z
 DTSTART;TZID=Europe/London:20261004T083000
 DTEND;TZID=Europe/London:20261004T084000
 SUMMARY:Weigh in\, check-in\, physio
@@ -915,7 +892,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:pm-physio@training-tracker
-DTSTAMP:20261017T184633Z
+DTSTAMP:20261020T091957Z
 DTSTART;TZID=Europe/London:20261001T213000
 DTEND;TZID=Europe/London:20261001T214000
 SUMMARY:Physio\, evening
@@ -929,7 +906,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:phone-away@training-tracker
-DTSTAMP:20261017T184633Z
+DTSTAMP:20261020T091957Z
 DTSTART;TZID=Europe/London:20261001T223000
 DTEND;TZID=Europe/London:20261001T224500
 SUMMARY:Phone away
@@ -943,27 +920,8 @@ TRIGGER:-PT0M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:mobility-SASU@training-tracker
-DTSTAMP:20261017T184633Z
-DTSTART;TZID=Europe/London:20261003T100000
-DTEND;TZID=Europe/London:20261003T102000
-SUMMARY:Golf mobility
-DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
- n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
- tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
- g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
- ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
- s
-RRULE:FREQ=WEEKLY;BYDAY=SA,SU;UNTIL=20261223T235959Z
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Golf mobility
-TRIGGER:-PT0M
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:mobility-THTU@training-tracker
-DTSTAMP:20261017T184633Z
+UID:mobility-20261001@training-tracker
+DTSTAMP:20261020T091957Z
 DTSTART;TZID=Europe/London:20261001T210000
 DTEND;TZID=Europe/London:20261001T212000
 SUMMARY:Golf mobility
@@ -973,7 +931,870 @@ DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
  g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
  ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
  s
-RRULE:FREQ=WEEKLY;BYDAY=TH,TU;UNTIL=20261223T235959Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261003@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261003T100000
+DTEND;TZID=Europe/London:20261003T102000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261004@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261004T100000
+DTEND;TZID=Europe/London:20261004T102000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261006@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261006T210000
+DTEND;TZID=Europe/London:20261006T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261008@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261008T210000
+DTEND;TZID=Europe/London:20261008T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261010@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261010T100000
+DTEND;TZID=Europe/London:20261010T102000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261011@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261011T100000
+DTEND;TZID=Europe/London:20261011T102000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261013@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261013T210000
+DTEND;TZID=Europe/London:20261013T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261015@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261015T210000
+DTEND;TZID=Europe/London:20261015T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261017@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261017T100000
+DTEND;TZID=Europe/London:20261017T102000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261018@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261018T100000
+DTEND;TZID=Europe/London:20261018T102000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261019@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261019T210000
+DTEND;TZID=Europe/London:20261019T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261021@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261021T210000
+DTEND;TZID=Europe/London:20261021T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261023@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261023T210000
+DTEND;TZID=Europe/London:20261023T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261025@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261025T100000
+DTEND;TZID=Europe/London:20261025T102000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261026@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261026T210000
+DTEND;TZID=Europe/London:20261026T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261028@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261028T210000
+DTEND;TZID=Europe/London:20261028T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261030@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261030T210000
+DTEND;TZID=Europe/London:20261030T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261101@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261101T100000
+DTEND;TZID=Europe/London:20261101T102000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261102@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261102T210000
+DTEND;TZID=Europe/London:20261102T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261104@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261104T210000
+DTEND;TZID=Europe/London:20261104T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261106@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261106T210000
+DTEND;TZID=Europe/London:20261106T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261108@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261108T100000
+DTEND;TZID=Europe/London:20261108T102000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261109@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261109T210000
+DTEND;TZID=Europe/London:20261109T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261111@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261111T210000
+DTEND;TZID=Europe/London:20261111T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261113@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261113T210000
+DTEND;TZID=Europe/London:20261113T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261115@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261115T100000
+DTEND;TZID=Europe/London:20261115T102000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261116@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261116T210000
+DTEND;TZID=Europe/London:20261116T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261118@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261118T210000
+DTEND;TZID=Europe/London:20261118T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261120@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261120T210000
+DTEND;TZID=Europe/London:20261120T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261122@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261122T100000
+DTEND;TZID=Europe/London:20261122T102000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261123@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261123T210000
+DTEND;TZID=Europe/London:20261123T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261125@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261125T210000
+DTEND;TZID=Europe/London:20261125T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261127@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261127T210000
+DTEND;TZID=Europe/London:20261127T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261129@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261129T100000
+DTEND;TZID=Europe/London:20261129T102000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261130@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261130T210000
+DTEND;TZID=Europe/London:20261130T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261202@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261202T210000
+DTEND;TZID=Europe/London:20261202T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261204@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261204T210000
+DTEND;TZID=Europe/London:20261204T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261206@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261206T100000
+DTEND;TZID=Europe/London:20261206T102000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261207@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261207T210000
+DTEND;TZID=Europe/London:20261207T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261209@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261209T210000
+DTEND;TZID=Europe/London:20261209T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261211@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261211T210000
+DTEND;TZID=Europe/London:20261211T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261213@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261213T100000
+DTEND;TZID=Europe/London:20261213T102000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261214@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261214T210000
+DTEND;TZID=Europe/London:20261214T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261216@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261216T210000
+DTEND;TZID=Europe/London:20261216T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261218@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261218T210000
+DTEND;TZID=Europe/London:20261218T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261220@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261220T100000
+DTEND;TZID=Europe/London:20261220T102000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261221@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261221T210000
+DTEND;TZID=Europe/London:20261221T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Golf mobility
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mobility-20261223@training-tracker
+DTSTAMP:20261020T091957Z
+DTSTART;TZID=Europe/London:20261223T210000
+DTEND;TZID=Europe/London:20261223T212000
+SUMMARY:Golf mobility
+DESCRIPTION:About 20 min. In the Training app: tap the Golf mobility card o
+ n Today.\n\n90/90 hip switches: 2 x 8 switches\nHalf kneeling hip flexor s
+ tretch: 2 x 30 sec each side\nStanding hip rotations: 5 each way\, each le
+ g\nHalf kneeling thoracic rotation: 2 x 8 each side\nHip and chest separat
+ ion in golf posture: 2 x 10 each way\nNo-sway turn drill: 2 x 10 slow turn
+ s
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Golf mobility
@@ -982,7 +1803,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:weekly-review@training-tracker
-DTSTAMP:20261017T184633Z
+DTSTAMP:20261020T091957Z
 DTSTART;TZID=Europe/London:20261004T190000
 DTEND;TZID=Europe/London:20261004T191500
 SUMMARY:Weekly review
@@ -997,7 +1818,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:deload-w6@training-tracker
-DTSTAMP:20261017T184633Z
+DTSTAMP:20261020T091957Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261112
 SUMMARY:Deload week 6
@@ -1006,12 +1827,12 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:deload-w12@training-tracker
-DTSTAMP:20261017T184633Z
+DTSTAMP:20261020T091957Z
 DTSTART;VALUE=DATE:20261217
 DTEND;VALUE=DATE:20261224
 SUMMARY:Deload week 12
 DESCRIPTION:Half the sets\, same weights. Keep the daily physio work. Retes
- t on Wednesday 23 December.
+ t on Tuesday 22 December.
 TRANSP:TRANSPARENT
 END:VEVENT
 END:VCALENDAR

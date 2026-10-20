@@ -14,7 +14,8 @@ ROOT = Path(__file__).resolve().parent.parent
 LONDON = ZoneInfo("Europe/London")
 START = date(2026, 10, 1)
 END = date(2026, 12, 23)
-RETEST = date(2026, 12, 23)
+RETEST = date(2026, 12, 22)
+SWITCH = date(2026, 10, 19)  # lifting moves from Mon/Wed/Fri to Tue/Thu/Sat
 PLAN = json.loads((ROOT / "app" / "plan.json").read_text())
 
 
@@ -37,12 +38,14 @@ def events(tmp_path_factory):
     return expand(build(tmp_path_factory.mktemp("ics")))
 
 
-def test_36_lifts_on_mon_wed_fri_with_right_week_numbers(events):
+def test_35_lifts_on_the_right_days_with_right_week_numbers(events):
     lifts = [e for e in events if str(e["SUMMARY"]).startswith(("Session", "Retest"))]
-    assert len(lifts) == 36
-    expected = {0: "Session A", 2: "Session B", 4: "Session C"}
+    assert len(lifts) == 35
+    old = {0: "Session A", 2: "Session B", 4: "Session C"}
+    new = {1: "Session A", 3: "Session B", 5: "Session C"}
     for e in lifts:
         d = e["DTSTART"].dt.date()
+        expected = old if d < SWITCH else new
         week = (d - START).days // 7 + 1
         title = str(e["SUMMARY"])
         assert f"week {week}" in title
@@ -67,9 +70,9 @@ def test_deload_all_day_banners(events):
 
 def test_clock_change_keeps_local_times(events):
     """Clocks go back at 02:00 on Sun 25 Oct 2026. Local times stay put, UTC shifts by an hour."""
-    a = {d.date(): d for d in starts(events, "Session A")}
-    assert a[date(2026, 10, 19)].astimezone(timezone.utc).hour == 16  # 17:30 BST
-    assert a[date(2026, 10, 26)].astimezone(timezone.utc).hour == 17  # 17:30 GMT
+    c = {d.date(): d for d in starts(events, "Session C")}
+    assert c[date(2026, 10, 24)].astimezone(timezone.utc).hour == 9   # 10:00 BST
+    assert c[date(2026, 10, 31)].astimezone(timezone.utc).hour == 10  # 10:00 GMT
     pm = {d.date(): d for d in starts(events, "Physio, evening")}
     assert pm[date(2026, 10, 24)].astimezone(timezone.utc).strftime("%H:%M") == "20:30"
     assert pm[date(2026, 10, 25)].astimezone(timezone.utc).strftime("%H:%M") == "21:30"
@@ -118,7 +121,7 @@ def test_golf_mode_drops_fridays_and_uses_2_sets(tmp_path):
     before = [e for e in lifts if e["DTSTART"].dt.date() < date(2026, 11, 16)]
     after = [e for e in lifts if e["DTSTART"].dt.date() >= date(2026, 11, 16)]
     assert len(before) == 19
-    assert len(after) == 12 and {e["DTSTART"].dt.weekday() for e in after} == {0, 2}
+    assert len(after) == 11 and {e["DTSTART"].dt.weekday() for e in after} == {1, 3}
     assert all("Golf mode" in str(e["DESCRIPTION"]) for e in after)
 
 
@@ -135,9 +138,9 @@ def test_priority_lifts_get_4_sets_in_week_8(events):
 
 
 def test_golf_mobility_on_non_gym_days_only(events):
-    mob = starts(events, "Golf mobility")
-    assert len(mob) == 48
-    assert {d.weekday() for d in mob} == {1, 3, 5, 6}
-    for d in mob:
-        local = d.astimezone(LONDON).strftime("%H:%M")
-        assert local == ("10:00" if d.weekday() >= 5 else "21:00")
+    mob = [d.date() for d in starts(events, "Golf mobility")]
+    lift_days = {e["DTSTART"].dt.date() for e in events if str(e["SUMMARY"]).startswith(("Session", "Retest"))}
+    assert len(mob) == 84 - 35
+    assert not set(mob) & lift_days
+    times = {d: t.astimezone(LONDON).strftime("%H:%M") for d, t in zip(mob, starts(events, "Golf mobility"))}
+    assert all(t == ("10:00" if d.weekday() >= 5 else "21:00") for d, t in times.items())

@@ -36,21 +36,23 @@ test('Monday A, Wednesday B, Friday C, nothing on rest days', () => {
 });
 
 test('the retest is the last session of week 12 and nothing comes after', () => {
-  assert.equal(L.scheduledSession('2026-12-18', plan, settings), 'C');
-  assert.equal(L.scheduledSession('2026-12-21', plan, settings), 'A');
-  assert.equal(L.scheduledSession('2026-12-23', plan, settings), 'R');
-  assert.equal(L.scheduledSession('2026-12-25', plan, settings), null);
+  assert.equal(L.scheduledSession('2026-12-17', plan, settings), 'B');
+  assert.equal(L.scheduledSession('2026-12-19', plan, settings), 'C');
+  assert.equal(L.scheduledSession('2026-12-22', plan, settings), 'R');
+  assert.equal(L.scheduledSession('2026-12-23', plan, settings), null);
+  assert.equal(L.scheduledSession('2026-12-26', plan, settings), null);
 });
 
-test('a Monday start still puts the retest on the week 12 Friday', () => {
-  assert.equal(L.scheduledSession('2026-12-25', plan, { ...settings, startDate: '2026-10-05' }), 'R');
+test('a Monday start puts the retest on the last lift day of week 12', () => {
+  assert.equal(L.scheduledSession('2026-12-26', plan, { ...settings, startDate: '2026-10-05' }), 'R');
 });
 
-test('golf mode drops Friday from its start date only', () => {
+test('golf mode keeps A and B only, from its start date', () => {
   const golf = { ...settings, golfFrom: '2026-11-16' };
-  assert.equal(L.scheduledSession('2026-11-13', plan, golf), 'C');
-  assert.equal(L.scheduledSession('2026-11-20', plan, golf), null);
-  assert.equal(L.scheduledSession('2026-11-18', plan, golf), 'B');
+  assert.equal(L.scheduledSession('2026-11-14', plan, golf), 'C');   // Sat, before golf mode
+  assert.equal(L.scheduledSession('2026-11-17', plan, golf), 'A');   // Tue
+  assert.equal(L.scheduledSession('2026-11-19', plan, golf), 'B');   // Thu
+  assert.equal(L.scheduledSession('2026-11-21', plan, golf), null);  // Sat, golf day
   assert.equal(L.sessionTarget(7, plan, golf), 3);
   assert.equal(L.sessionTarget(8, plan, golf), 2);
 });
@@ -122,7 +124,7 @@ test('badges unlock from data and show progress when locked', () => {
   const state = { ...empty(), sessions: { '2026-10-05': { letter: 'A', done: true, sets: {} } } };
   const list = badges(state, plan, '2026-10-06');
   assert.equal(list.find((b) => b.id === 'first').earned, true);
-  const all = list.find((b) => b.id === 'all_36');
+  const all = list.find((b) => b.id === 'all_sessions');
   assert.equal(all.earned, false);
   assert.equal(all.cur, 1);
 });
@@ -285,4 +287,31 @@ test('day score only counts habits due that day', () => {
   const ids = plan.habits.filter((h) => h.id !== 'mobility').map((h) => h.id);
   const st = { ...empty(), days: { '2026-10-12': { habits: Object.fromEntries(ids.map((id) => [id, true])) } } };
   assert.equal(L.dayScore(st, '2026-10-12', plan), 1);
+});
+
+test('from 19 Oct lifting moves to Tue, Thu, Sat; earlier weeks keep Mon, Wed, Fri', () => {
+  assert.equal(L.scheduledSession('2026-10-16', plan, settings), 'C');   // Fri, old schedule
+  assert.equal(L.scheduledSession('2026-10-19', plan, settings), null);  // Mon, now an office rest day
+  assert.equal(L.scheduledSession('2026-10-20', plan, settings), 'A');   // Tue
+  assert.equal(L.scheduledSession('2026-10-21', plan, settings), null);  // Wed
+  assert.equal(L.scheduledSession('2026-10-22', plan, settings), 'B');   // Thu
+  assert.equal(L.scheduledSession('2026-10-24', plan, settings), 'C');   // Sat
+  assert.equal(L.sessionTarget(3, plan, settings), 2);                   // week 3: Fri C + Tue A
+  assert.equal(L.sessionTarget(4, plan, settings), 3);
+});
+
+test('retest is still the last session of week 12 on the new days', () => {
+  assert.equal(L.scheduledSession('2026-12-19', plan, settings), 'C');
+  assert.equal(L.scheduledSession('2026-12-22', plan, settings), 'R');
+});
+
+test('mobility moves to the new non-gym days', () => {
+  const mob = plan.habits.find((h) => h.id === 'mobility');
+  assert.equal(L.habitDue(mob, '2026-10-19', plan, settings), true);   // Mon
+  assert.equal(L.habitDue(mob, '2026-10-20', plan, settings), false);  // Tue, Session A
+});
+
+test('the full block badge counts the 35 planned sessions', () => {
+  const b = badges(empty(), plan, '2026-10-20').find((x) => x.id === 'all_sessions');
+  assert.equal(b.target, 35);
 });
