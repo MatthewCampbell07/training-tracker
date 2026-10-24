@@ -467,7 +467,7 @@
     },
     {
       "id": "read_article",
-      "label": "Read 1 article",
+      "label": "Read an article or listen to a podcast",
       "group": "reading",
       "when": "morning"
     },
