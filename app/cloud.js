@@ -132,6 +132,16 @@ export async function syncNow(plan) {
   return undefined;
 }
 
+// Garmin recovery summary pushed by the Mac script. null when there is none yet.
+export async function fetchRecovery() {
+  if (!auth) throw new Error('Not signed in');
+  const res = await fetch(`${DOC_URL(auth.uid)}/recovery/latest`, { headers: { Authorization: `Bearer ${await idToken()}` } });
+  if (res.status === 404) return null;
+  if (!res.ok) throw new Error(`Could not load recovery (${res.status})`);
+  const doc = await res.json();
+  return JSON.parse(doc.fields.data.stringValue);
+}
+
 export function schedulePush() {
   if (!auth) return;
   clearTimeout(pushTimer);

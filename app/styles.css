@@ -16,6 +16,10 @@
   --radius-sm: 10px;
   --font: -apple-system, system-ui, "Helvetica Neue", sans-serif;
   --font-num: ui-rounded, -apple-system, system-ui, sans-serif;
+  --rec-green: #1f9d55;
+  --rec-yellow: #e0a100;
+  --blue-mid: #9db8ef;
+  --navy-stage: #13294b;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   color-scheme: light;
 }
@@ -34,6 +38,10 @@
     --red-soft: #3a1726;
     --on-accent: #ffffff;
     --shadow: 0 1px 2px rgb(0 0 0 / 30%), 0 8px 24px rgb(0 0 0 / 25%);
+    --rec-green: #3ddc84;
+    --rec-yellow: #ffcc33;
+    --blue-mid: #3b5f9e;
+    --navy-stage: #c9d8ff;
     color-scheme: dark;
   }
 }
@@ -224,7 +232,7 @@ details.warm li { margin: 6px 0; font-size: 14px; }
 /* Tab bar */
 nav.tabs {
   position: fixed; bottom: 0; left: 0; right: 0; z-index: 10;
-  display: grid; grid-template-columns: repeat(5, 1fr);
+  display: grid; grid-template-columns: repeat(6, 1fr);
   background: var(--card); border-top: 1px solid var(--line);
   padding: 6px 4px calc(6px + env(safe-area-inset-bottom));
 }
@@ -293,3 +301,45 @@ select { font: 600 16px var(--font); color: var(--ink); background: var(--bg); b
 .act-row { flex-wrap: wrap; margin-bottom: 4px; }
 .chip.act { background: var(--blue-soft); color: var(--blue); border-color: transparent; font-size: 14px; }
 .chip.add { color: var(--blue); font-size: 14px; }
+
+/* Recovery tab */
+.ring { position: relative; display: grid; place-items: center; flex: none; }
+.ring svg { position: absolute; inset: 0; transform: rotate(-90deg); }
+.ring circle { fill: none; }
+.ring-track { stroke: var(--line); }
+.ring-val { position: relative; text-align: center; line-height: 1; }
+.ring-val b { display: block; font-weight: 800; color: var(--ink); }
+.ring-val span { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.rec-hero { display: flex; align-items: center; gap: 16px;
+  background: radial-gradient(120% 100% at 0% 0%, color-mix(in srgb, var(--zone) 14%, transparent), transparent 60%), var(--card); }
+.rec-hero h3 { font-size: 22px; line-height: 1.15; margin: 2px 0 6px; }
+.rec-zone { margin: 0; font: 800 12px var(--font); letter-spacing: 0.12em; text-transform: uppercase; color: var(--zone); }
+.rec-copy { margin: 0; font-size: 14px; color: var(--muted); }
+.rec-copy b { color: var(--ink); }
+.rec-week { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: -4px 4px 16px; }
+.rec-week ol { list-style: none; margin: 0; padding: 0; display: flex; gap: 6px; }
+.rec-week li { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font: 700 11px var(--font); }
+.rec-week li.on { background: var(--red); color: var(--on-accent); }
+.rec-week li.off { border: 1.5px dashed var(--line); color: var(--muted); }
+.rec-week li:last-child { outline: 2px solid color-mix(in srgb, var(--red) 40%, transparent); outline-offset: 2px; }
+.rec-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.rec-pair .card { display: grid; justify-items: center; gap: 8px; text-align: center; margin-bottom: 8px; padding: 14px 10px; }
+.rec-pair p { margin: 0; font-size: 13px; color: var(--muted); }
+.rec-pair b, .rec-tonight b { color: var(--ink); }
+.rec-tonight { text-align: center; margin: 0 0 16px; }
+.rec-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.rec-tile { background: var(--bg); border-radius: var(--radius-sm); padding: 10px 12px; }
+.rec-tile > span { font-size: 12px; color: var(--muted); }
+.rec-tile b { display: block; font-size: 24px; font-weight: 800; line-height: 1.2; }
+.rec-tile i { font-style: normal; font-size: 13px; font-weight: 600; color: var(--muted); margin-left: 2px; }
+.rec-delta { display: block; font-size: 12px; font-weight: 600; color: var(--muted); }
+.rec-delta.good { color: var(--blue); }
+.rec-delta.warn { color: var(--red); }
+.rec-stages { display: flex; gap: 2px; height: 12px; border-radius: 6px; overflow: hidden; margin: 4px 0 8px; }
+.rec-compare { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 6px; }
+.rec-compare th, .rec-compare td { padding: 8px 4px; text-align: right; border-top: 1px solid var(--line); }
+.rec-compare thead th { border-top: 0; font-weight: 700; vertical-align: bottom; }
+.rec-compare thead small { display: block; font-size: 11px; font-weight: 500; color: var(--muted); }
+.rec-compare tbody th { text-align: left; font-weight: 500; color: var(--muted); }
+.rec-compare td { font-size: 17px; font-weight: 800; }
+.rec-trend text { font: 600 10px var(--font); fill: var(--muted); }

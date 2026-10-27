@@ -1,0 +1,386 @@
+{
+ "full": {
+  "v": 1,
+  "generatedAt": "2026-10-27T07:00:00+00:00",
+  "device": "Venu",
+  "date": "2026-10-24",
+  "setup": {
+   "nights": 7,
+   "needed": 7,
+   "done": true
+  },
+  "recovery": {
+   "score": 61,
+   "zone": "yellow",
+   "calibrating": false
+  },
+  "strain": {
+   "value": 16.1,
+   "max": 21.0,
+   "hardMinutes": 70.0,
+   "target": [
+    11.3,
+    15.3
+   ]
+  },
+  "sleep": {
+   "hours": 7.35,
+   "need": 8.15,
+   "performance": 0.902,
+   "deep": 1.32,
+   "rem": 1.62,
+   "light": 4.41,
+   "awake": 0.42
+  },
+  "tonight": {
+   "need": 8.66,
+   "bedtime": "21:45",
+   "wake": "06:50"
+  },
+  "drivers": {
+   "restingHr": 52.0,
+   "restingHrBase": 52.1,
+   "hrv": 51.4,
+   "hrvBase": 51.3,
+   "stress": null,
+   "stressBase": null,
+   "recharge": null,
+   "rechargeBase": null,
+   "bodyBattery": 64.0,
+   "bodyBatteryHigh": 88.0
+  },
+  "streak": 30,
+  "week": [
+   {
+    "date": "2026-10-18",
+    "worn": true
+   },
+   {
+    "date": "2026-10-19",
+    "worn": true
+   },
+   {
+    "date": "2026-10-20",
+    "worn": true
+   },
+   {
+    "date": "2026-10-21",
+    "worn": true
+   },
+   {
+    "date": "2026-10-22",
+    "worn": true
+   },
+   {
+    "date": "2026-10-23",
+    "worn": true
+   },
+   {
+    "date": "2026-10-24",
+    "worn": true
+   }
+  ],
+  "trend": [
+   {
+    "date": "2026-10-11",
+    "recovery": 61,
+    "zone": "yellow",
+    "strain": 14.0,
+    "lifted": false
+   },
+   {
+    "date": "2026-10-12",
+    "recovery": 30,
+    "zone": "red",
+    "strain": 14.1,
+    "lifted": false
+   },
+   {
+    "date": "2026-10-13",
+    "recovery": 53,
+    "zone": "yellow",
+    "strain": 12.3,
+    "lifted": true
+   },
+   {
+    "date": "2026-10-14",
+    "recovery": 66,
+    "zone": "yellow",
+    "strain": 0.0,
+    "lifted": false
+   },
+   {
+    "date": "2026-10-15",
+    "recovery": 33,
+    "zone": "red",
+    "strain": 9.3,
+    "lifted": true
+   },
+   {
+    "date": "2026-10-16",
+    "recovery": 32,
+    "zone": "red",
+    "strain": 12.0,
+    "lifted": false
+   },
+   {
+    "date": "2026-10-17",
+    "recovery": 61,
+    "zone": "yellow",
+    "strain": 0.0,
+    "lifted": true
+   },
+   {
+    "date": "2026-10-18",
+    "recovery": 59,
+    "zone": "yellow",
+    "strain": 0.0,
+    "lifted": false
+   },
+   {
+    "date": "2026-10-19",
+    "recovery": 42,
+    "zone": "yellow",
+    "strain": 12.6,
+    "lifted": false
+   },
+   {
+    "date": "2026-10-20",
+    "recovery": 82,
+    "zone": "green",
+    "strain": 14.3,
+    "lifted": true
+   },
+   {
+    "date": "2026-10-21",
+    "recovery": 45,
+    "zone": "yellow",
+    "strain": 13.9,
+    "lifted": false
+   },
+   {
+    "date": "2026-10-22",
+    "recovery": 62,
+    "zone": "yellow",
+    "strain": 12.1,
+    "lifted": true
+   },
+   {
+    "date": "2026-10-23",
+    "recovery": 38,
+    "zone": "yellow",
+    "strain": 0.0,
+    "lifted": false
+   },
+   {
+    "date": "2026-10-24",
+    "recovery": 61,
+    "zone": "yellow",
+    "strain": 16.1,
+    "lifted": false
+   }
+  ],
+  "compare": {
+   "lift": {
+    "nights": 8,
+    "recharge": null,
+    "stress": null,
+    "restingHr": 52.6,
+    "sleep": 7.3
+   },
+   "rest": {
+    "nights": 21,
+    "recharge": null,
+    "stress": null,
+    "restingHr": 51.8,
+    "sleep": 7.2
+   },
+   "rechargeGap": null,
+   "enough": true,
+   "minNights": 4
+  }
+ },
+ "setup": {
+  "v": 1,
+  "generatedAt": "2026-10-27T07:00:00+00:00",
+  "device": "Venu",
+  "date": "2026-10-24",
+  "setup": {
+   "nights": 3,
+   "needed": 7,
+   "done": false
+  },
+  "recovery": {
+   "score": 47,
+   "zone": "yellow",
+   "calibrating": true
+  },
+  "strain": {
+   "value": 11.8,
+   "max": 21.0,
+   "hardMinutes": 36.0,
+   "target": [
+    9.6,
+    13.6
+   ]
+  },
+  "sleep": {
+   "hours": 7.14,
+   "need": 8.95,
+   "performance": 0.798,
+   "deep": 1.28,
+   "rem": 1.57,
+   "light": 4.28,
+   "awake": 0.42
+  },
+  "tonight": {
+   "need": 8.92,
+   "bedtime": "21:44",
+   "wake": "06:50"
+  },
+  "drivers": {
+   "restingHr": 51.0,
+   "restingHrBase": null,
+   "hrv": 55.5,
+   "hrvBase": null,
+   "stress": null,
+   "stressBase": null,
+   "recharge": null,
+   "rechargeBase": null,
+   "bodyBattery": 64.0,
+   "bodyBatteryHigh": 88.0
+  },
+  "streak": 3,
+  "week": [
+   {
+    "date": "2026-10-18",
+    "worn": false
+   },
+   {
+    "date": "2026-10-19",
+    "worn": false
+   },
+   {
+    "date": "2026-10-20",
+    "worn": false
+   },
+   {
+    "date": "2026-10-21",
+    "worn": false
+   },
+   {
+    "date": "2026-10-22",
+    "worn": true
+   },
+   {
+    "date": "2026-10-23",
+    "worn": true
+   },
+   {
+    "date": "2026-10-24",
+    "worn": true
+   }
+  ],
+  "trend": [
+   {
+    "date": "2026-10-11",
+    "recovery": null,
+    "zone": null,
+    "strain": 0.0,
+    "lifted": false
+   },
+   {
+    "date": "2026-10-12",
+    "recovery": null,
+    "zone": null,
+    "strain": 0.0,
+    "lifted": false
+   },
+   {
+    "date": "2026-10-13",
+    "recovery": null,
+    "zone": null,
+    "strain": 0.0,
+    "lifted": false
+   },
+   {
+    "date": "2026-10-14",
+    "recovery": null,
+    "zone": null,
+    "strain": 0.0,
+    "lifted": false
+   },
+   {
+    "date": "2026-10-15",
+    "recovery": null,
+    "zone": null,
+    "strain": 0.0,
+    "lifted": false
+   },
+   {
+    "date": "2026-10-16",
+    "recovery": null,
+    "zone": null,
+    "strain": 0.0,
+    "lifted": false
+   },
+   {
+    "date": "2026-10-17",
+    "recovery": null,
+    "zone": null,
+    "strain": 0.0,
+    "lifted": false
+   },
+   {
+    "date": "2026-10-18",
+    "recovery": null,
+    "zone": null,
+    "strain": 0.0,
+    "lifted": false
+   },
+   {
+    "date": "2026-10-19",
+    "recovery": null,
+    "zone": null,
+    "strain": 0.0,
+    "lifted": false
+   },
+   {
+    "date": "2026-10-20",
+    "recovery": null,
+    "zone": null,
+    "strain": 0.0,
+    "lifted": false
+   },
+   {
+    "date": "2026-10-21",
+    "recovery": null,
+    "zone": null,
+    "strain": 0.0,
+    "lifted": false
+   },
+   {
+    "date": "2026-10-22",
+    "recovery": 50,
+    "zone": "yellow",
+    "strain": 15.7,
+    "lifted": false
+   },
+   {
+    "date": "2026-10-23",
+    "recovery": 45,
+    "zone": "yellow",
+    "strain": 12.2,
+    "lifted": false
+   },
+   {
+    "date": "2026-10-24",
+    "recovery": 47,
+    "zone": "yellow",
+    "strain": 11.8,
+    "lifted": false
+   }
+  ],
+  "compare": null
+ }
+}

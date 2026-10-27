@@ -7,5 +7,12 @@ service cloud.firestore {
       allow create, update: if request.auth != null && request.auth.uid == uid
         && request.resource.data.keys().hasOnly(['data', 'updatedAt']);
     }
+    // Garmin recovery summary, written by the garmin-recovery script on the Mac, read by the Recovery tab.
+    match /users/{uid}/recovery/latest {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow create, update: if request.auth != null && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['data', 'updatedAt'])
+        && request.resource.data.data is string && request.resource.data.data.size() < 100000;
+    }
   }
 }

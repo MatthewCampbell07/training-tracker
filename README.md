@@ -116,3 +116,11 @@ python3 -m venv .venv && .venv/bin/pip install icalendar recurring-ical-events p
 | `calendar/make_ics.py` | Builds `training_plan.ics` from `plan.json` |
 | `tests/` | App logic tests (Node), calendar tests (pytest), calendar preview |
 | `HABITS.md` | The sleep and screen habits, with sources |
+
+## Recovery tab
+
+Shows Garmin recovery, strain and sleep worked out on the Mac by `~/Developer/garmin-recovery`.
+Each `uv run garmin-recovery daily` writes a summary to `users/{uid}/recovery/latest` in Firestore
+(same account, see `firestore.rules`); the tab reads it and keeps the last copy for offline use.
+The data shape is checked by `tests/recovery.test.mjs` against `tests/fixtures/recovery-snapshots.json`,
+which `garmin_recovery.snapshot.build` produces. Change both together and bump `SCHEMA` in `app/recovery-view.js`.

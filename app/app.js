@@ -5,14 +5,18 @@ import * as store from './store.js';
 import * as cloud from './cloud.js';
 import { callHtml, sessionLetterFor, sessionView, settingsView, sleepDefaults, todayView } from './views.js';
 import { statsView, weekView } from './stats-views.js';
+import { recoveryView } from './recovery-view.js';
 
 const plan = await fetch('plan.json').then((r) => r.json());
 let state = store.load(plan);
 const today = () => localTodayIso();
+const RECOVERY_KEY = 'training-tracker.recovery';
+const RECOVERY_REFRESH_MS = 5 * 60 * 1000;
 let ui = { tab: 'today', date: today(), openedOn: today(), weekShown: 1, pickedLetter: null, extraSets: {} };
+let recovery = { status: 'idle', snap: readRecovery(), error: '', loadedAt: 0 };
 let earnedBadges = new Set(badges(state, plan, today()).filter((b) => b.earned).map((b) => b.id));
 
-const VIEWS = { today: todayView, session: sessionView, week: weekView, stats: statsView, settings: settingsView };
+const VIEWS = { today: todayView, session: sessionView, week: weekView, stats: statsView, recovery: recoveryView, settings: settingsView };
 const $ = (sel) => document.querySelector(sel);
 
 function clampWeek(w) {
@@ -20,7 +24,7 @@ function clampWeek(w) {
 }
 
 function render() {
-  const ctx = { plan, state, today: today(), cloud: cloud.cloudStatus(), ...ui };
+  const ctx = { plan, state, today: today(), cloud: cloud.cloudStatus(), recovery, ...ui };
   const view = VIEWS[ui.tab](ctx);
   $('#title').textContent = view.title;
   $('#sub').textContent = view.sub;
@@ -81,8 +85,35 @@ function confetti() {
   setTimeout(() => box.remove(), 2000);
 }
 
+// Last good copy is kept on the phone so the tab still shows something offline.
+function readRecovery() {
+  try {
+    return JSON.parse(localStorage.getItem(RECOVERY_KEY) || 'null');
+  } catch {
+    return null;
+  }
+}
+
+async function loadRecovery(force = false) {
+  if (!cloud.cloudStatus().signedIn || recovery.status === 'loading') return;
+  if (!force && Date.now() - recovery.loadedAt < RECOVERY_REFRESH_MS) return;
+  recovery = { ...recovery, status: 'loading' };
+  try {
+    const snap = await cloud.fetchRecovery();
+    recovery = { status: snap ? 'ok' : 'none', snap: snap || recovery.snap, error: '', loadedAt: Date.now() };
+    if (snap) {
+      try { localStorage.setItem(RECOVERY_KEY, JSON.stringify(snap)); } catch (err) { console.error('Could not keep recovery copy', err); }
+    }
+  } catch (err) {
+    console.error('Recovery load failed', err);
+    recovery = { ...recovery, status: 'error', error: navigator.onLine && err.name !== 'TypeError' ? err.message : 'No connection', loadedAt: Date.now() };
+  }
+  if (ui.tab === 'recovery') render();
+}
+
 function goTab(tab) {
   ui = { ...ui, tab };
+  if (tab === 'recovery') loadRecovery();
   if (tab === 'week') ui = { ...ui, weekShown: clampWeek(weekOf(ui.date, state.settings.startDate)) };
   render();
   window.scrollTo(0, 0);
@@ -299,6 +330,7 @@ document.addEventListener('change', async (e) => {
 
 // Roll over to the new day if the app was left open overnight.
 document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible' && ui.tab === 'recovery') loadRecovery();
   if (document.visibilityState === 'visible' && ui.openedOn !== today()) {
     ui = { ...ui, date: today(), openedOn: today() };
     render();
