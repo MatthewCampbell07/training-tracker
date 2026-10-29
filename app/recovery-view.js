@@ -161,6 +161,22 @@ function trend(s) {
     <div class="legend"><span><i class="dot" style="background:var(--rec-green)"></i> Recovery</span><span><i class="dot" style="background:var(--blue)"></i> Strain</span><span><i class="dot" style="background:var(--ink);opacity:.5;height:4px"></i> Lifted</span></div></section>`;
 }
 
+function todaySection(s) {
+  const t = s.today;  // added after schema 1 shipped; older snapshots don't have it
+  if (!t || (t.dayStress === null && !t.activities.length)) return '';
+  let stress = '';
+  if (t.dayStress !== null) {
+    stress = `<p class="rec-copy">Daytime stress <b class="num">${Math.round(t.dayStress)}</b>`;
+    if (t.dayStressUnadjusted !== null && Math.abs(t.dayStressUnadjusted - t.dayStress) >= 0.5) {
+      stress += ` (${Math.round(t.dayStressUnadjusted)} before added exercise was taken out)`;
+    }
+    stress += '</p>';
+  }
+  const items = t.activities.map((a) => `<div class="settings-row"><span>${esc(a.name)}${a.added ? ' <span class="tag">added</span>' : ''}</span>
+    <span class="fine num">${Math.round(a.minutes)} min${a.avgHr ? ` · avg ${Math.round(a.avgHr)} bpm` : ''}</span></div>`).join('');
+  return `<section class="card"><h2>Today</h2>${stress}${items}</section>`;
+}
+
 function stale(s, today) {
   if (s.date === today) return '';
   return `<p class="target">Last updated ${esc(fmtDate(s.date))}. Run <b>daily</b> on your Mac for today's scores.</p>`;
@@ -186,6 +202,6 @@ export function recoveryView(ctx) {
     title,
     sub: `${s.device} · ${fmtDate(s.date)}`,
     nav: [],
-    body: stale(s, ctx.today) + hero(s) + weekStrip(s) + pair(s) + drivers(s) + stages(s) + compare(s) + trend(s) + note,
+    body: stale(s, ctx.today) + hero(s) + weekStrip(s) + pair(s) + drivers(s) + todaySection(s) + stages(s) + compare(s) + trend(s) + note,
   };
 }

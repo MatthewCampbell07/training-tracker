@@ -198,6 +198,20 @@
    "rechargeGap": null,
    "enough": true,
    "minNights": 4
+  },
+  "today": {
+   "dayStress": null,
+   "dayStressUnadjusted": null,
+   "activities": [
+    {
+     "name": "Evening Run",
+     "kind": "running",
+     "minutes": 75.0,
+     "avgHr": 152.0,
+     "maxHr": 171.0,
+     "added": false
+    }
+   ]
   }
  },
  "setup": {
@@ -381,6 +395,102 @@
     "lifted": false
    }
   ],
-  "compare": null
+  "compare": null,
+  "today": {
+   "dayStress": null,
+   "dayStressUnadjusted": null,
+   "activities": [
+    {
+     "name": "Evening Run",
+     "kind": "running",
+     "minutes": 45.0,
+     "avgHr": 152.0,
+     "maxHr": 171.0,
+     "added": false
+    }
+   ]
+  }
+ },
+ "added": {
+  "v": 1,
+  "generatedAt": "2026-10-27T07:00:00+00:00",
+  "device": "Venu",
+  "date": "2026-10-28",
+  "setup": {
+   "nights": 1,
+   "needed": 7,
+   "done": false
+  },
+  "recovery": {
+   "score": 76,
+   "zone": "green",
+   "calibrating": true
+  },
+  "strain": {
+   "value": 0.0,
+   "max": 21.0,
+   "hardMinutes": 0.0,
+   "target": [
+    13.1,
+    17.1
+   ]
+  },
+  "sleep": {
+   "hours": 7.4,
+   "need": 7.75,
+   "performance": 0.955,
+   "deep": 1.33,
+   "rem": 1.63,
+   "light": 4.44,
+   "awake": 0.42
+  },
+  "tonight": {
+   "need": 7.92,
+   "bedtime": null,
+   "wake": null
+  },
+  "drivers": {
+   "restingHr": 52.0,
+   "restingHrBase": null,
+   "hrv": null,
+   "hrvBase": null,
+   "stress": null,
+   "stressBase": null,
+   "recharge": null,
+   "rechargeBase": null,
+   "bodyBattery": 64.0,
+   "bodyBatteryHigh": 88.0
+  },
+  "streak": 1,
+  "week": [
+   {
+    "date": "2026-10-28",
+    "worn": true
+   }
+  ],
+  "trend": [
+   {
+    "date": "2026-10-28",
+    "recovery": 76,
+    "zone": "green",
+    "strain": 0.0,
+    "lifted": false
+   }
+  ],
+  "compare": null,
+  "today": {
+   "dayStress": 30.0,
+   "dayStressUnadjusted": 50.0,
+   "activities": [
+    {
+     "name": "Range session",
+     "kind": "golf",
+     "minutes": 75.0,
+     "avgHr": 77.4,
+     "maxHr": 90.0,
+     "added": true
+    }
+   ]
+  }
  }
 }

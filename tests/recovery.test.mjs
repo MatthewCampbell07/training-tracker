@@ -65,3 +65,15 @@ test('hours format as h:mm', () => {
   assert.equal(hm(9.17), '9:10');
   assert.equal(hm(null), '-');
 });
+
+test('added exercise shows in Today with the stress before and after', () => {
+  const { body } = recoveryView(ctx({ status: 'ok', snap: snaps.added }, snaps.added.date));
+  assert.match(body, /Range session/);
+  assert.match(body, />added</);
+  assert.match(body, /Daytime stress <b class="num">30<\/b> \(50 before added exercise/);
+});
+
+test('snapshots from before the Today section still draw', () => {
+  const { today, ...old } = snaps.full;
+  assert.ok(!recoveryView(ctx({ status: 'ok', snap: old })).body.includes('<h2>Today</h2>'));
+});
