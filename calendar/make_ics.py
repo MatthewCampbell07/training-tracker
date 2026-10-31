@@ -113,6 +113,19 @@ def schedule_for(d: date, plan) -> dict:
     return max(started, key=lambda c: c["from"]) if started else {**plan["schedule"], "liftTimes": plan["calendar"]["liftTimes"]}
 
 
+def lift_on(d: date, plan, golf: bool):
+    """(letter, time, source day) for a date after one-off moves (same rule as scheduledSession)."""
+    moves = plan.get("moves", [])
+    if any(m["from"] == d.isoformat() for m in moves):
+        return None, None, d
+    move = next((m for m in moves if m["to"] == d.isoformat()), None)
+    src = date.fromisoformat(move["from"]) if move else d
+    sched = schedule_for(src, plan)
+    letter = sched["golf" if golf else "normal"].get(js_dow(src))
+    time = (move or {}).get("time") or sched["liftTimes"].get(js_dow(src))
+    return letter, time, src
+
+
 def phase_for(week, plan):
     return next(p for p in plan["phases"] if p["from"] <= week <= p["to"])
 
@@ -180,16 +193,15 @@ def build(plan, start: date, golf_from: date | None, stamp: str) -> str:
         d = start + timedelta(days=i)
         week = i // 7 + 1
         golf = golf_from is not None and d >= golf_from
-        sched = schedule_for(d, plan)
-        letter = sched["golf" if golf else "normal"].get(js_dow(d))
+        letter, time, src = lift_on(d, plan, golf)
         if not letter:
             continue
-        if d == retest_day and not golf:
+        if src == retest_day and not golf:
             letter = "R"
         tag = " (deload)" if week in plan["deloadWeeks"] else ""
         name = "Retest" if letter == "R" else f"Session {letter}"
         summary = f"{name}, week {week}{tag}"
-        out += event(f"lift-{d:%Y%m%d}", summary, d, sched["liftTimes"][js_dow(d)], cal["liftMinutes"],
+        out += event(f"lift-{d:%Y%m%d}", summary, d, time, cal["liftMinutes"],
                      session_description(letter, week, plan, golf), alarm_before=30, stamp=stamp)
 
     # Morning check-in and physio: group days that share a time and a weigh in.
@@ -222,7 +234,7 @@ def build(plan, start: date, golf_from: date | None, stamp: str) -> str:
     for i in range(weeks * 7):
         d = start + timedelta(days=i)
         golf = golf_from is not None and d >= golf_from
-        if schedule_for(d, plan)["golf" if golf else "normal"].get(js_dow(d)):
+        if lift_on(d, plan, golf)[0]:
             continue
         out += event(f"mobility-{d:%Y%m%d}", "Golf mobility", d, cal["mobilityTimes"][js_dow(d)], cal["mobilityMinutes"],
                      mob_desc, alarm_before=0, stamp=stamp)

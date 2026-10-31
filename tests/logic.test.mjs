@@ -315,3 +315,14 @@ test('the full block badge counts the 35 planned sessions', () => {
   const b = badges(empty(), plan, '2026-10-20').find((x) => x.id === 'all_sessions');
   assert.equal(b.target, 35);
 });
+
+test('a one-off move shifts a session to another day', async () => {
+  const { scheduledSession } = await import('../app/logic.js');
+  const base = { ...plan, moves: [] };
+  const moved = { ...plan, moves: [{ from: '2026-10-31', to: '2026-11-01' }] };
+  const settings = { startDate: '2026-10-01' };
+  assert.equal(scheduledSession('2026-10-31', base, settings), 'C');
+  assert.equal(scheduledSession('2026-10-31', moved, settings), null);
+  assert.equal(scheduledSession('2026-11-01', moved, settings), 'C');
+  assert.equal(scheduledSession('2026-11-03', moved, settings), 'A');
+});

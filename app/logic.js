@@ -70,7 +70,15 @@ function normalLetter(iso, plan) {
 
 // Which session (A, B, C, R or null) is scheduled on a date.
 // The retest replaces the last session of the retest week, whatever weekday the plan starts on.
+// One-off moves (plan.moves) shift a single session to another day.
 export function scheduledSession(iso, plan, settings) {
+  const moves = plan.moves || [];
+  if (moves.some((m) => m.from === iso)) return null;
+  const moved = moves.find((m) => m.to === iso);
+  return weeklySession(moved ? moved.from : iso, plan, settings);
+}
+
+function weeklySession(iso, plan, settings) {
   if (!inPlan(iso, plan, settings.startDate)) return null;
   if (isGolfMode(iso, settings)) return scheduleFor(iso, plan).golf[String(dayOfWeek(iso))] || null;
   const letter = normalLetter(iso, plan);
