@@ -803,6 +803,12 @@
       "to": "2026-11-01",
       "time": "10:00",
       "note": "Exhausted Saturday"
+    },
+    {
+      "from": "2026-11-07",
+      "to": "2026-11-08",
+      "time": "10:00",
+      "note": "Golf Saturday"
     }
   ]
 }

@@ -73,7 +73,7 @@ def test_clock_change_keeps_local_times(events):
     """Clocks go back at 02:00 on Sun 25 Oct 2026. Local times stay put, UTC shifts by an hour."""
     c = {d.date(): d for d in starts(events, "Session C")}
     assert c[date(2026, 10, 24)].astimezone(timezone.utc).hour == 9   # 10:00 BST
-    assert c[date(2026, 11, 7)].astimezone(timezone.utc).hour == 10  # 10:00 GMT
+    assert c[date(2026, 11, 14)].astimezone(timezone.utc).hour == 10  # 10:00 GMT
     pm = {d.date(): d for d in starts(events, "Physio, evening")}
     assert pm[date(2026, 10, 24)].astimezone(timezone.utc).strftime("%H:%M") == "20:30"
     assert pm[date(2026, 10, 25)].astimezone(timezone.utc).strftime("%H:%M") == "21:30"
