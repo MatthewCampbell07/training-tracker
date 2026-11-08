@@ -154,3 +154,11 @@ def test_one_off_move(events):
     assert c[date(2026, 11, 1)].astimezone(LONDON).strftime("%H:%M") == "10:00"
     mob = {d.date() if isinstance(d, datetime) else d for d in starts(events, "Golf mobility")}
     assert date(2026, 10, 31) in mob and date(2026, 11, 1) not in mob
+
+
+def test_core_added_to_mobility_from_9_nov(events):
+    mob = {e["DTSTART"].dt.date(): e for e in events if str(e["SUMMARY"]).startswith("Golf mobility")}
+    assert str(mob[date(2026, 11, 4)]["SUMMARY"]) == "Golf mobility"
+    assert str(mob[date(2026, 11, 9)]["SUMMARY"]) == "Golf mobility, then core"
+    assert mob[date(2026, 11, 9)]["DTEND"].dt - mob[date(2026, 11, 9)]["DTSTART"].dt == timedelta(minutes=35)
+    assert date(2026, 11, 10) not in mob

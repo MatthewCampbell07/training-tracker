@@ -142,6 +142,15 @@ const ACTIONS = {
   'go-today': () => { ui = { ...ui, date: today() }; render(); },
   'open-session': () => goTab('session'),
   'open-mobility': () => { ui = { ...ui, pickedLetter: 'M' }; goTab('session'); },
+  'open-core': () => { ui = { ...ui, pickedLetter: 'K' }; goTab('session'); },
+  'core-round': (el) => {
+    const day = state.days[ui.date] || {};
+    const mobTicks = { ...(day.mobTicks || {}), [el.dataset.ex]: !day.mobTicks?.[el.dataset.ex] };
+    const allDone = [...Array(plan.sessions.K.rounds).keys()].every((i) => mobTicks[`core_r${i + 1}`]);
+    const wasDone = Boolean(day.habits?.core);
+    commit(store.updateDay(state, ui.date, { mobTicks, habits: { ...(day.habits || {}), core: wasDone || allDone } }));
+    if (allDone && !wasDone) { confetti(); toast('Core done. Strong middle.'); }
+  },
   'mob-tick': (el) => {
     const day = state.days[ui.date] || {};
     const mobTicks = { ...(day.mobTicks || {}), [el.dataset.ex]: !day.mobTicks?.[el.dataset.ex] };
@@ -199,11 +208,12 @@ const ACTIONS = {
   'add-set': (el) => { ui = { ...ui, extraSets: { ...ui.extraSets, [el.dataset.ex]: (ui.extraSets[el.dataset.ex] || 0) + 1 } }; render(); },
   finish: () => {
     const letter = sessionLetterFor({ plan, state, ...ui });
-    if (letter === 'M') {
+    if (letter === 'M' || letter === 'K') {
       const day = state.days[ui.date] || {};
-      commit(store.updateDay(state, ui.date, { habits: { ...(day.habits || {}), mobility: true } }));
+      const habit = letter === 'M' ? 'mobility' : 'core';
+      commit(store.updateDay(state, ui.date, { habits: { ...(day.habits || {}), [habit]: true } }));
       confetti();
-      toast('Mobility done. Hips thank you.');
+      toast(letter === 'M' ? 'Mobility done. Hips thank you.' : 'Core done. Strong middle.');
       return;
     }
     commit(store.updateSession(state, ui.date, { letter, done: true, retest: letter === 'R' }));
@@ -211,9 +221,10 @@ const ACTIONS = {
     toast(letter === 'M' ? 'Mobility done. Hips thank you.' : `Session ${letter} done. Nice work.`);
   },
   unfinish: () => {
-    if (sessionLetterFor({ plan, state, ...ui }) === 'M') {
+    const letter = sessionLetterFor({ plan, state, ...ui });
+    if (letter === 'M' || letter === 'K') {
       const day = state.days[ui.date] || {};
-      return commit(store.updateDay(state, ui.date, { habits: { ...(day.habits || {}), mobility: false } }));
+      return commit(store.updateDay(state, ui.date, { habits: { ...(day.habits || {}), [letter === 'M' ? 'mobility' : 'core']: false } }));
     }
     return commit(store.updateSession(state, ui.date, { done: false }));
   },

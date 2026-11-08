@@ -86,7 +86,8 @@
       "5": "21:00",
       "6": "10:00",
       "0": "10:00"
-    }
+    },
+    "coreMinutes": 15
   },
   "warmup": [
     {
@@ -435,6 +436,65 @@
           "cue": "Trail hip turns back and behind, not sideways into the stick."
         }
       ]
+    },
+    "K": {
+      "title": "Core circuit: strength and six pack",
+      "rounds": 3,
+      "restSec": 60,
+      "levelUpAfter": 6,
+      "intro": "3 rounds of all five, 60 sec rest between rounds. About 15 min. Breathe out on the hard part and never hold your breath and push. If your scar ridges or bulges, go back to level 1 and tell your transplant team.",
+      "exercises": [
+        {
+          "id": "core_bird_dog",
+          "name": "Bird dog",
+          "dose": "8 each side, slow",
+          "cue": "Back flat like a table. Reach long, not high.",
+          "level2": {
+            "dose": "10 each side, 3 sec hold at full reach"
+          }
+        },
+        {
+          "id": "core_rev_crunch",
+          "name": "Reverse crunch",
+          "dose": "10 to 15",
+          "cue": "Curl your hips off the floor, don't swing your legs.",
+          "level2": {
+            "id": "core_db_crunch",
+            "name": "Dumbbell crunch",
+            "dose": "10 to 15, dumbbell held on your chest",
+            "cue": "Curl ribs towards hips. Stop 1 or 2 reps short of failing."
+          }
+        },
+        {
+          "id": "core_side_plank",
+          "name": "Side plank from knees",
+          "dose": "20 to 30 sec each side",
+          "cue": "Straight line knees to head. Hips up, don't sag.",
+          "level2": {
+            "name": "Side plank",
+            "dose": "30 to 45 sec each side",
+            "cue": "Straight line feet to head. Top hip pushed up."
+          }
+        },
+        {
+          "id": "core_chop",
+          "name": "Standing dumbbell woodchop",
+          "dose": "10 each side, light dumbbell",
+          "cue": "Turn ribs and hips together, like a golf turn. Arms just guide. No sway.",
+          "level2": {
+            "dose": "10 each side, go heavier"
+          }
+        },
+        {
+          "id": "core_plank",
+          "name": "Front plank",
+          "dose": "30 to 45 sec",
+          "cue": "Squeeze your glutes, ribs down, keep breathing.",
+          "level2": {
+            "dose": "45 to 60 sec"
+          }
+        }
+      ]
     }
   },
   "habits": [
@@ -489,6 +549,14 @@
       "group": "golf",
       "when": "mobility",
       "due": "nonLift"
+    },
+    {
+      "id": "core",
+      "label": "Core circuit (non-gym days)",
+      "group": "core",
+      "when": "core",
+      "due": "nonLift",
+      "from": "2026-11-09"
     }
   ],
   "gymCheck": [
@@ -766,6 +834,59 @@
         "Hold 2 seconds at the top, then turn through to a full finish with your feet free to turn out, and hold 3 seconds."
       ],
       "video": "golf hip turn no sway drill alignment stick"
+    },
+    "core_bird_dog": {
+      "steps": [
+        "Hands under shoulders, knees under hips, back flat.",
+        "Reach one arm forward and the opposite leg back until both are level with your body.",
+        "Don't let your hips tip or your back arch. Pause, come back slowly.",
+        "Swap sides. That's 1 rep each side."
+      ],
+      "video": "bird dog exercise"
+    },
+    "core_rev_crunch": {
+      "steps": [
+        "Lie on your back, knees bent at 90 degrees above your hips, arms by your sides.",
+        "Breathe out and curl your hips up off the floor, bringing knees towards your chest.",
+        "Lower slowly until your hips touch down. Don't let your legs swing.",
+        "If lying down annoys you, do hanging knee raises at climbing instead."
+      ],
+      "video": "reverse crunch proper form"
+    },
+    "core_db_crunch": {
+      "steps": [
+        "Lie on your back, knees bent, feet flat. Hold a dumbbell on your chest with both hands.",
+        "Breathe out and curl your shoulders off the floor, ribs towards hips.",
+        "Pause for a second, lower slowly.",
+        "Start light. Add weight when 15 reps is easy for every round."
+      ],
+      "video": "weighted crunch dumbbell"
+    },
+    "core_side_plank": {
+      "steps": [
+        "Lie on your side, elbow under your shoulder.",
+        "Level 1: knees bent, lift your hips so knees to head is a straight line.",
+        "Level 2: legs straight, feet stacked, lift your hips off the floor.",
+        "Hold, breathing normally. Swap sides."
+      ],
+      "video": "side plank beginner to full"
+    },
+    "core_chop": {
+      "steps": [
+        "Stand feet wider than hips. Hold one dumbbell with both hands above one shoulder.",
+        "Turn and bring it down across your body to the outside of the opposite knee.",
+        "Turn your ribs and hips together, pivoting on the back foot like a golf swing. Don't slide sideways.",
+        "Come back up with control. Do all reps, then swap sides."
+      ],
+      "video": "dumbbell woodchop high to low"
+    },
+    "core_plank": {
+      "steps": [
+        "Forearms on the floor, elbows under shoulders, legs straight.",
+        "Squeeze your glutes and pull your ribs down so your back stays flat.",
+        "Keep breathing. Stop when your hips start to sag."
+      ],
+      "video": "front plank proper form"
     }
   },
   "wakeDefaults": {

@@ -24,6 +24,7 @@ export function badges(state, plan, todayIso) {
   const rested = habitStreak(state, 'sleep_7', todayIso, s.startDate, plan).best;
   const cap = habitStreak(state, 'app_cap', todayIso, s.startDate, plan).best;
   const mobility = habitStreak(state, 'mobility', todayIso, s.startDate, plan).best;
+  const core = habitStreak(state, 'core', todayIso, s.startDate, plan).best;
   const weekStreak = sessionWeekStreak(state, plan, s, todayIso).best;
   const increases = countWeightIncreases(state, plan);
   const heaviest = Math.max(0, ...allLoggedSets(state).map((x) => x.w).filter(Number.isFinite));
@@ -43,6 +44,7 @@ export function badges(state, plan, todayIso) {
     { id: 'cap_21', icon: 'S21', title: 'Three week cap', desc: 'Under the app cap 21 days running, as in Hunt et al.', cur: cap, target: 21 },
     { id: 'mobility_7', icon: 'M7', title: 'Loose hips', desc: 'Golf mobility on 7 non-gym days in a row', cur: mobility, target: 7 },
     { id: 'mobility_16', icon: 'M16', title: 'Mobility month', desc: 'Golf mobility on 16 non-gym days in a row (about a month)', cur: mobility, target: 16 },
+    { id: 'core_8', icon: 'K8', title: 'Iron core', desc: 'Core circuit on 8 non-gym days in a row (about two weeks)', cur: core, target: 8 },
     { id: 'reader_14', icon: 'B14', title: 'Bookworm', desc: '10 pages a day, 14 days running', cur: habitStreak(state, 'read_book', todayIso, s.startDate, plan).best, target: 14 },
     { id: 'first_up', icon: '+', title: 'Heavier', desc: 'First weight increase', cur: increases, target: 1 },
     { id: 'ten_up', icon: '+10', title: 'Ten jumps', desc: '10 weight increases across lifts', cur: increases, target: 10 },

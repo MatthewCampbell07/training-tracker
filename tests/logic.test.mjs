@@ -326,3 +326,24 @@ test('a one-off move shifts a session to another day', async () => {
   assert.equal(scheduledSession('2026-11-01', moved, settings), 'C');
   assert.equal(scheduledSession('2026-11-03', moved, settings), 'A');
 });
+
+test('core circuit is due on non-gym days from its start date only', async () => {
+  const { habitDue } = await import('../app/logic.js');
+  const core = plan.habits.find((h) => h.id === 'core');
+  const settings = { startDate: '2026-10-01' };
+  assert.ok(core, 'core habit exists');
+  assert.equal(habitDue(core, '2026-11-04', plan, settings), false); // before it started
+  assert.equal(habitDue(core, '2026-11-09', plan, settings), true);  // Monday, non-gym
+  assert.equal(habitDue(core, '2026-11-10', plan, settings), false); // Tuesday, Session A
+});
+
+test('core level moves to 2 after 6 circuits before that day', async () => {
+  const { coreLevel } = await import('../app/logic.js');
+  const days = {};
+  ['2026-11-09', '2026-11-11', '2026-11-13', '2026-11-15', '2026-11-16'].forEach((d) => { days[d] = { habits: { core: true } }; });
+  const state = { days };
+  assert.equal(coreLevel(state, '2026-11-18', plan), 1);
+  state.days['2026-11-18'] = { habits: { core: true } };
+  assert.equal(coreLevel(state, '2026-11-18', plan), 1); // today's own circuit doesn't count
+  assert.equal(coreLevel(state, '2026-11-20', plan), 2);
+});

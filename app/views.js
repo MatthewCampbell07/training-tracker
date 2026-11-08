@@ -2,7 +2,7 @@
 import {
   addDays, dayOfWeek, habitStreak, habitsDueOn, isDeload, isGolfMode, lastPerformance, parseIso, phaseFor,
   progressionCall, scheduledSession, sessionIsDone, setsFor, sleepHours, suggestFor, topWeight, upMessage, weekOf,
-  isWeekend,
+  isWeekend, coreExercises, coreLevel,
 } from './logic.js';
 
 export function esc(v) {
@@ -86,6 +86,13 @@ export function todayView({ plan, state, date, today, cloud }) {
       <span class="meta"><b>${mobDone ? 'Golf mobility done' : 'Golf mobility, 20 min'}</b><span>Hip turn, not sway. ${habitStreak(state, 'mobility', today, s.startDate, plan).current} in a row</span></span>
       <span aria-hidden="true" style="font-size:22px">›</span>
     </button>`;
+  const coreDone = Boolean(day.habits?.core);
+  const coreDue = habitsDueOn(date, plan, s).some((h) => h.id === 'core');
+  const core = !coreDue && !coreDone ? '' : `<button class="lift mob${coreDone ? ' done' : ''}" data-action="open-core" style="border:0;width:100%;text-align:left;cursor:pointer">
+      <span class="letter">K</span>
+      <span class="meta"><b>${coreDone ? 'Core circuit done' : 'Core circuit, 15 min'}</b><span>Level ${coreLevel(state, date, plan)}. ${habitStreak(state, 'core', today, s.startDate, plan).current} in a row</span></span>
+      <span aria-hidden="true" style="font-size:22px">›</span>
+    </button>`;
   if (loggedLetter === 'X') {
     lift = `<button class="lift done" data-action="open-session" style="border:0;width:100%;text-align:left;cursor:pointer">
       <span class="letter">${esc(state.sessions[date].activity.charAt(0).toUpperCase())}</span>
@@ -113,6 +120,7 @@ export function todayView({ plan, state, date, today, cloud }) {
     </section>
     ${lift}
     ${mobility}
+    ${core}
     ${activityCard(day)}
     <section class="card" aria-labelledby="physio-h">
       <h2 id="physio-h">Physio</h2>
@@ -233,6 +241,47 @@ function mobilityView(ctx, letters) {
   };
 }
 
+function coreCard(ex, plan) {
+  return `<section class="card ex">
+    <h3>${esc(ex.name)}</h3>
+    <div class="sub num">${esc(ex.dose)}</div>
+    <div class="cue">${esc(ex.cue)}</div>
+    ${howToHtml(plan, ex.id)}
+  </section>`;
+}
+
+// Rounds are ticked on the day (in mobTicks as core_r1, core_r2, ...), like mobility drills.
+function coreView(ctx, letters) {
+  const { plan, state, date } = ctx;
+  const k = plan.sessions.K;
+  const day = state.days[date] || {};
+  const level = coreLevel(state, date, plan);
+  const done = Object.values(state.days).filter((d) => d.habits?.core).length;
+  const toGo = Math.max(k.levelUpAfter - done, 0);
+  const chips = letters.map((l) => `<button class="chip" data-letter="${l}" aria-pressed="${l === 'K'}">${l}</button>`).join('');
+  const rounds = [...Array(k.rounds).keys()].map((i) => {
+    const id = `core_r${i + 1}`;
+    return `<button class="habit mob-tick" data-action="core-round" data-ex="${id}" aria-pressed="${Boolean(day.mobTicks?.[id])}"><span class="tick" aria-hidden="true"></span><span class="label">Round ${i + 1}</span></button>`;
+  }).join('');
+  const finish = day.habits?.core
+    ? '<button class="btn ghost block" data-action="unfinish">Core done. Tap to undo</button>'
+    : '<button class="btn red block" data-action="finish">Finish core</button>';
+  const levelNote = level === 2
+    ? 'Level 2. Make it harder again once every round hits the top of the range with 2 reps in the tank.'
+    : `Level 1. Level 2 unlocks after ${k.levelUpAfter} circuits${toGo ? `, ${toGo} to go` : ''}, if your scar has felt fine.`;
+  return {
+    title: 'Core circuit',
+    sub: `${fmtDate(date)}. About 15 min`,
+    nav: ['day-prev', 'day-next'],
+    body: `<div class="chips" role="group" aria-label="Choose session">${chips}</div>
+      <div class="banner blue">${esc(k.intro)}</div>
+      <div class="banner">${esc(levelNote)}</div>
+      ${coreExercises(plan, level).map((ex) => coreCard(ex, plan)).join('')}
+      <section class="card"><h2>Rounds</h2>${rounds}</section>
+      ${finish}`,
+  };
+}
+
 function otherActivityView(ctx, letters) {
   const { state, date } = ctx;
   const rec = state.sessions[date];
@@ -250,7 +299,7 @@ function otherActivityView(ctx, letters) {
 
 export function sessionLetterFor(ctx) {
   const { plan, state, date } = ctx;
-  if (ctx.pickedLetter === 'M') return 'M';
+  if (ctx.pickedLetter === 'M' || ctx.pickedLetter === 'K') return ctx.pickedLetter;
   return state.sessions[date]?.letter || ctx.pickedLetter || scheduledSession(date, plan, state.settings) || (isWeekend(date) ? 'M' : 'A');
 }
 
@@ -262,8 +311,9 @@ export function sessionView(ctx) {
   const letter = sessionLetterFor(ctx);
   const session = plan.sessions[letter];
   const done = sessionIsDone(state.sessions[date]) && state.sessions[date]?.done;
-  const letters = [...(week === plan.retestWeek || letter === 'R' ? ['A', 'B', 'C', 'R'] : ['A', 'B', 'C']), 'M'];
+  const letters = [...(week === plan.retestWeek || letter === 'R' ? ['A', 'B', 'C', 'R'] : ['A', 'B', 'C']), 'M', 'K'];
   if (letter === 'M') return mobilityView(ctx, letters);
+  if (letter === 'K') return coreView(ctx, letters);
   if (letter === 'X') return otherActivityView(ctx, letters);
   const phase = phaseFor(week, plan);
 

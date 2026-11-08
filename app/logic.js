@@ -200,6 +200,7 @@ export function habitDone(state, iso, habitId) {
 
 // Some habits are only due on some days: due "nonLift" means days with no planned lifting session.
 export function habitDue(habit, iso, plan, settings) {
+  if (habit.from && iso < habit.from) return false;
   if (habit.due === 'nonLift') return !scheduledSession(iso, plan, settings);
   return true;
 }
@@ -384,4 +385,14 @@ export function suggestFor(state, plan, ex, iso) {
 
 export function isWeekend(iso) {
   return [0, 6].includes(dayOfWeek(iso));
+}
+
+// Core circuit level: 2 once enough circuits are done on earlier days.
+export function coreLevel(state, iso, plan) {
+  const done = Object.entries(state.days || {}).filter(([d, day]) => d < iso && day.habits?.core).length;
+  return done >= plan.sessions.K.levelUpAfter ? 2 : 1;
+}
+
+export function coreExercises(plan, level) {
+  return plan.sessions.K.exercises.map(({ level2, ...ex }) => (level === 2 && level2 ? { ...ex, ...level2 } : ex));
 }

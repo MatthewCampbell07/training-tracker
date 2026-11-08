@@ -230,14 +230,21 @@ def build(plan, start: date, golf_from: date | None, stamp: str) -> str:
     # Golf mobility on non-gym days, grouped by time (weekday evenings, weekend mornings).
     mob_desc = "About 20 min. In the Training app: tap the Golf mobility card on Today.\n\n" + \
         "\n".join(f"{ex['name']}: {ex['dose']}" for ex in plan["sessions"]["M"]["exercises"])
+    core_from = next((h.get("from") for h in plan["habits"] if h["id"] == "core"), None)
+    k = plan["sessions"]["K"]
+    core_desc = (f"\n\nThen the core circuit, {k['rounds']} rounds, about {cal['coreMinutes']} min. "
+                 "Tap the Core circuit card on Today.\n" + "\n".join(f"{ex['name']}: {ex['dose']}" for ex in k["exercises"]))
     # One event per day, because which days are gym days changed partway through the plan.
     for i in range(weeks * 7):
         d = start + timedelta(days=i)
         golf = golf_from is not None and d >= golf_from
         if lift_on(d, plan, golf)[0]:
             continue
-        out += event(f"mobility-{d:%Y%m%d}", "Golf mobility", d, cal["mobilityTimes"][js_dow(d)], cal["mobilityMinutes"],
-                     mob_desc, alarm_before=0, stamp=stamp)
+        with_core = core_from is not None and d.isoformat() >= core_from
+        title = "Golf mobility, then core" if with_core else "Golf mobility"
+        minutes = cal["mobilityMinutes"] + (cal["coreMinutes"] if with_core else 0)
+        out += event(f"mobility-{d:%Y%m%d}", title, d, cal["mobilityTimes"][js_dow(d)], minutes,
+                     mob_desc + (core_desc if with_core else ""), alarm_before=0, stamp=stamp)
 
     first_review = start + timedelta(days=(6 - start.weekday()) % 7)
     out += event("weekly-review", "Weekly review", first_review, cal["reviewTime"], 15,
