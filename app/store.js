@@ -98,7 +98,7 @@ function newer(a, b) {
   return (b._t || 0) >= (a._t || 0) ? b : a;
 }
 
-const NESTED = ['habits', 'sets', 'reserve', 'pain', 'mobTicks'];
+const NESTED = ['habits', 'sets', 'reserve', 'pain', 'mobTicks', 'coreLoad'];
 
 // Same day or session edited on both copies: combine them, newer values winning field by field.
 function combine(a, b) {

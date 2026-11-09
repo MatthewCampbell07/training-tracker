@@ -396,3 +396,18 @@ export function coreLevel(state, iso, plan) {
 export function coreExercises(plan, level) {
   return plan.sessions.K.exercises.map(({ level2, ...ex }) => (level === 2 && level2 ? { ...ex, ...level2 } : ex));
 }
+
+// Weight for a loaded core exercise: start light, add stepKg after `every` finished circuits at the same weight.
+export function coreLoadFor(state, plan, ex, iso) {
+  const { startKg, stepKg, every } = ex.load;
+  const past = Object.entries(state.days || {})
+    .filter(([d, day]) => d < iso && day.habits?.core && Number.isFinite(day.coreLoad?.[ex.id]))
+    .sort(([a], [b]) => (a < b ? -1 : 1))
+    .map(([, day]) => day.coreLoad[ex.id]);
+  if (!past.length) return { kg: startKg, note: 'First time with weight. Start here.' };
+  const last = past[past.length - 1];
+  let atLast = 0;
+  for (let i = past.length - 1; i >= 0 && past[i] === last; i -= 1) atLast += 1;
+  if (atLast >= every) return { kg: Math.min(last + stepKg, plan.maxDumbbellKg), note: `${atLast} circuits at ${last} kg. Go up.` };
+  return { kg: last, note: `Same as last time. Up after ${every - atLast} more.` };
+}

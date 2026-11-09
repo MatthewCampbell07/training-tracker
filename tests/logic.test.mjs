@@ -347,3 +347,17 @@ test('core level moves to 2 after 6 circuits before that day', async () => {
   assert.equal(coreLevel(state, '2026-11-18', plan), 1); // today's own circuit doesn't count
   assert.equal(coreLevel(state, '2026-11-20', plan), 2);
 });
+
+test('core weight suggestion starts light and goes up after 2 circuits at a weight', async () => {
+  const { coreLoadFor } = await import('../app/logic.js');
+  const chop = plan.sessions.K.exercises.find((x) => x.id === 'core_chop');
+  const day = (kg) => ({ habits: { core: true }, coreLoad: { core_chop: kg } });
+  const state = { days: { '2026-11-09': { habits: { core: true } } } };
+  assert.equal(coreLoadFor(state, plan, chop, '2026-11-11').kg, 4);
+  state.days['2026-11-11'] = day(4);
+  assert.equal(coreLoadFor(state, plan, chop, '2026-11-13').kg, 4);
+  state.days['2026-11-13'] = day(4);
+  assert.equal(coreLoadFor(state, plan, chop, '2026-11-15').kg, 5);
+  state.days['2026-11-15'] = { habits: { core: false }, coreLoad: { core_chop: 5 } }; // not finished, ignored
+  assert.equal(coreLoadFor(state, plan, chop, '2026-11-16').kg, 5);
+});

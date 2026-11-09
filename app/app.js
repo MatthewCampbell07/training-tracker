@@ -1,6 +1,6 @@
 // Wiring: load data, render the current tab, handle taps and inputs.
 import { badges } from './badges.js';
-import { addDays, addMinutes, localTodayIso, weekOf, isGolfMode, setsFor, sleepHours, suggestFor } from './logic.js';
+import { addDays, addMinutes, localTodayIso, weekOf, isGolfMode, setsFor, sleepHours, suggestFor, coreExercises, coreLevel, coreLoadFor } from './logic.js';
 import * as store from './store.js';
 import * as cloud from './cloud.js';
 import { callHtml, sessionLetterFor, sessionView, settingsView, sleepDefaults, todayView } from './views.js';
@@ -148,7 +148,8 @@ const ACTIONS = {
     const mobTicks = { ...(day.mobTicks || {}), [el.dataset.ex]: !day.mobTicks?.[el.dataset.ex] };
     const allDone = [...Array(plan.sessions.K.rounds).keys()].every((i) => mobTicks[`core_r${i + 1}`]);
     const wasDone = Boolean(day.habits?.core);
-    commit(store.updateDay(state, ui.date, { mobTicks, habits: { ...(day.habits || {}), core: wasDone || allDone } }));
+    const coreLoad = allDone && !wasDone ? defaultCoreLoad(day) : day.coreLoad;
+    commit(store.updateDay(state, ui.date, { mobTicks, coreLoad, habits: { ...(day.habits || {}), core: wasDone || allDone } }));
     if (allDone && !wasDone) { confetti(); toast('Core done. Strong middle.'); }
   },
   'mob-tick': (el) => {
@@ -211,7 +212,8 @@ const ACTIONS = {
     if (letter === 'M' || letter === 'K') {
       const day = state.days[ui.date] || {};
       const habit = letter === 'M' ? 'mobility' : 'core';
-      commit(store.updateDay(state, ui.date, { habits: { ...(day.habits || {}), [habit]: true } }));
+      const extra = letter === 'K' ? { coreLoad: defaultCoreLoad(day) } : {};
+      commit(store.updateDay(state, ui.date, { ...extra, habits: { ...(day.habits || {}), [habit]: true } }));
       confetti();
       toast(letter === 'M' ? 'Mobility done. Hips thank you.' : 'Core done. Strong middle.');
       return;
@@ -287,6 +289,12 @@ function cloudLine(st) {
   return st.lastSync ? `Saved to the cloud at ${new Date(st.lastSync).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}` : 'Saved to the cloud';
 }
 
+// Weights not typed in are saved as the suggestion, so the next suggestion can build on them.
+function defaultCoreLoad(day) {
+  const loaded = coreExercises(plan, coreLevel(state, ui.date, plan)).filter((ex) => ex.load);
+  return loaded.reduce((acc, ex) => (Number.isFinite(acc[ex.id]) ? acc : { ...acc, [ex.id]: coreLoadFor(state, plan, ex, ui.date).kg }), { ...(day.coreLoad || {}) });
+}
+
 function parseNum(v) {
   const n = parseFloat(String(v).replace(',', '.'));
   return Number.isFinite(n) ? n : undefined;
@@ -310,6 +318,10 @@ document.addEventListener('change', async (e) => {
     const slot = document.getElementById(`call-${ex.id}`);
     if (slot) slot.innerHTML = callHtml(ex, next.sessions[ui.date].sets[ex.id], required, plan.maxDumbbellKg, Boolean(next.sessions[ui.date].pain?.[ex.id]));
     return undefined;
+  }
+  if (el.dataset.coreLoad) {
+    const day = state.days[ui.date] || {};
+    return commit(store.updateDay(state, ui.date, { coreLoad: { ...(day.coreLoad || {}), [el.dataset.coreLoad]: parseNum(el.value) } }), { rerender: false });
   }
   if (el.dataset.pain) {
     const s = state.sessions[ui.date] || {};

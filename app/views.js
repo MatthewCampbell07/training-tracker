@@ -2,7 +2,7 @@
 import {
   addDays, dayOfWeek, habitStreak, habitsDueOn, isDeload, isGolfMode, lastPerformance, parseIso, phaseFor,
   progressionCall, scheduledSession, sessionIsDone, setsFor, sleepHours, suggestFor, topWeight, upMessage, weekOf,
-  isWeekend, coreExercises, coreLevel,
+  isWeekend, coreExercises, coreLevel, coreLoadFor,
 } from './logic.js';
 
 export function esc(v) {
@@ -241,11 +241,22 @@ function mobilityView(ctx, letters) {
   };
 }
 
-function coreCard(ex, plan) {
+function coreLoadHtml(ex, ctx) {
+  if (!ex.load) return '';
+  const { plan, state, date } = ctx;
+  const target = coreLoadFor(state, plan, ex, date);
+  const logged = state.days[date]?.coreLoad?.[ex.id];
+  return `<div class="target"><b>Today: <span class="num">${target.kg} kg</span></b><span>${esc(target.note)} No dumbbell? Weigh a backpack on your scales and add or take out books.</span></div>
+    <label class="field">kg used<input type="text" inputmode="decimal" data-core-load="${ex.id}" placeholder="${target.kg}" value="${esc(logged)}"></label>`;
+}
+
+function coreCard(ex, ctx) {
+  const { plan } = ctx;
   return `<section class="card ex">
     <h3>${esc(ex.name)}</h3>
     <div class="sub num">${esc(ex.dose)}</div>
     <div class="cue">${esc(ex.cue)}</div>
+    ${coreLoadHtml(ex, ctx)}
     ${howToHtml(plan, ex.id)}
   </section>`;
 }
@@ -276,7 +287,7 @@ function coreView(ctx, letters) {
     body: `<div class="chips" role="group" aria-label="Choose session">${chips}</div>
       <div class="banner blue">${esc(k.intro)}</div>
       <div class="banner">${esc(levelNote)}</div>
-      ${coreExercises(plan, level).map((ex) => coreCard(ex, plan)).join('')}
+      ${coreExercises(plan, level).map((ex) => coreCard(ex, ctx)).join('')}
       <section class="card"><h2>Rounds</h2>${rounds}</section>
       ${finish}`,
   };

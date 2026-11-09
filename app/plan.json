@@ -461,8 +461,13 @@
           "level2": {
             "id": "core_db_crunch",
             "name": "Dumbbell crunch",
-            "dose": "10 to 15, dumbbell held on your chest",
-            "cue": "Curl ribs towards hips. Stop 1 or 2 reps short of failing."
+            "dose": "10 to 15, weight held on your chest",
+            "cue": "Curl ribs towards hips. Stop 1 or 2 reps short of failing.",
+            "load": {
+              "startKg": 2,
+              "stepKg": 1,
+              "every": 2
+            }
           }
         },
         {
@@ -479,10 +484,12 @@
         {
           "id": "core_chop",
           "name": "Standing dumbbell woodchop",
-          "dose": "10 each side, light dumbbell",
+          "dose": "10 each side",
           "cue": "Turn ribs and hips together, like a golf turn. Arms just guide. No sway.",
-          "level2": {
-            "dose": "10 each side, go heavier"
+          "load": {
+            "startKg": 4,
+            "stepKg": 1,
+            "every": 2
           }
         },
         {
