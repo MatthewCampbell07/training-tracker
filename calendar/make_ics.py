@@ -126,6 +126,14 @@ def lift_on(d: date, plan, golf: bool):
     return letter, time, src
 
 
+def is_rest_day(d: date, plan) -> bool:
+    """Same rule as isRestDay in app/logic.js."""
+    rest = plan.get("restDays")
+    if rest and d.isoformat() >= rest["from"] and int(js_dow(d)) in rest["days"]:
+        return True
+    return any(m["from"] == d.isoformat() for m in plan.get("moves", []))
+
+
 def phase_for(week, plan):
     return next(p for p in plan["phases"] if p["from"] <= week <= p["to"])
 
@@ -238,7 +246,7 @@ def build(plan, start: date, golf_from: date | None, stamp: str) -> str:
     for i in range(weeks * 7):
         d = start + timedelta(days=i)
         golf = golf_from is not None and d >= golf_from
-        if lift_on(d, plan, golf)[0]:
+        if lift_on(d, plan, golf)[0] or is_rest_day(d, plan):
             continue
         with_core = core_from is not None and d.isoformat() >= core_from
         title = "Golf mobility, then core" if with_core else "Golf mobility"

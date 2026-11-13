@@ -937,6 +937,19 @@
       "to": "2026-11-08",
       "time": "10:00",
       "note": "Golf Saturday"
+    },
+    {
+      "from": "2026-11-14",
+      "to": "2026-11-15",
+      "time": "10:00",
+      "note": "Golf Saturday"
     }
-  ]
+  ],
+  "restDays": {
+    "from": "2026-11-13",
+    "days": [
+      5
+    ],
+    "note": "Fridays off: no mobility or core, physio and habits still count"
+  }
 }

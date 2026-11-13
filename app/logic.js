@@ -199,9 +199,16 @@ export function habitDone(state, iso, habitId) {
 }
 
 // Some habits are only due on some days: due "nonLift" means days with no planned lifting session.
+// Full rest days: set weekdays (from a date) and any day a session was moved away from.
+export function isRestDay(iso, plan) {
+  const rest = plan.restDays;
+  if (rest && iso >= rest.from && rest.days.includes(dayOfWeek(iso))) return true;
+  return (plan.moves || []).some((m) => m.from === iso);
+}
+
 export function habitDue(habit, iso, plan, settings) {
   if (habit.from && iso < habit.from) return false;
-  if (habit.due === 'nonLift') return !scheduledSession(iso, plan, settings);
+  if (habit.due === 'nonLift') return !scheduledSession(iso, plan, settings) && !isRestDay(iso, plan);
   return true;
 }
 

@@ -49,7 +49,7 @@ test('a Monday start puts the retest on the last lift day of week 12', () => {
 
 test('golf mode keeps A and B only, from its start date', () => {
   const golf = { ...settings, golfFrom: '2026-11-16' };
-  assert.equal(L.scheduledSession('2026-11-14', plan, golf), 'C');   // Sat, before golf mode
+  assert.equal(L.scheduledSession('2026-11-14', { ...plan, moves: [] }, golf), 'C'); // Sat, before golf mode
   assert.equal(L.scheduledSession('2026-11-17', plan, golf), 'A');   // Tue
   assert.equal(L.scheduledSession('2026-11-19', plan, golf), 'B');   // Thu
   assert.equal(L.scheduledSession('2026-11-21', plan, golf), null);  // Sat, golf day
@@ -360,4 +360,19 @@ test('core weight suggestion starts light and goes up after 2 circuits at a weig
   assert.equal(coreLoadFor(state, plan, chop, '2026-11-15').kg, 5);
   state.days['2026-11-15'] = { habits: { core: false }, coreLoad: { core_chop: 5 } }; // not finished, ignored
   assert.equal(coreLoadFor(state, plan, chop, '2026-11-16').kg, 5);
+});
+
+test('Fridays from 13 Nov and days a session moved away from are rest days', async () => {
+  const { habitDue, scheduledSession } = await import('../app/logic.js');
+  const mob = plan.habits.find((h) => h.id === 'mobility');
+  const core = plan.habits.find((h) => h.id === 'core');
+  const physio = plan.habits.find((h) => h.id === 'physio_am');
+  const settings = { startDate: '2026-10-01' };
+  assert.equal(habitDue(mob, '2026-11-06', plan, settings), true);   // Friday before the change
+  assert.equal(habitDue(mob, '2026-11-20', plan, settings), false);  // Friday rest day
+  assert.equal(habitDue(core, '2026-11-20', plan, settings), false);
+  assert.equal(habitDue(physio, '2026-11-20', plan, settings), true); // physio still daily
+  assert.equal(habitDue(mob, '2026-11-14', plan, settings), false);  // Sat 14 Nov, session moved away (golf)
+  assert.equal(scheduledSession('2026-11-15', plan, settings), 'C');
+  assert.equal(habitDue(mob, '2026-11-16', plan, settings), true);   // Monday as normal
 });

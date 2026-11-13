@@ -17,6 +17,7 @@ END = date(2026, 12, 23)
 RETEST = date(2026, 12, 22)
 SWITCH = date(2026, 10, 19)  # lifting moves from Mon/Wed/Fri to Tue/Thu/Sat
 PLAN = json.loads((ROOT / "app" / "plan.json").read_text())
+REST_FROM = date(2026, 11, 13)  # Fridays are full rest days from here
 MOVED = {date.fromisoformat(m["to"]): date.fromisoformat(m["from"]) for m in PLAN.get("moves", [])}
 
 
@@ -73,7 +74,7 @@ def test_clock_change_keeps_local_times(events):
     """Clocks go back at 02:00 on Sun 25 Oct 2026. Local times stay put, UTC shifts by an hour."""
     c = {d.date(): d for d in starts(events, "Session C")}
     assert c[date(2026, 10, 24)].astimezone(timezone.utc).hour == 9   # 10:00 BST
-    assert c[date(2026, 11, 14)].astimezone(timezone.utc).hour == 10  # 10:00 GMT
+    assert c[date(2026, 11, 21)].astimezone(timezone.utc).hour == 10  # 10:00 GMT
     pm = {d.date(): d for d in starts(events, "Physio, evening")}
     assert pm[date(2026, 10, 24)].astimezone(timezone.utc).strftime("%H:%M") == "20:30"
     assert pm[date(2026, 10, 25)].astimezone(timezone.utc).strftime("%H:%M") == "21:30"
@@ -141,19 +142,21 @@ def test_priority_lifts_get_4_sets_in_week_8(events):
 def test_golf_mobility_on_non_gym_days_only(events):
     mob = [d.date() for d in starts(events, "Golf mobility")]
     lift_days = {e["DTSTART"].dt.date() for e in events if str(e["SUMMARY"]).startswith(("Session", "Retest"))}
-    assert len(mob) == 84 - 35
-    assert not set(mob) & lift_days
+    rest = {d for d in (START + timedelta(days=i) for i in range(84))
+            if (d.weekday() == 4 and d >= REST_FROM) or d in MOVED.values()}
+    assert len(mob) == 84 - 35 - len(rest - lift_days)
+    assert not set(mob) & (lift_days | rest)
     times = {d: t.astimezone(LONDON).strftime("%H:%M") for d, t in zip(mob, starts(events, "Golf mobility"))}
     assert all(t == ("10:00" if d.weekday() >= 5 else "21:00") for d, t in times.items())
 
 
 def test_one_off_move(events):
-    """Sat 31 Oct Session C was moved to Sun 1 Nov: no lift and a mobility slot on the Saturday."""
+    """Sat 31 Oct Session C was moved to Sun 1 Nov: no lift and no mobility on the Saturday either."""
     c = {d.date(): d for d in starts(events, "Session C")}
     assert date(2026, 10, 31) not in c
     assert c[date(2026, 11, 1)].astimezone(LONDON).strftime("%H:%M") == "10:00"
     mob = {d.date() if isinstance(d, datetime) else d for d in starts(events, "Golf mobility")}
-    assert date(2026, 10, 31) in mob and date(2026, 11, 1) not in mob
+    assert date(2026, 10, 31) not in mob and date(2026, 11, 1) not in mob
 
 
 def test_core_added_to_mobility_from_9_nov(events):
